@@ -8,4 +8,6 @@ filters.forEach(button=>button.addEventListener('click',()=>{filters.forEach(b=>
 document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=>{const iframe=document.createElement('iframe');iframe.src=`https://www.youtube-nocookie.com/embed/${button.dataset.video}?autoplay=1`;iframe.title='Tentacle Robotic Gripper — project demo';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';iframe.allowFullscreen=true;button.parentElement.replaceChildren(iframe)}));
 const cv=document.getElementById('cv-dialog');
 document.querySelector('[data-cv]')?.addEventListener('click',()=>cv.showModal());
-cv?.querySelector('[data-close]').addEventListener('click',()=>cv.close());
+document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog')?.close()));
+const nerdDialog=document.getElementById('nerd-dialog');
+document.getElementById('nerd-trigger')?.addEventListener('click',()=>nerdDialog?.showModal());

@@ -1,5 +1,6 @@
 {
   "slug": "plc-elevator",
+  "tags": ["plc","automation","grafcet"],
   "title": "Three-floor elevator controller",
   "category": "Robotics",
   "year": "2025–26",

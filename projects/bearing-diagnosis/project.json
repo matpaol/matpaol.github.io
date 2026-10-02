@@ -1,5 +1,6 @@
 {
   "slug": "bearing-diagnosis",
+  "tags": ["python","ml","diagnostics"],
   "title": "Bearing fault diagnosis",
   "category": "Data & AI",
   "year": "2026",

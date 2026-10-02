@@ -1,5 +1,6 @@
 {
   "slug": "wheelchair-routing",
+  "tags": ["python","pathplanning","networkx"],
   "title": "Wheelchair-accessible routing",
   "category": "Data & AI",
   "year": "2026",

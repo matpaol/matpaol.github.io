@@ -1,5 +1,6 @@
 {
   "slug": "maoh",
+  "tags": ["robotics","python","drake","ompl"],
   "title": "Dual-arm object handover",
   "category": "Robotics",
   "year": "2025–26",

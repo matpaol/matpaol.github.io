@@ -1,5 +1,6 @@
 {
   "slug": "tiago",
+  "tags": ["robotics","control"],
   "title": "Motion planning for TIAGo",
   "category": "Robotics",
   "year": "2024",

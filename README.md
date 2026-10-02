@@ -14,6 +14,8 @@ Open `index.html` or serve the folder with `python3 -m http.server 8000`.
 
 ## Add project material
 
+Use the project's `tags` list for its skill badges, e.g. `["3dprint", "fem", "robotics"]`. Choose skills supported by that project's actual work. Featured projects appear under **Highlights**. The home emoji opens a keyboard-accessible Easter egg; Escape closes it.
+
 Each project has its own `index.html` and `project.json`. Put original images in its `media/` folder and reports in `documents/`. Add reports, YouTube videos, notebooks and repositories to the project's `links` list. Relative resource links start from that project's folder. Optional `media` entries place illustrations in the appropriate narrative section:
 
 ```json
