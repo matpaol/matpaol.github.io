@@ -18,4 +18,6 @@ dialog{color:var(--ink);background:var(--surface);border:1px solid var(--line);b
 /* Optical spacing: retain the bold headline without closing its counters. */
 h1,.hero h1{letter-spacing:-.025em}.statement{letter-spacing:-.025em}.intro{letter-spacing:-.015em}.project-card h2{letter-spacing:-.015em}.filters button{max-width:100%;white-space:normal}.project-card h2,.case-hero h1{overflow-wrap:break-word}.project-card{border-radius:var(--radius-card)}
 .statement .yellow{color:#a57400}@media(prefers-color-scheme:dark){.statement .yellow{color:#ffcd1f}}
+/* Dialogs never participate in the page layout, including during opening. */
+dialog{position:fixed;inset:0;margin:auto}dialog:not([open]){display:none}html{scrollbar-gutter:stable}
 @media(max-width:620px){.nav.wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}.hero h1{letter-spacing:-.02em}.head{flex-wrap:wrap}.statement{letter-spacing:-.02em}}

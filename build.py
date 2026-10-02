@@ -1,5 +1,5 @@
 """Build the portfolio from projects/<slug>/project.json."""
-import json, re, html
+import json, re, html, hashlib
 from pathlib import Path
 ROOT = Path(__file__).parent
 esc = html.escape
@@ -7,8 +7,10 @@ data = sorted((json.loads(p.read_text()) for p in (ROOT/'projects').glob('*/proj
 base = (ROOT/'verified-base.html').read_text()
 style = re.search(r'<style>(.*?)</style>', base, re.S).group(1)
 (ROOT/'styles.css').write_text(style + '\n' + (ROOT/'additions.css').read_text())
+css_version = hashlib.sha256((ROOT/'styles.css').read_bytes()).hexdigest()[:12]
+js_version = hashlib.sha256((ROOT/'script.js').read_bytes()).hexdigest()[:12]
 head = re.search(r'<head>(.*?)</head>',base,re.S).group(1)
-head = re.sub(r'<style>.*?</style>', '<link rel="stylesheet" href="styles.css">', head, flags=re.S)
+head = re.sub(r'<style>.*?</style>', f'<link rel="stylesheet" href="styles.css?v={css_version}">', head, flags=re.S)
 def tags(p):
     return '<ul class="skill-tags" aria-label="Project skills">'+''.join(f'<li>#{esc(t)}</li>' for t in p.get('tags', []))+'</ul>'
 def card(p, index):
@@ -16,7 +18,7 @@ def card(p, index):
 def nav(prefix=''):
     return f'''<a class="skip-link" href="#main-content">Skip to content</a><header class="nav wrap"><a class="brand" href="{prefix}index.html">MATTEO PAOLINI</a><nav aria-label="Main navigation"><a href="{prefix}work.html">Work</a><a href="{prefix}index.html#about">About</a><a class="nav-cta" href="{prefix}index.html#contact">Contact</a></nav></header>'''
 footer = '''<footer id="contact" class="wrap"><p class="label">CONTACT</p><div class="email-container"><a class="email" href="mailto:paolini134@gmail.com">Let’s talk<span>↗</span></a><button class="copy" id="copy-email" type="button">Copy email</button><div class="toast" id="toast" role="status" aria-live="polite"></div></div><div class="footer-bottom"><span>© 2026 Matteo Paolini</span><div class="social"><a href="https://github.com/matpaol">GitHub</a><a href="https://www.linkedin.com/in/matpaolini/">LinkedIn</a></div><a href="#top">Back to top ↑</a></div></footer>'''
-script = '<script src="script.js" defer></script>'
+script = f'<script src="script.js?v={js_version}" defer></script>'
 profiles = '''<nav class="profile-links" aria-label="Professional profiles"><a href="https://github.com/matpaol">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/matpaolini/">LinkedIn <span aria-hidden="true">↗</span></a></nav>'''
 footer = footer.replace('<div class="footer-bottom">', '<p class="contact-address"><a href="mailto:paolini134@gmail.com">paolini134@gmail.com</a></p>'+profiles+'<div class="footer-bottom">')
 footer = re.sub(r'<div class="social">.*?</div>', '', footer)
@@ -59,7 +61,7 @@ for p in data:
                 contents+=f'''<figure><img src="{esc(media['src'])}" width="{int(media['width'])}" height="{int(media['height'])}" loading="lazy" alt="{esc(media['alt'])}"><figcaption>{esc(media.get('caption', ''))}</figcaption></figure>'''
         contents+='</section>'
     contents+='<section id="resources" class="case-section"><p class="section-number">07</p><h2>Resources</h2><div class="resources">'+links+'</div>'+( '<p class="resource-note">Further project material will be added to this case study.</p>' if not links else '')+'</section></div></div>'
-    ph=head.replace('href="styles.css"','href="../../styles.css"').replace('Matteo Paolini — Portfolio',esc(p['title'])+' — Matteo Paolini')
-    page='<!doctype html><html lang="en"><head>'+ph+'</head><body>'+nav('../../')+'<main id="main-content">'+overview+contents+'</main>'+footer+'<script src="../../script.js" defer></script></body></html>'
+    ph=head.replace('href="styles.css','href="../../styles.css').replace('Matteo Paolini — Portfolio',esc(p['title'])+' — Matteo Paolini')
+    page='<!doctype html><html lang="en"><head>'+ph+'</head><body>'+nav('../../')+'<main id="main-content">'+overview+contents+'</main>'+footer+script.replace('src="script.js','src="../../script.js')+'</body></html>'
     (ROOT/'projects'/p['slug']/'index.html').write_text(page)
 print(f'Built home, archive and {len(data)} standardized project pages.')
