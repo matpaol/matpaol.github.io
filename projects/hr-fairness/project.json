@@ -1,0 +1,52 @@
+{
+  "slug": "hr-fairness",
+  "title": "Are AI recommendations equally achievable?",
+  "category": "Data & AI",
+  "year": "2026",
+  "summary": "Auditing the cost and availability of algorithmic recourse across groups.",
+  "context": "Academic project",
+  "status": "Analysis with saved outputs",
+  "team": "Francesca, Lisa & Matteo",
+  "color": "blue",
+  "featured": false,
+  "links": [
+    [
+      "Project repository",
+      "https://github.com/francescagrasso02/infoh512-project"
+    ],
+    [
+      "Analysis notebook",
+      "https://github.com/francescagrasso02/infoh512-project/blob/main/notebooks/5.%20FACTS.ipynb"
+    ]
+  ],
+  "overview": [
+    "A model may offer a route to a different prediction while making that route harder for some groups. This project studies that question on the IBM HR attrition dataset."
+  ],
+  "constraints": [
+    "Counterfactual changes were constrained by immutable features and salary-change caps. The chosen cost definition affects the interpretation of fairness."
+  ],
+  "contribution": [
+    "My documented role was fairness and FACTS analysis, results and visualization. Preprocessing, predictive models and the DiCE pipeline were shared team work."
+  ],
+  "approach": [
+    "We compared Random Forest and XGBoost through prediction, feature-change sensitivity and recourse metrics. The analysis examines effectiveness, cost and access within a fixed budget."
+  ],
+  "results": [
+    "The notebook contains saved tables and plots comparing subgroups. A salary-cap sensitivity analysis explores how results change under tighter constraints. The figure below is an original project output."
+  ],
+  "limits": [
+    "This is an academic audit, not a deployed HR system. Feature-flip sensitivity is not causal validation; conclusions depend on the data, cost model and subgroup sample sizes."
+  ],
+  "media": [
+    {
+      "type": "image",
+      "section": "results",
+      "src": "media/hr-recourse-cost.png",
+      "width": 1800,
+      "height": 480,
+      "alt": "Median recourse cost for Random Forest and XGBoost across gender, age and marital-status groups",
+      "caption": "Median recourse cost by subgroup, as saved in the team's analysis notebook. Cost is the defined L1 feature-change measure, not a monetary amount."
+    }
+  ],
+  "order": 5
+}

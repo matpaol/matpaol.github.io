@@ -1,0 +1,33 @@
+{
+  "slug": "responsible-ml",
+  "title": "Privacy, fairness & explanations",
+  "category": "Data & AI",
+  "year": "2025–26",
+  "summary": "Investigating trade-offs in an Adult-income classification pipeline.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Six-person academic team",
+  "color": "blue",
+  "featured": false,
+  "links": [],
+  "overview": [
+    "A team study combines classification with privacy, fairness and local explanations."
+  ],
+  "constraints": [
+    "Protected attributes, randomized-response noise and fairness mitigation affect one another."
+  ],
+  "contribution": [
+    "A six-person academic project. The case describes the team pipeline while the individual allocation is being reconstructed."
+  ],
+  "approach": [
+    "The earlier portfolio describes logistic regression, reweighing, local differential privacy and LIME/MACE analysis."
+  ],
+  "results": [
+    "The team’s previous portfolio records comparisons between baseline, private and mitigated models."
+  ],
+  "limits": [
+    "Dataset splits and reported metrics need to be reconciled before numerical claims are used. Statistical fairness measures are specific to their definitions and evaluation populations."
+  ],
+  "media": [],
+  "order": 13
+}

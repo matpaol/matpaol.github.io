@@ -1,0 +1,33 @@
+{
+  "slug": "dream",
+  "title": "DREAM — Robotics research",
+  "category": "Robotics",
+  "year": "2026",
+  "summary": "Exploring robotic manipulation in simulation at the Royal Military Academy.",
+  "context": "Research internship",
+  "status": "In progress",
+  "team": "RMA research environment",
+  "color": "blue",
+  "featured": true,
+  "links": [],
+  "overview": [
+    "My current research internship sits within DREAM, a programme investigating robotic exploration, mapping and manipulation. My focus is robotic manipulation in simulation."
+  ],
+  "constraints": [
+    "Clutter, incomplete observations and interactions between objects motivate the research direction."
+  ],
+  "contribution": [
+    "I am carrying out a robotics research internship at the Royal Military Academy in Brussels."
+  ],
+  "approach": [
+    "The research connects simulated manipulation tasks with the longer-term question of transferring robot behaviour to physical hardware."
+  ],
+  "results": [
+    "The work is in progress. This page introduces its scope rather than claiming a completed sim-to-real result."
+  ],
+  "limits": [
+    "Simulation results and physical validation need to be distinguished throughout the project."
+  ],
+  "media": [],
+  "order": 1
+}

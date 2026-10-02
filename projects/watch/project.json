@@ -1,0 +1,33 @@
+{
+  "slug": "watch",
+  "title": "Apple Watch production study",
+  "category": "Design & manufacturing",
+  "year": "2025",
+  "summary": "Connecting enclosure reverse engineering, drawings and production planning.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Two-person academic team",
+  "color": "yellow",
+  "featured": true,
+  "links": [],
+  "overview": [
+    "An academic study of a watch enclosure and a proposed high-volume manufacturing process. This was university work, independent of Apple."
+  ],
+  "constraints": [
+    "The geometry had to be reconstructed from limited public information. Production planning considered machining, tooling, throughput and cost."
+  ],
+  "contribution": [
+    "The study was completed as a two-person academic project. This case describes the team’s scope."
+  ],
+  "approach": [
+    "The work combined CAD and manufacturing drawings with machine selection, a Python nesting algorithm and bottleneck analysis."
+  ],
+  "results": [
+    "The existing technical portfolio documents a proposed production line and cost model. These are study outputs, not an operating factory."
+  ],
+  "limits": [
+    "Dimensions, material assumptions, tolerances and production calculations need to be interpreted within the academic model and its source information."
+  ],
+  "media": [],
+  "order": 4
+}

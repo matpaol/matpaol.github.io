@@ -1,0 +1,38 @@
+{
+  "slug": "wheelchair-routing",
+  "title": "Wheelchair-accessible routing",
+  "category": "Data & AI",
+  "year": "2026",
+  "summary": "Comparing A*, constraint filtering and MDP planning on Brussels street graphs.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Fatima Ben Mostefa, Francesca Grasso, Lara Moreno & Matteo Paolini",
+  "color": "pink",
+  "featured": false,
+  "links": [
+    [
+      "Repository",
+      "https://github.com/francescagrasso02/TechniquesOfAI"
+    ]
+  ],
+  "overview": [
+    "A team project compares routes that account for accessibility constraints with an unconstrained shortest-path baseline."
+  ],
+  "constraints": [
+    "OpenStreetMap accessibility information is incomplete. Shared synthetic attributes were added for reproducible algorithm comparisons."
+  ],
+  "contribution": [
+    "My GitHub contributions include the main benchmark integration, shared graph-attribute handling and documentation. The planning methods were team work."
+  ],
+  "approach": [
+    "The approaches use soft penalties, hard constraint filtering and stochastic planning. Outputs include route maps and weather-specific benchmark tables."
+  ],
+  "results": [
+    "The repository contains interactive maps, code, plots and saved benchmark results. These document an algorithmic comparison."
+  ],
+  "limits": [
+    "The routes are not field-validated accessibility guidance. Synthetic attributes and a data-coverage score must not be presented as verified safety or prediction accuracy."
+  ],
+  "media": [],
+  "order": 7
+}

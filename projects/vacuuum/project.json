@@ -1,0 +1,33 @@
+{
+  "slug": "vacuuum",
+  "title": "vacUUUm — Product design",
+  "category": "Design & manufacturing",
+  "year": "2025",
+  "summary": "A cordless vacuum cleaner developed through virtual prototyping in Siemens NX.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Two-person academic team",
+  "color": "yellow",
+  "featured": false,
+  "links": [],
+  "overview": [
+    "A consumer-product design study, from market comparison and requirements to a complete CAD assembly."
+  ],
+  "constraints": [
+    "The concept considered ergonomics, autonomy, assembly and manufacturable geometries."
+  ],
+  "contribution": [
+    "A two-person academic project; this page describes the team’s product-design work."
+  ],
+  "approach": [
+    "The technical portfolio describes subsystem concept generation, NX modelling, exploded views, drawings and vibration-isolation design."
+  ],
+  "results": [
+    "The reported output is a virtual product design and technical documentation, not a tested commercial vacuum cleaner."
+  ],
+  "limits": [
+    "Performance requirements such as autonomy and noise are distinct from measured performance. Acoustic FEM was not part of the described study."
+  ],
+  "media": [],
+  "order": 8
+}

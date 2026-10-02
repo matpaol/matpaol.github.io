@@ -1,0 +1,33 @@
+{
+  "slug": "smart-factories",
+  "title": "Fault diagnosis in a multiphase process",
+  "category": "Data & AI",
+  "year": "2026",
+  "summary": "Detecting anomalies while checking that a model is not learning the wrong shortcut.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Individual university study",
+  "color": "yellow",
+  "featured": false,
+  "links": [],
+  "overview": [
+    "A study of fault diagnosis using a public dataset from a multiphase experimental process."
+  ],
+  "constraints": [
+    "Operating regime and fault labels can be correlated, creating misleading shortcuts for a classifier."
+  ],
+  "contribution": [
+    "I wrote the Smart Factories study and investigated the diagnostic approach. The experimental plant and public data acquisition were not my work."
+  ],
+  "approach": [
+    "The analysis considers operating conditions, temporal separation of samples and a multiclass Random Forest model."
+  ],
+  "results": [
+    "The report gives classification results within the studied regime. Its key contribution is the examination of the relationship between operating regime and anomaly labels."
+  ],
+  "limits": [
+    "Results are limited to the dataset, fault cases and operating conditions studied; they are not general industrial deployment performance."
+  ],
+  "media": [],
+  "order": 12
+}

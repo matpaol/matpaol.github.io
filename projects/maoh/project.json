@@ -1,0 +1,38 @@
+{
+  "slug": "maoh",
+  "title": "Dual-arm object handover",
+  "category": "Robotics",
+  "year": "2025–26",
+  "summary": "Coordinating two Franka Panda arms through pick, handover and place in Drake.",
+  "context": "Academic project",
+  "status": "Simulation study",
+  "team": "Academic team",
+  "color": "pink",
+  "featured": true,
+  "links": [
+    [
+      "Implementation branch",
+      "https://github.com/matpaol/MAOH/tree/maho_matpao"
+    ]
+  ],
+  "overview": [
+    "Two simulated manipulators move a cube between platforms through an intermediate handover. The challenge is coordinating motion within a shared workspace."
+  ],
+  "constraints": [
+    "The handover pose must be reachable by both arms. Motion and object-transfer sequencing must be coordinated."
+  ],
+  "contribution": [
+    "This is a group project. The implementation includes workspace analysis, inverse kinematics, trajectory generation and handover coordination."
+  ],
+  "approach": [
+    "The repository includes an OMPL RRT-Connect planner and a task state machine. The inspected version uses timed transitions and a kinematic attachment for the cube."
+  ],
+  "results": [
+    "The simulation implementation is available in the maho_matpao branch. The project is presented as a simulation study, without a claim of physical deployment."
+  ],
+  "limits": [
+    "Kinematic attachment does not test contact-based grasp failures. The code also depends on scene assets and a generated handover configuration; timing and placement metrics require the final run records."
+  ],
+  "media": [],
+  "order": 3
+}

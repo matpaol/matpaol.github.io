@@ -1,0 +1,38 @@
+{
+  "slug": "bearing-diagnosis",
+  "title": "Bearing fault diagnosis",
+  "category": "Data & AI",
+  "year": "2026",
+  "summary": "A critical replication of an autoencoder and CNN pipeline for motor-current signals.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "University project",
+  "color": "green",
+  "featured": false,
+  "links": [
+    [
+      "Public code",
+      "https://github.com/matpaol/MacchineEdAzionamentiExam"
+    ]
+  ],
+  "overview": [
+    "The project investigates bearing faults using stator-current signals from the Paderborn dataset."
+  ],
+  "constraints": [
+    "Changes in operating conditions and differences between individual bearings complicate generalization."
+  ],
+  "contribution": [
+    "I developed and investigated the diagnosis pipeline as a university project in electrical machines and drives."
+  ],
+  "approach": [
+    "The code implements dataset exploration, preprocessing, autoencoder reconstruction residuals and a one-dimensional CNN. The extended protocol separates entire bearings between training and evaluation."
+  ],
+  "results": [
+    "The replication-analysis notebook contains executed comparisons and saved outputs. The extended evaluation notebook contains the protocol and implementation but no saved execution results."
+  ],
+  "limits": [
+    "Replication results should not be reported as final performance on unseen bearings. Operating-condition shifts, specimen effects and leakage must be evaluated explicitly."
+  ],
+  "media": [],
+  "order": 6
+}

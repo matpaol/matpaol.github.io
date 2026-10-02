@@ -1,0 +1,33 @@
+{
+  "slug": "metallography",
+  "title": "LPBF 316L characterization",
+  "category": "Design & manufacturing",
+  "year": "2024",
+  "summary": "Examining the microstructure and hardness of additively manufactured steel.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Academic materials project",
+  "color": "pink",
+  "featured": false,
+  "links": [],
+  "overview": [
+    "A materials-science project investigating LPBF stainless-steel specimens through metallographic analysis."
+  ],
+  "constraints": [
+    "Sample preparation and measurement conditions influence what can be inferred from images and hardness tests."
+  ],
+  "contribution": [
+    "The academic work included metallographic sample preparation and characterization, as described in my earlier CV and portfolio."
+  ],
+  "approach": [
+    "The described workflow covers encapsulation, grinding, polishing and etching, followed by microscopy and Vickers microhardness testing."
+  ],
+  "results": [
+    "The previous portfolio documents a characterization study. Original micrographs and measurement tables are the evidence for its detailed conclusions."
+  ],
+  "limits": [
+    "A process–property relationship should not be inferred from images alone; specimen provenance and test conditions matter."
+  ],
+  "media": [],
+  "order": 11
+}

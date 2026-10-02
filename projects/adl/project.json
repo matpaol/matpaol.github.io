@@ -1,0 +1,33 @@
+{
+  "slug": "adl",
+  "title": "ESG research & analytics",
+  "category": "Data & AI",
+  "year": "2026",
+  "summary": "Combining stakeholder research and data analysis into a strategy proposal.",
+  "context": "Academic project",
+  "status": "Academic study",
+  "team": "Matteo Paolini, Antoine De Poortere, Immaculée Houdegbe & Camille Dorie",
+  "color": "green",
+  "featured": false,
+  "links": [],
+  "overview": [
+    "An academic client project with Arthur D. Little investigating ESG priorities and a proposed roadmap."
+  ],
+  "constraints": [
+    "The analysis combines surveys, interviews and comparative research with different evidence strengths."
+  ],
+  "contribution": [
+    "I contributed as part of the student team. This was an academic client project, not employment at Arthur D. Little."
+  ],
+  "approach": [
+    "The work uses mixed research methods and a Python pipeline for survey preprocessing, descriptive analysis and visualization."
+  ],
+  "results": [
+    "The team produced a report, executive summary and roadmap recommendations."
+  ],
+  "limits": [
+    "The recommendations are project outputs rather than measured organizational impact. Public presentation uses aggregate findings, with individual survey and interview responses excluded."
+  ],
+  "media": [],
+  "order": 14
+}
