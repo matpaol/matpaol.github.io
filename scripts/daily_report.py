@@ -27,10 +27,14 @@ def post(url, token, payload, extra=None):
 
 def period(now):
     today = now.astimezone(ZoneInfo('Europe/Rome')).date()
-    end = datetime.combine(today, datetime.min.time(), ZoneInfo('Europe/Rome'))
-    start = end - timedelta(days=1)
+    monday = today - timedelta(days=today.weekday())
+    end = datetime.combine(
+        monday, datetime.min.time(), ZoneInfo('Europe/Rome')
+    )
+    start = end - timedelta(days=7)
     iso = lambda value: value.astimezone(timezone.utc).isoformat().replace('+00:00', 'Z')
-    return start.date().isoformat(), iso(start), iso(end)
+    label = f"{start.date()} — {(end - timedelta(days=1)).date()}"
+    return label, iso(start), iso(end)
 
 def query(account, start, end):
     # JSON string escaping also safely quotes GraphQL string literals.
@@ -54,7 +58,7 @@ def render(day, data):
     lines += ['', 'Pagine più viste:']
     for row in data.get('pages', []):
         lines.append(f"- {row['dimensions'].get('requestPath') or '/'}: {row['count']}")
-    lines += ['', 'Periodo: giornata precedente, fuso Europe/Rome.',
+    lines += ['', 'Periodo: settimana precedente, lunedì–domenica, fuso Europe/Rome.',,
               'Visite = sessioni, non persone identificate. Dati RUM: possono essere campionati',
               'e non includere visite bloccate dagli ad blocker.', 'https://' + HOST]
     return '\n'.join(lines)
