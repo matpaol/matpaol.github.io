@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     # UTC schedules: the script selects the one matching 20:xx Europe/Rome.
-    - cron: '17 18,19 * * *'
+    - cron: '17 18,19 * * 5'
 permissions:
   contents: read
 concurrency:
