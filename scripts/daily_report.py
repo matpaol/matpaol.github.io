@@ -58,7 +58,7 @@ def render(day, data):
     lines += ['', 'Pagine più viste:']
     for row in data.get('pages', []):
         lines.append(f"- {row['dimensions'].get('requestPath') or '/'}: {row['count']}")
-    lines += ['', 'Periodo: settimana precedente, lunedì–domenica, fuso Europe/Rome.',,
+    lines += ['', 'Periodo: settimana precedente, lunedì–domenica, fuso Europe/Rome.',
               'Visite = sessioni, non persone identificate. Dati RUM: possono essere campionati',
               'e non includere visite bloccate dagli ad blocker.', 'https://' + HOST]
     return '\n'.join(lines)
