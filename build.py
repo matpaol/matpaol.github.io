@@ -11,6 +11,7 @@ css_version = hashlib.sha256((ROOT/'styles.css').read_bytes()).hexdigest()[:12]
 js_version = hashlib.sha256((ROOT/'script.js').read_bytes()).hexdigest()[:12]
 head = re.search(r'<head>(.*?)</head>',base,re.S).group(1)
 head = re.sub(r'<style>.*?</style>', f'<link rel="stylesheet" href="styles.css?v={css_version}">', head, flags=re.S)
+head += '''\n<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"4b2e7c8361d5458f8de2fc44bc58b2a4"}'></script><!-- End Cloudflare Web Analytics -->\n'''
 def tags(p):
     return '<ul class="skill-tags" aria-label="Project skills">'+''.join(f'<li>#{esc(t)}</li>' for t in p.get('tags', []))+'</ul>'
 def card(p, index):
