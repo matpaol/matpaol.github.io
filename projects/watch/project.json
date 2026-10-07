@@ -1,6 +1,13 @@
 {
   "slug": "watch",
-  "tags": ["nx","cad","manufacturing"],
+  "tags": [
+    "cad",
+    "manufacturing",
+    "dfm",
+    "machining",
+    "tolerances",
+    "costanalysis"
+  ],
   "title": "Apple Watch production study",
   "category": "Design & manufacturing",
   "year": "2025",
@@ -12,23 +19,61 @@
   "featured": true,
   "links": [],
   "overview": [
-    "An academic study of a watch enclosure and a proposed high-volume manufacturing process. This was university work, independent of Apple."
+    "A two-person manufacturing study reconstructs a simplified smartwatch enclosure and proposes a production route from aluminium sheet to finished component.",
+    "The case connects geometry and functional requirements with process planning, tooling, machine selection, production capacity and cost estimation."
   ],
   "constraints": [
-    "The geometry had to be reconstructed from limited public information. Production planning considered machining, tooling, throughput and cost."
+    "Manufacturer information covers external surfaces; internal geometry was inferred from photographs. Dimensions and tolerances are study assumptions, not a complete manufacturer specification.",
+    "Small cavities, strap interfaces and the crown and button seats require careful tool selection. Very small tool diameters create a spindle-speed constraint.",
+    "The production scenario targets one million parts per year. Capacity and bottleneck calculations depend on the assumed operation times and utilization."
   ],
   "contribution": [
-    "The study was completed as a two-person academic project. This case describes the team’s scope."
+    "I worked with Alessia Aguzzi on enclosure reconstruction and manufacturing planning. Together, we developed drawings, operation sheets, tooling choices and a production cost model."
   ],
   "approach": [
-    "The work combined CAD and manufacturing drawings with machine selection, a Python nesting algorithm and bottleneck analysis."
+    "External drawings and component photographs inform a hypothesized enclosure model. Functional interfaces are identified before dimensional and geometric tolerance assumptions are assigned.",
+    "The proposed material is Al 7005-T6. The process starts from a 3000 \u00d7 1500 \u00d7 10 mm sheet, divided into three 1500 \u00d7 1000 mm panels; the proposed panel layout contains 608 blanks.",
+    "The route separates internal cavity machining, blank separation, external machining and finishing. Tool geometries and operation parameters are selected to suit the features and aluminium machining.",
+    "The study compares equipment, calculates material-removal time, considers tool life through an assumed Taylor model and estimates energy and machine costs.",
+    "A production-capacity model identifies a bottleneck and distributes internal and external machining over production periods. The proposed surface-finishing step is vibratory tumbling."
   ],
   "results": [
-    "The existing technical portfolio documents a proposed production line and cost model. These are study outputs, not an operating factory."
+    "The outputs are a simplified enclosure definition, a detailed proposed manufacturing sequence, tooling and equipment choices, operation sheets and a cost model.",
+    "The study discusses a target finish improvement from Ra 0.8 to Ra 0.4 through tumbling and sizes equipment for the annual production scenario. These are calculated or proposed study values, not measured factory results."
   ],
   "limits": [
-    "Dimensions, material assumptions, tolerances and production calculations need to be interpreted within the academic model and its source information."
+    "This is an academic manufacturing proposal, not work commissioned by Apple or a reconstruction of its official production process.",
+    "Geometry, material, tolerances, machine prices and tool-life parameters contain assumptions. They need engineering review before use as manufacturing specifications.",
+    "The production and finishing estimates were not validated through machining trials or an operating line."
   ],
-  "media": [],
+  "media": [
+    {
+      "type": "image",
+      "section": "overview",
+      "src": "../../assets/watch-cad.webp",
+      "width": 370,
+      "height": 472,
+      "alt": "Simplified enclosure reconstructed for the manufacturing study. Internal geometry is inferred, not a manufacturer specification.",
+      "caption": "Simplified enclosure reconstructed for the manufacturing study. Internal geometry is inferred, not a manufacturer specification."
+    },
+    {
+      "type": "image",
+      "section": "approach",
+      "src": "../../assets/watch-drawing.webp",
+      "width": 1684,
+      "height": 1192,
+      "alt": "Dimensioned enclosure drawing from our study. Dimensions and tolerances are design assumptions.",
+      "caption": "Dimensioned enclosure drawing from our study. Dimensions and tolerances are design assumptions."
+    },
+    {
+      "type": "image",
+      "section": "results",
+      "src": "../../assets/watch-panel.webp",
+      "width": 1202,
+      "height": 605,
+      "alt": "Proposed panel machining layout: 608 blanks on a 1500 \u00d7 1000 mm panel.",
+      "caption": "Proposed panel machining layout: 608 blanks on a 1500 \u00d7 1000 mm panel."
+    }
+  ],
   "order": 4
 }

@@ -1,33 +1,47 @@
 {
   "slug": "adl",
-  "tags": ["businessanalysis","strategy"],
+  "tags": [
+    "dataanalysis",
+    "research",
+    "survey",
+    "strategy",
+    "sustainability"
+  ],
   "title": "ESG research & analytics",
   "category": "Data & AI",
   "year": "2026",
   "summary": "Combining stakeholder research and data analysis into a strategy proposal.",
   "context": "Academic project",
   "status": "Academic study",
-  "team": "Matteo Paolini, Antoine De Poortere, Immaculée Houdegbe & Camille Dorie",
+  "team": "Matteo Paolini, Antoine De Poortere, Immacul\u00e9e Houdegbe & Camille Dorie",
   "color": "green",
   "featured": false,
   "links": [],
   "overview": [
-    "An academic client project with Arthur D. Little investigating ESG priorities and a proposed roadmap."
+    "An Applied Marketing Analytics team project studies which ESG initiatives Arthur D. Little should prioritize for its 2027\u20132030 internal strategy.",
+    "The research connects a management question with secondary research, interviews and surveys, translating the findings into recommendations rather than reporting measured organizational change."
   ],
   "constraints": [
-    "The analysis combines surveys, interviews and comparative research with different evidence strengths."
+    "Stated ESG importance can differ from day-to-day behavior. Research must distinguish adoption, its possible drivers and the priorities respondents support.",
+    "The survey samples are limited and unevenly distributed. Cross-sectional associations cannot establish causation or represent every office."
   ],
   "contribution": [
-    "I contributed as part of the student team. This was an academic client project, not employment at Arthur D. Little."
+    "As part of a four-person student team, I contributed to a client-facing study combining survey data, interviews and benchmarking to develop organizational recommendations."
   ],
   "approach": [
-    "The work uses mixed research methods and a Python pipeline for survey preprocessing, descriptive analysis and visualization."
+    "A sequential mixed-methods design starts with benchmarking five consulting firms, followed by seven semi-structured employee interviews and quantitative surveys.",
+    "The draft executive summary reports an internal sample of 46 and an external client sample of 95. Interview content analysis and survey comparisons are organized around adoption, barriers and initiative prioritization.",
+    "The team brings the evidence together into a proposed strategy roadmap, explicitly distinguishing hypotheses that were tested from those the questionnaire could not test."
   ],
   "results": [
-    "The team produced a report, executive summary and roadmap recommendations."
+    "The uploaded draft contains an evidence-based diagnosis, executive summary and roadmap recommendations. It describes a gap between stated importance and reported day-to-day adoption.",
+    "Its analysis reports associations between awareness and adoption, alongside time pressure and lack of practical guidance as reported barriers. These are research findings from the study sample, not causal effects.",
+    "The case can show the research design and anonymized aggregate visualizations without publishing interview transcripts or individual survey responses."
   ],
   "limits": [
-    "The recommendations are project outputs rather than measured organizational impact. Public presentation uses aggregate findings, with individual survey and interview responses excluded."
+    "The source is labeled as an 80% draft. Findings and sample counts should be reconciled with the submitted final report before detailed client-specific results are published.",
+    "The recommendations are project outputs rather than demonstrated organizational impact. Sample coverage limits comparisons across offices.",
+    "Public material should retain the academic context and avoid identifying interviewees or exposing individual responses."
   ],
   "media": [],
   "order": 14

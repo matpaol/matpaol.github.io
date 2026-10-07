@@ -1,13 +1,18 @@
 {
   "slug": "maoh",
-  "tags": ["robotics","python","drake","ompl"],
+  "tags": [
+    "robotics",
+    "python",
+    "drake",
+    "ompl"
+  ],
   "title": "Dual-arm object handover",
   "category": "Robotics",
-  "year": "2025–26",
+  "year": "2025\u201326",
   "summary": "Coordinating two Franka Panda arms through pick, handover and place in Drake.",
   "context": "Academic project",
   "status": "Simulation study",
-  "team": "Academic team",
+  "team": "Four-person academic team",
   "color": "pink",
   "featured": true,
   "links": [
@@ -17,23 +22,40 @@
     ]
   ],
   "overview": [
-    "Two simulated manipulators move a cube between platforms through an intermediate handover. The challenge is coordinating motion within a shared workspace."
+    "Two Franka Panda manipulators transfer a cube between platforms on separate tables. Neither arm can complete the full task alone: they must meet in a shared workspace and exchange the object in mid-air.",
+    "Developed for Robotics II in Brussels, this simulation project brings together workspace analysis, inverse kinematics, motion planning and task coordination."
   ],
   "constraints": [
-    "The handover pose must be reachable by both arms. Motion and object-transfer sequencing must be coordinated."
+    "The exchange pose must be reachable by both seven-degree-of-freedom arms. Their concurrent approach must avoid collisions with the environment and each other.",
+    "The transfer sequence must give the receiving robot ownership of the cube before the first robot releases it. A shared state machine coordinates these events."
   ],
   "contribution": [
-    "This is a group project. The implementation includes workspace analysis, inverse kinematics, trajectory generation and handover coordination."
+    "In a four-person team, we developed a dual-arm handover pipeline combining workspace analysis, inverse kinematics, motion planning and task coordination."
   ],
   "approach": [
-    "The repository includes an OMPL RRT-Connect planner and a task state machine. The inspected version uses timed transitions and a kinematic attachment for the cube."
+    "A hierarchical architecture separates coordination, planning and control. A central finite-state machine synchronizes the task; each arm has its own controller.",
+    "OMPL planning is reserved for the critical approach to the exchange pose. Pick and place motions in the open workspace use simpler trajectories, reducing planning work.",
+    "The handover configuration is computed offline through workspace analysis and loaded at runtime. This favors repeatability and fast execution over online adaptation.",
+    "After contact-based grasp simulation proved unstable, the team used a kinematic attachment: the cube follows the owning gripper and ownership changes during the exchange. State transitions are based on trajectory completion."
   ],
   "results": [
-    "The simulation implementation is available in the maho_matpao branch. The project is presented as a simulation study, without a claim of physical deployment."
+    "The January 2026 final presentation reports a completed pick\u2013handover\u2013place sequence in approximately 20 seconds, with a final placement error of 9.1 mm.",
+    "The demonstrated sequence contains 13 states. Validation covered one complete run in the nominal configuration, with the cube initially at [0.5, 0.5, 0.55] and standard controller gains."
   ],
   "limits": [
-    "Kinematic attachment does not test contact-based grasp failures. The code also depends on scene assets and a generated handover configuration; timing and placement metrics require the final run records."
+    "These are proof-of-concept results from a single nominal simulation, not statistics over repeated trials or physical robot measurements.",
+    "The kinematic grasp cannot validate slip, grasp failure or force-based transfer. The exchange pose is fixed, and trajectory completion does not independently verify actual proximity.",
+    "A stronger evaluation would vary initial object positions, introduce disturbances and test contact-based grasping over repeated runs."
   ],
-  "media": [],
+  "media": [
+    {
+      "type": "video",
+      "section": "overview",
+      "src": "../../assets/maho-handover.mp4",
+      "poster": "../../assets/maho-poster.jpg",
+      "title": "MAHO dual-arm handover demo",
+      "caption": "Team simulation demo: two Franka Panda arms execute the object handover sequence."
+    }
+  ],
   "order": 3
 }

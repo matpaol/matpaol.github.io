@@ -11,3 +11,6 @@ document.querySelector('[data-cv]')?.addEventListener('click',()=>cv.showModal()
 document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog')?.close()));
 const nerdDialog=document.getElementById('nerd-dialog');
 document.getElementById('nerd-trigger')?.addEventListener('click',()=>nerdDialog?.showModal());
+document.querySelectorAll('[data-map]').forEach(button=>button.addEventListener('click',()=>{
+ const frame=document.createElement('iframe');frame.src=button.dataset.map;frame.title=button.dataset.title;frame.setAttribute('sandbox','allow-scripts');frame.setAttribute('loading','lazy');button.parentElement.replaceChildren(frame);
+}));
