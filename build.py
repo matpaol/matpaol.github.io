@@ -60,6 +60,10 @@ for p in data:
                 contents+=f'''<div class="video-demo"><button type="button" class="video-load" data-video="{esc(media['id'])}"><span class="play-symbol" aria-hidden="true">▶</span><strong>{esc(media['title'])}</strong><span>Loads the YouTube demo on request</span></button></div>'''
             elif media['type'] == 'image':
                 contents+=f'''<figure><img src="{esc(media['src'])}" width="{int(media['width'])}" height="{int(media['height'])}" loading="lazy" alt="{esc(media['alt'])}"><figcaption>{esc(media.get('caption', ''))}</figcaption></figure>'''
+            elif media['type'] == 'video':
+                contents+=f'''<figure><video class="project-video" controls playsinline preload="none" poster="{esc(media['poster'])}" aria-label="{esc(media['title'])}"><source src="{esc(media['src'])}" type="video/mp4">Your browser does not support video. <a href="{esc(media['src'])}">Open the demo</a>.</video><figcaption>{esc(media['caption'])}</figcaption></figure>'''
+            elif media['type'] == 'map':
+                contents+=f'''<figure><div class="map-demo"><button class="map-load" type="button" data-map="{esc(media['src'])}" data-title="{esc(media['title'])}">Explore the route map ↗</button></div><figcaption>{esc(media['caption'])} <a href="{esc(media['src'])}" target="_blank" rel="noopener">Open full screen ↗</a></figcaption></figure>'''
         contents+='</section>'
     contents+='<section id="resources" class="case-section"><p class="section-number">07</p><h2>Resources</h2><div class="resources">'+links+'</div>'+( '<p class="resource-note">Further project material will be added to this case study.</p>' if not links else '')+'</section></div></div>'
     ph=head.replace('href="styles.css','href="../../styles.css').replace('Matteo Paolini — Portfolio',esc(p['title'])+' — Matteo Paolini')
