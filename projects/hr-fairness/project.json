@@ -1,6 +1,14 @@
 {
   "slug": "hr-fairness",
-  "tags": ["python","ml","fairness","explainability"],
+  "tags": [
+    "python",
+    "fairness",
+    "counterfactuals",
+    "dice",
+    "xgboost",
+    "randomforest",
+    "xai"
+  ],
   "title": "Are AI recommendations equally achievable?",
   "category": "Data & AI",
   "year": "2026",
@@ -21,22 +29,31 @@
     ]
   ],
   "overview": [
-    "A model may offer a route to a different prediction while making that route harder for some groups. This project studies that question on the IBM HR attrition dataset."
+    "A team project asks whether counterfactual actions suggested by an employee-attrition model are equally achievable for different demographic groups.",
+    "Using the IBM HR Attrition dataset, the analysis goes beyond prediction parity to examine the effectiveness, cost and choice of recommended changes."
   ],
   "constraints": [
-    "Counterfactual changes were constrained by immutable features and salary-change caps. The chosen cost definition affects the interpretation of fairness."
+    "An action can flip a model prediction without being realistic for a person. Immutable features, permitted ranges and salary-change limits therefore matter.",
+    "The analysis compares gender, age and marital-status groups. Group size, classifier threshold and the recourse cost definition affect the apparent gaps."
   ],
   "contribution": [
-    "My documented role was fairness and FACTS analysis, results and visualization. Preprocessing, predictive models and the DiCE pipeline were shared team work."
+    "I led fairness and FACTS analysis, results interpretation and visualization. I examined prediction disparities and how salary constraints change access to recourse."
   ],
   "approach": [
-    "We compared Random Forest and XGBoost through prediction, feature-change sensitivity and recourse metrics. The analysis examines effectiveness, cost and access within a fixed budget."
+    "Random Forest and XGBoost supply predictions; DiCE generates candidate counterfactual changes for people classified as at risk.",
+    "The analysis examines group prediction metrics, feature-flip sensitivity and FACTS-inspired recourse comparisons: effectiveness, cost, effectiveness within budget and number of options.",
+    "A separate sensitivity experiment tightens the salary cap from +50% to +35% and +20%. Keeping this separate allows the baseline recourse generation to be reused.",
+    "Shared utilities align paths, model wrappers, feature constraints and recourse output tables across local and Colab execution."
   ],
   "results": [
-    "The notebook contains saved tables and plots comparing subgroups. A salary-cap sensitivity analysis explores how results change under tighter constraints. The figure below is an original project output."
+    "The project README reports high recourse availability under the explored caps, while cost and within-budget comparisons expose differences that availability alone can hide.",
+    "Its sensitivity summary reports a larger XGBoost effectiveness gap under tighter salary limits: for marital status, 0.017 at the loose cap versus 0.034 at the tight cap. Random Forest is reported as more stable in this comparison.",
+    "Saved notebooks, subgroup tables and plots make these comparisons inspectable. The original recourse-cost figure below illustrates the type of result produced."
   ],
   "limits": [
-    "This is an academic audit, not a deployed HR system. Feature-flip sensitivity is not causal validation; conclusions depend on the data, cost model and subgroup sample sizes."
+    "This is an academic audit of a benchmark dataset, not a validated HR retention system. Changing model inputs does not prove that the proposed action prevents real attrition.",
+    "Protected-feature flips measure model sensitivity; without a causal model they do not establish causal counterfactual fairness.",
+    "Some documented analyses use the full available population rather than only held-out examples. Detailed claims require checking each output population, sample size and evaluation split."
   ],
   "media": [
     {
