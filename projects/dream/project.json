@@ -1,10 +1,17 @@
 {
   "slug": "dream",
-  "tags": ["robotics","simulation"],
-  "title": "DREAM — Robotics research",
+  "tags": [
+    "robotics",
+    "mujoco",
+    "simulation",
+    "python",
+    "physicalai",
+    "research"
+  ],
+  "title": "DREAM \u2014 Robotics research",
   "category": "Robotics",
   "year": "2026",
-  "summary": "Exploring robotic manipulation in simulation at the Royal Military Academy.",
+  "summary": "Building a reproducible physics testbed for manipulation and reasoning in cluttered scenes at RMA.",
   "context": "Research internship",
   "status": "In progress",
   "team": "RMA research environment",
@@ -12,22 +19,32 @@
   "featured": true,
   "links": [],
   "overview": [
-    "My current research internship sits within DREAM, a programme investigating robotic exploration, mapping and manipulation. My focus is robotic manipulation in simulation."
+    "My research internship at the Royal Military Academy in Brussels is part of DREAM. The work explores manipulation in cluttered scenes and how physical interactions can inform action selection.",
+    "The uploaded archive contains successive designs and prototypes. The concrete MuJoCo implementation documented here builds and measures reproducible piles of objects; the wider research direction includes reasoning, robot execution and eventual physical validation."
   ],
   "constraints": [
-    "Clutter, incomplete observations and interactions between objects motivate the research direction."
+    "An object may support or obstruct another. Geometric contact is not sufficient evidence of a causal dependency: removal experiments are needed.",
+    "Scene generation must be reproducible, and initial releases should avoid artificial interpenetration. Physics parameters and their uncertainty need explicit treatment.",
+    "The long-term architecture must distinguish observing the scene, deciding on an executable action and executing it. Physical validation remains a separate milestone."
   ],
   "contribution": [
-    "I am carrying out a robotics research internship at the Royal Military Academy in Brussels."
+    "I develop simulation experiments during my research internship: scene generation, configurable runs, physics diagnostics and technical documentation."
   ],
   "approach": [
-    "The research connects simulated manipulation tasks with the longer-term question of transferring robot behaviour to physical hardware."
+    "Phase 0A constructs scenes from object catalogs, ground definitions and scenario rules. A seed determines geometry, release grouping and sampled physical properties.",
+    "The scene is converted to MJCF and simulated in MuJoCo until a settling criterion or timeout is reached. Scene descriptions and diagnostic reports are saved for reproduction.",
+    "The robotic-removal prototype randomizes an internal weight, deriving the resulting center of mass and inertia. Materials and friction values are initial hypotheses rather than measurements of real objects.",
+    "Validation includes free-fall comparison, valid inertia checks, incline/friction tests and multi-seed diagnostics. The broader observe\u2013decide\u2013execute architecture places robot feasibility checks before execution."
   ],
   "results": [
-    "The work is in progress. This page introduces its scope rather than claiming a completed sim-to-real result."
+    "The archive documents configurable scene generation, headless and viewer execution, saved scene descriptions, physical checks and a benchmark command over 200 seeds.",
+    "One prototype README reports that 12 of the 200 scenes exceed a final penetration threshold of 1 mm. This is a useful diagnostic limitation, not a solved robustness result.",
+    "Gymnasium removal tasks, strategic decision-making, robot deployment and sim-to-real validation appear at different stages across versions. No completed physical transfer result is claimed here."
   ],
   "limits": [
-    "Simulation results and physical validation need to be distinguished throughout the project."
+    "The internship is ongoing, and the uploaded README snapshots may precede the latest training work. Their results should not be treated as the current final state.",
+    "A stable simulated pile is not proof of correct real-world interaction. Material calibration, causal removal experiments and physical validation remain important.",
+    "Different source folders are versions of the same research effort, not separate portfolio projects."
   ],
   "media": [],
   "order": 1
