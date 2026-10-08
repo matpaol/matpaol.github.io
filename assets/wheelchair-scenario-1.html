@@ -50,7 +50,7 @@
             </script>
 
         
-</head>
+<style>.leaflet-container{background-color:#f8fafc;background-image:linear-gradient(#e8edf4 1px,transparent 1px),linear-gradient(90deg,#e8edf4 1px,transparent 1px);background-size:40px 40px}.route-note{background:white;border-radius:8px;padding:8px 12px;font:12px/1.5 Arial,sans-serif;box-shadow:0 2px 12px #0001;max-width:240px;color:#475569}.leaflet-control-layers{border-radius:8px!important;font:13px/1.6 Arial,sans-serif!important;padding:8px!important}</style></head>
 <body>
     
     
@@ -95,7 +95,7 @@
             );
         
     
-            tile_layer_c5df0732a2d9c4061cc23f96ee478eed.addTo(map_68d839c1aec8ba17d24260783cd91a68);
+            // Street tiles are optional; route geometry remains usable without a tile service.
         
     
             var feature_group_46d231bc6310baa5d2dbf7b4861da930 = L.featureGroup(
@@ -448,7 +448,8 @@
     
             var layer_control_8ef3d9e30ea804a16a5a8512366b5e3a_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_c5df0732a2d9c4061cc23f96ee478eed,
+                    "Routes only" : L.layerGroup().addTo(map_68d839c1aec8ba17d24260783cd91a68),
+                    "Street map (online)" : tile_layer_c5df0732a2d9c4061cc23f96ee478eed,
                 },
                 overlays :  {
                     "Baseline" : feature_group_46d231bc6310baa5d2dbf7b4861da930,
@@ -468,5 +469,8 @@
             ).addTo(map_68d839c1aec8ba17d24260783cd91a68);
 
         
+L.control.scale({imperial:false}).addTo(map_68d839c1aec8ba17d24260783cd91a68);
+var note=L.control({position:'bottomleft'});note.onAdd=function(){var d=L.DomUtil.create('div','route-note');d.textContent='Compare routes by toggling each planner. Street background is optional and requires online tiles.';return d;};note.addTo(map_68d839c1aec8ba17d24260783cd91a68);
+map_68d839c1aec8ba17d24260783cd91a68.fitBounds(L.featureGroup([feature_group_46d231bc6310baa5d2dbf7b4861da930,feature_group_baa42241c28dc517599e91aee6cf174f,feature_group_9f2b784f3432a8c036faa7ead36ecbd5,feature_group_ec4dcd59e7e9f1d16e4eea33bc7538ae]).getBounds(),{padding:[65,65]});
 </script>
 </html>
