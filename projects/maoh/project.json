@@ -3,8 +3,8 @@
   "order": 5,
   "tier": "featured",
   "color": "pink",
-  "category": "Robot learning",
-  "year": "2025 – 26",
+  "category": "Robotics",
+  "year": "2025–26",
   "title": "Dual-arm object handover",
   "summary": "Two Franka Panda arms pass a cube mid-air between tables that neither can reach alone — workspace analysis, IK, motion planning and coordination in Drake.",
   "role": "Academic project",
@@ -15,7 +15,7 @@
   "metrics": [
     [
       "≈ 20 s",
-      "pick → handover → place"
+      "one nominal simulated run"
     ],
     [
       "13",
@@ -36,7 +36,7 @@
   "tldr": [
     "Robot 1 can only reach the start platform, robot 2 only the goal — the cube has to change hands in the air.",
     "Offline handover-pose search, inverse kinematics, selective OMPL planning, grasp ownership and a 13-state coordinator.",
-    "The complete sequence runs collision-free in about 20 seconds."
+    "In a nominal simulated run the complete sequence takes about 20 seconds."
   ],
   "facts": [
     [
@@ -79,7 +79,7 @@
       "id": "architecture",
       "title": "Architecture",
       "body": [
-        "I split the problem into three levels. One finite-state machine coordinates both robots, so the handover is always synchronised. Each arm plans its own path against a shared collision model. Each arm has its own controller that knows only its own state — centralised planning, distributed execution."
+        "I split the problem into three levels. One finite-state machine coordinates both robots, so the handover is always synchronized. Each arm plans its own path against a shared collision model. Each arm has its own controller that knows only its own state — centralized planning, distributed execution."
       ]
     },
     {
@@ -108,8 +108,8 @@
       "id": "results",
       "title": "Results",
       "body": [
-        "In the nominal configuration the full 13-state sequence completes in about 20 seconds, with no collisions and a stable transfer between the grippers.",
-        "Next I'd randomise the cube's start pose over many runs to report success rate and placement statistics, and bring back contact-based grasping to test slip during the exchange."
+        "In one nominal simulated run (cube at a fixed start pose, kinematic grasp) the full 13-state sequence completed in about 20 seconds without collisions or drops.",
+        "That is a proof of concept, not a statistic. Next I'd randomize the cube's start pose over many runs to report success rate and placement statistics, and bring back contact-based grasping to test slip during the exchange."
       ]
     }
   ],

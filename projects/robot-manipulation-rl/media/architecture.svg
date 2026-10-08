@@ -11,7 +11,7 @@
 <path class="a" d="M605 235 H652"/><path class="ah" d="M652 226 L664 235 L652 244Z"/>
 <path class="a" d="M787 320 V420 H173 V332"/><path class="ah" d="M164 332 L173 320 L182 332Z"/>
 <text class="s" x="480" y="447" text-anchor="middle">outcome observed → next decision</text>
-<rect class="box" x="355" y="40" width="250" height="70" rx="18"/><text class="k" x="480" y="70" text-anchor="middle">TASK</text><text class="s" x="480" y="95" text-anchor="middle">reward terms · grave events</text>
+<rect class="box" x="355" y="40" width="250" height="70" rx="18"/><text class="k" x="480" y="70" text-anchor="middle">TASK</text><text class="s" x="480" y="95" text-anchor="middle">reward terms · critical events</text>
 <path class="d" d="M480 110 V150"/>
 <text class="s" x="480" y="500" text-anchor="middle">MuJoCo simulation · seeded, reproducible scenes</text>
 </svg>

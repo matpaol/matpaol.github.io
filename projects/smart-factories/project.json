@@ -35,7 +35,7 @@
     "Time-series validation"
   ],
   "tldr": [
-    "All fault recordings in the public dataset come from a single operating point — a model can score well just by recognising that point.",
+    "All fault recordings in the public dataset come from a single operating point — a model can score well just by recognizing that point.",
     "I built leakage-free temporal splits and a test that exposes this shortcut before trusting any accuracy number.",
     "A regime-conditioned Random Forest detects 502–515 of 523 faulty samples with zero false alarms; a global model raises 49–58."
   ],
@@ -101,7 +101,7 @@
         "With the alarm threshold chosen on validation data, the regime-conditioned detector finds 502–515 of 523 faulty test samples across three seeds with zero false alarms on 798 healthy ones; the multiclass model reaches 0.973 ± 0.007 accuracy. The global detector misses 163–171 faults and raises 49–58 false alarms.",
         "LOF did not work, and the reason was informative: the fault states were locally more compact than normal operation, the opposite of what a density-based outlier detector assumes.",
         {
-          "note": "All faults come from one regime and one severity, and training and test intervals come from the same recordings — so this shows a sound method on this dataset, not generalisation to new fault repetitions or other regimes."
+          "note": "All faults come from one regime and one severity, and training and test intervals come from the same recordings — so this shows a sound method on this dataset, not generalization to new fault repetitions or other regimes."
         }
       ]
     }

@@ -42,9 +42,8 @@ b{font-weight:650}
   <div class="row"><span class="title">Research Intern — Physical AI for robotic manipulation <span class="where">· Royal Military Academy, Brussels</span></span><span class="date">2026 – present</span></div>
   <ul>
     <li>Building, as an independent project, a MuJoCo + reinforcement-learning pipeline that decides which object a robot should remove next from a cluttered pile to reach a buried target without collapsing it.</li>
-    <li>Observe → decide → execute architecture: simulated stereo / RGB-D / LiDAR, segmentation detector trained on domain-randomised images, <b>teacher–student PPO</b> (privileged teacher, sensor-only student) and a gripper-reachability check.</li>
-    <li>Training infrastructure: bank of pre-settled scenes, <b>16 parallel MuJoCo workers</b>, bit-exact resumable runs and an ablation benchmark against rule-based baselines.</li>
-    <li>Found simulation artefacts that invalidated measurements and fixed them (settle-to-rest, rolling friction: buried-target scenes from 0/10 to 6/10). Next: simulated UR5, then sim-to-real on the physical arm.</li>
+    <li>Implemented: procedural scene generation with physics diagnostics, simulated stereo / RGB-D / LiDAR with a segmentation detector, a <b>teacher–student PPO</b> training pipeline, 16 parallel MuJoCo workers and resumable runs.</li>
+    <li>Fixed simulation artefacts that invalidated measurements (settle-to-rest instead of fixed-time settling); rule-based baselines measured (best 24/25 successes). Next: learned-policy evaluation, simulated UR5, sim-to-real.</li>
   </ul>
 </div>
 <div class="item">
@@ -64,6 +63,13 @@ b{font-weight:650}
 
 <h2>SELECTED PROJECTS</h2>
 <div class="item">
+  <div class="row"><span class="title">Dual-arm object handover <span class="where">· Robotics II, VUB · academic project</span></span><span class="date">2025 – 2026</span></div>
+  <ul>
+    <li>Two Franka Panda arms pass a cube mid-air in Drake: offline handover-pose search from the arms' workspace intersection, IK, OMPL only where collisions are likely, 13-state coordinator.</li>
+    <li>Proof of concept: one nominal simulated run completes pick → handover → place in ≈ 20 s with a kinematic grasp.</li>
+  </ul>
+</div>
+<div class="item">
   <div class="row"><span class="title">Soft tentacle gripper <span class="where">· VUB Brussels · team of 5, supervised by Prof. B. Vanderborght</span></span><span class="date">2025</span></div>
   <ul>
     <li>Owned the tentacle: chamber geometry in ANSYS with a 2nd-order <b>Ogden hyperelastic</b> silicone model; two-part 3D-printed casting mold with removable core.</li>
@@ -71,23 +77,16 @@ b{font-weight:650}
   </ul>
 </div>
 <div class="item">
-  <div class="row"><span class="title">Dual-arm object handover <span class="where">· Robotics II, VUB · academic project</span></span><span class="date">2025 – 26</span></div>
-  <ul>
-    <li>Two Franka Panda arms pass a cube mid-air in Drake: offline handover-pose search from the arms' workspace intersection, IK, OMPL only where collisions are likely, 13-state coordinator.</li>
-    <li>Full collision-free pick → handover → place in ≈ 20 s.</li>
-  </ul>
-</div>
-<div class="item">
   <div class="row"><span class="title">Apple Watch case — production study <span class="where">· UNIVPM · team of 2</span></span><span class="date">2025</span></div>
   <ul>
     <li>Reconstructed the Al 7005-T6 case in Siemens NX with functional GD&amp;T (±0.01 mm fits, Ø0.05 concentricity on the Ø3 H7 crown bore); full process route from laser blanking to tumbling.</li>
-    <li>Sized a <b>1,000,000 parts/year</b> line (1 laser, 89 CNC centres, 1 tumbler) from MRR and cutting power; removed a milling bottleneck by scheduling the fleet over four periods; Taylor tool-life and cost-per-part model.</li>
+    <li>Sized, on paper, a line for a <b>1,000,000 parts/year</b> target (1 laser, 89 CNC centers, 1 tumbler) from MRR and cutting power; removed a milling bottleneck by scheduling the fleet over four periods; Taylor tool-life and cost-per-part model.</li>
   </ul>
 </div>
 <div class="item">
   <div class="row"><span class="title">Re-testing a published bearing-fault classifier <span class="where">· Electrical machines &amp; drives, UNIVPM · academic project</span></span><span class="date">2026</span></div>
   <ul>
-    <li>Faithfully replicated a DAE + CNN method (Sensors, 2021) on Paderborn motor-current data: <b>46.9%</b> accuracy vs the reported 99.6%. Traced the cause to SELU output clipping (25.4% of samples unreachable); scaling the input raised AUC from 0.60 to 0.77, while other training changes had no effect.</li>
+    <li>Reconstructed a DAE + CNN method (Sensors, 2021) on Paderborn motor-current data: <b>46.9%</b> accuracy vs the reported 99.6%. Identified SELU output clipping as the dominant error in my implementation (25.4% of samples unreachable); removing it raised AUC from 0.60 to 0.77, other training changes had no effect.</li>
   </ul>
 </div>
 <div class="item">
@@ -96,7 +95,7 @@ b{font-weight:650}
     <li>Showed a global detector learns the operating point, not the fault; with leakage-free temporal splits a regime-conditioned Random Forest detects 502–515 of 523 faults with <b>0 false alarms</b> on 798 healthy samples.</li>
   </ul>
 </div>
-<p class="line"><b>Also:</b> vacUUUm cordless vacuum (Siemens NX product design) · 1U CubeSat CFRP/aluminium structure (ANSYS ACP) · LPBF 316L metallography and Vickers testing · PLC elevator controller (GRAFCET) · wheelchair-accessible routing (A*, MDP).</p>
+<p class="line"><b>Also:</b> vacUUUm cordless vacuum (Siemens NX product design) · 1U CubeSat CFRP/aluminum structure (ANSYS ACP) · LPBF 316L metallography and Vickers testing · PLC elevator controller (GRAFCET) · wheelchair-accessible routing (A*, MDP).</p>
 
 <h2>SKILLS</h2>
 <dl class="skills">

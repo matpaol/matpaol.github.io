@@ -16,12 +16,12 @@
   },
   "metrics": [
     [
-      "2×",
-      "XGBoost effectiveness gap under a tight salary cap"
+      "3",
+      "protected attributes audited"
     ],
     [
       "3",
-      "protected attributes audited"
+      "salary-cap scenarios"
     ]
   ],
   "tools": [
@@ -33,7 +33,7 @@
   ],
   "tldr": [
     "Equal prediction metrics don't mean equal recourse: we measured the cost and availability of counterfactual actions per group.",
-    "I led the fairness and FACTS analysis, the interpretation and the visualisations."
+    "I led the fairness and FACTS analysis, the interpretation and the visualizations."
   ],
   "facts": [
     [

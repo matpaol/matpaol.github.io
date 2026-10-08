@@ -10,8 +10,8 @@
   "summary": "A complete product-development cycle in Siemens NX: from user needs and requirements to subsystem design, exploded assemblies, production drawings and an ergonomic check in Tecnomatix.",
   "role": "Academic project · Siemens NX & Tecnomatix",
   "cover": {
-    "src": "assets/vac-colours.webp",
-    "alt": "Five colour variants of the vacUUUm cordless vacuum",
+    "src": "assets/vac-colors.webp",
+    "alt": "Five color variants of the vacUUUm cordless vacuum",
     "fit": "contain"
   },
   "hero_media": {
@@ -44,7 +44,7 @@
   ],
   "tldr": [
     "Turned user research into 11 measurable technical requirements, then into a modular architecture of seven subsystems.",
-    "Modelled every subsystem in Siemens NX — motor and impeller, cyclonic + HEPA filtration, 1 L bin, removable battery, charging base — with exploded views and drawings.",
+    "Modeled every subsystem in Siemens NX — motor and impeller, cyclonic + HEPA filtration, 1 L bin, removable battery, charging base — with exploded views and drawings.",
     "Checked the posture of right- and left-handed users in Tecnomatix before freezing the design."
   ],
   "facts": [
@@ -78,7 +78,7 @@
             {
               "big": "11",
               "title": "From user needs to requirements",
-              "text": "Market and user-review analysis gave 13 user needs, translated into 11 technical requirements: 2.4–3 kg, 60 min autonomy, about 200 AW suction, under 80 dB, a 1 L bin, cyclonic separation with a HEPA filter, recharge under 240 min and maximum footprints for the vacuum and its base."
+              "text": "Market and user-review analysis gave 13 user needs, translated into 11 technical requirements: 2.4–3 kg, 60 min autonomy, about 200 air watts of suction, under 80 dB, a 1 L bin, cyclonic separation with a HEPA filter, recharge under 240 min and maximum footprints for the vacuum and its base."
             },
             {
               "src": "../../assets/vac-sketches.webp",
@@ -102,7 +102,7 @@
               "src": "../../assets/vac-exploded.webp",
               "alt": "Exploded view of the vacuum's main subsystems",
               "title": "Exploded assemblies",
-              "text": "Exploded views of the main subsystems check assembly order and part count — designed without undercuts and with injection-mouldable wall thicknesses."
+              "text": "Exploded views of the main subsystems check assembly order and part count, from the motor stack to the cyclone and bin."
             },
             {
               "src": "../../assets/vac-drawing.webp",
@@ -117,10 +117,10 @@
               "text": "A vertical charging base stores the vacuum and accessories in a small footprint."
             },
             {
-              "src": "../../assets/vac-colours.webp",
-              "alt": "Five colour variants of the vacuum",
+              "src": "../../assets/vac-colors.webp",
+              "alt": "Five color variants of the vacuum",
               "title": "Final design",
-              "text": "The final assembly, with interchangeable coloured shells as an attractiveness requirement."
+              "text": "The final assembly, with interchangeable colored shells as an attractiveness requirement."
             },
             {
               "src": "../../assets/vac-ergonomics.webp",

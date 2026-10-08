@@ -6,7 +6,7 @@
   "category": "Manufacturing",
   "year": "2025",
   "title": "Apple Watch case: production study",
-  "summary": "Reverse-engineered an aluminium smartwatch case and designed the machining line to make one million of them a year — process plan, tooling, capacity and cost.",
+  "summary": "Reverse-engineered an aluminum smartwatch case and designed, on paper, a machining line for a target of one million cases a year — process plan, tooling, capacity and cost.",
   "role": "Team of 2 · CAD, process plan, capacity & cost",
   "cover": {
     "src": "assets/watch-drawing.webp",
@@ -15,30 +15,30 @@
   },
   "metrics": [
     [
-      "1,000,000",
-      "cases per year"
+      "1M / year",
+      "design capacity target"
     ],
     [
       "608",
-      "blanks per panel"
+      "blanks per panel (layout)"
     ],
     [
       "89",
-      "CNC machines sized"
+      "CNC centers (calculated)"
     ]
   ],
   "tools": [
     "Siemens NX",
     "GD&T",
     "Process planning",
-    "MRR & cutting-power calcs",
+    "MRR & cutting-power calculations",
     "Taylor tool life",
     "Python"
   ],
   "tldr": [
     "Rebuilt the case geometry from public drawings and teardown photos; assigned functional tolerances.",
     "Planned the route from 10 mm Al 7005-T6 sheet to a finished part: laser blanking, cavity and external milling, vibratory finishing.",
-    "Sized the line for 1M parts/year and resolved a milling bottleneck by scheduling the fleet over four periods."
+    "Sized the line for a 1M parts/year target and resolved a milling bottleneck by scheduling the fleet over four periods — all calculated, not built."
   ],
   "facts": [
     [
@@ -144,9 +144,9 @@
             },
             {
               "src": "../../assets/watch-schedule.png",
-              "alt": "Chart of how the 89 CNC centres are split between cavity milling and external machining across four periods",
+              "alt": "Chart of how the 89 CNC centers are split between cavity milling and external machining across four periods",
               "title": "Sizing the line",
-              "text": "1,000,000 parts a year needs 1 laser cutter, 89 CNC centres and 1 tumbler. Cavity milling is the bottleneck, so the fleet is reassigned between phases over four periods instead of buying more machines."
+              "text": "1,000,000 parts a year needs 1 laser cutter, 89 CNC centers and 1 tumbler. Cavity milling is the bottleneck, so the fleet is reassigned between phases over four periods instead of buying more machines."
             }
           ]
         }
@@ -156,7 +156,7 @@
       "id": "capacity",
       "title": "Capacity, tooling and cost",
       "body": [
-        "For every operation we computed removed volume, material-removal rate and cutting power, and from those the machining time and energy. Tool life came from Taylor's law (literature values for carbide on aluminium, n = 0.25, C = 900 m/min), which set how many parts each tool makes before it's changed. A cost model rolls machine amortisation, maintenance, energy and tooling into a cost per part."
+        "For every operation we computed removed volume, material-removal rate and cutting power, and from those the machining time and energy. Tool life came from Taylor's law (literature values for carbide on aluminum, n = 0.25, C = 900 m/min), which set how many parts each tool makes before it's changed. A cost model rolls machine amortisation, maintenance, energy and tooling into a cost per part."
       ]
     },
     {

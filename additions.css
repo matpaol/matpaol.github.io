@@ -57,3 +57,6 @@ dialog{position:fixed;inset:0;margin:auto}dialog:not([open]){display:none}html{s
 .process-track{align-items:flex-start;transition:height .3s ease}
 .step-media{aspect-ratio:auto;height:clamp(220px,40vw,440px)}.step-media img{max-height:100%;height:100%;width:auto;object-fit:contain}
 .step-media{display:flex;align-items:center;justify-content:center;overflow:hidden}.step-media img{height:auto;width:auto;max-width:100%;max-height:100%;min-height:0}
+.media-contain{background:#fff}
+@media(max-width:900px){.card-wide .card-media{min-height:0;height:auto}}
+.available{align-items:flex-start;line-height:1.5}.available .dot{flex:0 0 8px;margin-top:6px}

@@ -4,10 +4,10 @@
   "tier": "archive",
   "page": true,
   "color": "green",
-  "category": "Robotics",
+  "category": "AI planning",
   "year": "2026",
   "title": "Wheelchair-accessible routing in Brussels",
-  "summary": "Comparing A*, constraint filtering and MDP planning on OpenStreetMap graphs enriched with slope, width, kerb and surface data.",
+  "summary": "Comparing A*, constraint filtering and MDP planning on OpenStreetMap graphs enriched with slope, width, curb and surface data.",
   "role": "Academic project · map pipeline, graph attributes, benchmark",
   "metrics": [
     [
@@ -53,7 +53,7 @@
       "id": "pipeline",
       "title": "Pipeline",
       "body": [
-        "The pipeline geocodes the endpoints, downloads only the area around them (500 m margin) and caches the graph. Edges are enriched with slope, width, kerb, surface and wheelchair tags. If no route satisfies the constraints, the area grows and the limits relax to 15% slope and 1.0 m width, while absolute exclusions stay in place."
+        "The pipeline geocodes the endpoints, downloads only the area around them (500 m margin) and caches the graph. Edges are enriched with slope, width, curb, surface and wheelchair tags. If no route satisfies the constraints, the area grows and the limits relax to 15% slope and 1.0 m width, while absolute exclusions stay in place."
       ]
     },
     {
