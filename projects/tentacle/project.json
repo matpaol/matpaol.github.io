@@ -122,6 +122,88 @@
       ]
     },
     {
+      "id": "build",
+      "title": "From sketch to working gripper",
+      "body": [
+        "The whole path, from the first sketches to the grasp test. The tentacle, its mold and the casting were my part; the arm, electronics and control were built with the team.",
+        {
+          "type": "steps",
+          "title": "BUILD PROCESS",
+          "items": [
+            {
+              "src": "../../assets/tentacle-sketches.webp",
+              "alt": "Whiteboard sketches of tentacle and gripper concepts and arm layouts",
+              "title": "Concepts",
+              "text": "First whiteboard concepts: pneumatic silicone tentacles versus servo-driven fingers, and candidate arm layouts for different degrees of freedom."
+            },
+            {
+              "src": "../../assets/tentacle-process-selection.webp",
+              "alt": "Manufacturing process selection chart with polymer casting highlighted",
+              "title": "Choosing the process",
+              "text": "Processes screened on shape, elastomer compatibility, part mass (about 0.1 kg) and economic batch size. Polymer casting is the one that fits a soft, low-volume part."
+            },
+            {
+              "src": "../../assets/tentacle-mold-printed.webp",
+              "alt": "The assembled blue 3D-printed casting mold held in a hand",
+              "title": "Printed mold",
+              "text": "The two-part FDM mold, screwed shut, with the core that forms the air channel."
+            },
+            {
+              "video": "../../assets/tentacle-casting.mp4",
+              "poster": "../../assets/tentacle-casting-poster.webp",
+              "alt": "Silicone being poured into the vertical mold",
+              "title": "Casting",
+              "text": "Dragon Skin 20 poured into the closed mold, standing upright on its base."
+            },
+            {
+              "src": "../../assets/tentacle-cast-part.webp",
+              "alt": "A translucent cast silicone tentacle on the bench",
+              "title": "The cast tentacle",
+              "text": "After curing and demolding: a translucent silicone tentacle with its internal chambers."
+            },
+            {
+              "video": "../../assets/tentacle-inflate.mp4",
+              "poster": "../../assets/tentacle-inflate-poster.webp",
+              "alt": "A tentacle on its printed connector curling as it is inflated",
+              "title": "First inflation test",
+              "text": "Mounted on its printed connector, the tentacle curls as air is pumped in."
+            },
+            {
+              "src": "../../assets/tentacle-exploded.webp",
+              "alt": "Exploded view of the four-tentacle gripper hub and of a single tentacle module",
+              "title": "Modular gripper",
+              "text": "Exploded view of the hub and of one tentacle module. Each tentacle sits on its own connector, so it can be swapped or repaired without taking the gripper apart."
+            },
+            {
+              "src": "../../assets/tentacle-control-flow.webp",
+              "alt": "Flowchart of the control logic: move arm, grasp, release",
+              "title": "Control logic",
+              "text": "Read the user input, move the arm within its joint limits, inflate the tentacles to grasp, deflate to release."
+            },
+            {
+              "src": "../../assets/tentacle-driver-circuit.webp",
+              "alt": "MOSFET driver circuit schematic with resistors and flyback diode",
+              "title": "Driving the pneumatics",
+              "text": "The Arduino switches the pump and the valves through MOSFET stages with a flyback diode."
+            },
+            {
+              "src": "../../assets/tentacle-robot-assembled.webp",
+              "alt": "The gripper with four tentacles mounted on the 2-DOF arm",
+              "title": "Integration",
+              "text": "The four-tentacle gripper on the 2-DOF arm, with the pneumatics and electronics on the base."
+            },
+            {
+              "video": "../../assets/tentacle-grasp.mp4",
+              "poster": "../../assets/tentacle-grasp-poster.webp",
+              "alt": "The gripper closing around an apple, lifting it and releasing it",
+              "title": "Grasp test",
+              "text": "The tentacles wrap around an apple, lift it and let it go."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "system",
       "title": "The full robot",
       "body": [
@@ -160,5 +242,5 @@
       "https://www.instructables.com/Tentacle-Robotic-Gripper/"
     ]
   ],
-  "links_note": "Photos and figures are from the team's public build guide."
+  "links_note": "Photos and videos are from the project team; the full build guide is on Instructables."
 }

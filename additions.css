@@ -61,3 +61,4 @@ dialog{position:fixed;inset:0;margin:auto}dialog:not([open]){display:none}html{s
 @media(max-width:900px){.card-wide .card-media{min-height:0;height:auto}}
 .available{align-items:flex-start;line-height:1.5}.available .dot{flex:0 0 8px;margin-top:6px}
 .zoom{display:block;cursor:zoom-in}
+.step-media video{height:100%;width:auto;max-width:100%;max-height:100%;object-fit:contain;display:block;background:#000;border-radius:4px}

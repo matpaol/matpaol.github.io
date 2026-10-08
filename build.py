@@ -110,8 +110,12 @@ def media_html(m, slug):
         n = len(m['items'])
         slides = ''
         for i, it in enumerate(m['items']):
-            fig = (f'<div class="step-media"><img src="{esc(it['src'])}" alt="{esc(it.get('alt', ''))}" loading="lazy" decoding="async"></div>' if it.get('src')
-                   else f'<div class="step-media step-media-empty"><span>{esc(it.get('big', str(i + 1)))}</span></div>')
+            if it.get('video'):
+                fig = f'<div class="step-media"><video src="{esc(it['video'])}" poster="{esc(it['poster'])}" muted loop playsinline autoplay preload="metadata" aria-label="{esc(it.get('alt', ''))}"></video></div>'
+            elif it.get('src'):
+                fig = f'<div class="step-media"><img src="{esc(it['src'])}" alt="{esc(it.get('alt', ''))}" loading="lazy" decoding="async"></div>'
+            else:
+                fig = f'<div class="step-media step-media-empty"><span>{esc(it.get('big', str(i + 1)))}</span></div>'
             slides += f'<li class="process-step" aria-roledescription="slide" aria-label="{i + 1} of {n}">{fig}<div class="step-text"><p class="step-no">STEP {i + 1:02d}</p><h3>{esc(it['title'])}</h3><p>{esc(it['text'])}</p></div></li>'
         return f'<div class="process" data-process aria-roledescription="carousel" aria-label="{esc(m.get('title', 'Process'))}"><div class="process-head"><p class="label">{esc(m.get('title', 'PROCESS'))}</p><div class="process-ctrl"><span class="process-count" aria-live="polite">1 / {n}</span><button type="button" data-step="-1" aria-label="Previous step">←</button><button type="button" data-step="1" aria-label="Next step">→</button></div></div><ol class="process-track" tabindex="0">{slides}</ol></div>'
     if t == 'svg':
