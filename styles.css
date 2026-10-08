@@ -76,3 +76,4 @@ dialog{position:fixed;inset:0;margin:auto}dialog:not([open]){display:none}html{s
 .media-contain{background:#fff}
 @media(max-width:900px){.card-wide .card-media{min-height:0;height:auto}}
 .available{align-items:flex-start;line-height:1.5}.available .dot{flex:0 0 8px;margin-top:6px}
+.zoom{display:block;cursor:zoom-in}

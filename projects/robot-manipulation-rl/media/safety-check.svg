@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-label="Safety check before acting: the chosen object is checked for reachability before the arm moves">
+<style>
+.bg{fill:#f4f4f6}.box{fill:#fff;stroke:#e8e8ea;stroke-width:2}.hl{fill:#fff;stroke:#2457ff;stroke-width:2}.no{fill:#fff;stroke:#e438d0;stroke-width:2;stroke-dasharray:7 6}.t{font:700 22px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:#0a0a0b}.s{font:400 15px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:#747479}.k{font:650 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;fill:#2457ff}.kp{font:650 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;fill:#e438d0}.a{stroke:#2457ff;stroke-width:2.5;fill:none}.ah{fill:#2457ff}.ap{stroke:#e438d0;stroke-width:2.5;fill:none}.aph{fill:#e438d0}
+@media (prefers-color-scheme:dark){.bg{fill:#18181b}.box,.hl,.no{fill:#0a0a0b}.box{stroke:#222225}.t{fill:#f4f4f6}.s{fill:#9e9ea3}.k{fill:#5580ff}.a{stroke:#5580ff}.ah{fill:#5580ff}.hl{stroke:#5580ff}}
+</style>
+<rect class="bg" width="960" height="520" rx="28"/>
+<rect class="box" x="40" y="70" width="190" height="120" rx="18"/><text class="k" x="62" y="104">OBSERVE</text><text class="t" x="62" y="140">Scene</text><text class="s" x="62" y="168">objects · LiDAR points</text>
+<rect class="box" x="280" y="70" width="190" height="120" rx="18"/><text class="k" x="302" y="104">DECIDE</text><text class="t" x="302" y="140">Policy</text><text class="s" x="302" y="168">picks one object</text>
+<rect class="hl" x="520" y="70" width="200" height="120" rx="18"/><text class="k" x="542" y="104">SAFETY CHECK</text><text class="t" x="542" y="140">Reachable?</text><text class="s" x="542" y="168">from sensor data</text>
+<rect class="box" x="770" y="70" width="150" height="120" rx="18"/><text class="k" x="792" y="104">EXECUTE</text><text class="t" x="792" y="140">Act</text><text class="s" x="792" y="168">grasp or push</text>
+<path class="a" d="M230 130 H270"/><path class="ah" d="M270 122 L281 130 L270 138Z"/>
+<path class="a" d="M470 130 H510"/><path class="ah" d="M510 122 L521 130 L510 138Z"/>
+<path class="a" d="M720 130 H760"/><path class="ah" d="M760 122 L771 130 L760 138Z"/>
+<text class="k" x="727" y="116">YES</text>
+<path class="ap" d="M620 190 V300"/><path class="aph" d="M612 300 L620 311 L628 300Z"/>
+<text class="kp" x="632" y="252">NO</text>
+<rect class="no" x="490" y="315" width="280" height="120" rx="18"/><text class="kp" x="512" y="349">REFUSED</text><text class="t" x="512" y="385">The arm doesn't move</text><text class="s" x="512" y="413">penalty · kept in memory</text>
+<path class="ap" d="M490 375 H375 V200"/><path class="aph" d="M367 200 L375 189 L383 200Z"/>
+<text class="s" x="395" y="300">decide again</text>
+<path class="a" d="M845 190 V460 H135 V200"/><path class="ah" d="M127 200 L135 189 L143 200Z"/>
+<text class="s" x="845" y="482" text-anchor="end">outcome observed → reward → next step</text>
+<text class="s" x="40" y="40">An impossible action is rejected before anything touches the scene.</text>
+</svg>

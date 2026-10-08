@@ -97,7 +97,7 @@ work_body = f'''<section class="archive-intro wrap" id="top"><p class="label">WO
 def media_html(m, slug):
     t = m['type']
     if t == 'image':
-        return f'''<figure class="{esc(m.get('class', ''))}"><img src="{esc(m['src'])}" width="{int(m['width'])}" height="{int(m['height'])}" loading="lazy" decoding="async" alt="{esc(m['alt'])}"><figcaption>{esc(m.get('caption', ''))}</figcaption></figure>'''
+        return f'''<figure class="{esc(m.get('class', ''))}"><a class="zoom" href="{esc(m['src'])}" target="_blank" rel="noopener" aria-label="Open full-size image"><img src="{esc(m['src'])}" width="{int(m['width'])}" height="{int(m['height'])}" loading="lazy" decoding="async" alt="{esc(m['alt'])}"></a><figcaption>{esc(m.get('caption', ''))}</figcaption></figure>'''
     if t == 'gallery':
         return '<div class="figure-row">' + ''.join(media_html(dict(i, type='image'), slug) for i in m['items']) + '</div>'
     if t == 'youtube':

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="Teacher-student training: a teacher trained with privileged simulator state supervises a student that only sees sensor observations">
+<style>
+.bg{fill:#f4f4f6}.box{fill:#fff;stroke:#e8e8ea;stroke-width:2}.hl{fill:#fff;stroke:#2457ff;stroke-width:2}.no{fill:#fff;stroke:#e438d0;stroke-width:2;stroke-dasharray:7 6}.t{font:700 19px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:#0a0a0b}.s{font:400 15px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:#747479}.k{font:650 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;fill:#2457ff}.kp{font:650 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;fill:#e438d0}.a{stroke:#2457ff;stroke-width:2.5;fill:none}.ah{fill:#2457ff}.ap{stroke:#e438d0;stroke-width:2.5;fill:none}.aph{fill:#e438d0}
+@media (prefers-color-scheme:dark){.bg{fill:#18181b}.box,.hl,.no{fill:#0a0a0b}.box{stroke:#222225}.t{fill:#f4f4f6}.s{fill:#9e9ea3}.k{fill:#5580ff}.a{stroke:#5580ff}.ah{fill:#5580ff}.hl{stroke:#5580ff}}
+</style>
+<rect class="bg" width="960" height="470" rx="28"/>
+<text class="k" x="40" y="48">1 · TEACHER — sees the true simulator state</text>
+<rect class="box" x="40" y="66" width="200" height="110" rx="18"/><text class="t" x="62" y="108">Privileged state</text><text class="s" x="62" y="136">exact poses, contacts,</text><text class="s" x="62" y="156">who supports whom</text>
+<rect class="box" x="280" y="66" width="190" height="110" rx="18"/><text class="t" x="302" y="108">PPO training</text><text class="s" x="302" y="136">task reward</text><text class="s" x="302" y="156">with safety terms</text>
+<rect class="hl" x="510" y="66" width="200" height="110" rx="18"/><text class="t" x="532" y="108">Quality gate</text><text class="s" x="532" y="136">must beat rule-based</text><text class="s" x="532" y="156">baselines on test scenes</text>
+<rect class="box" x="750" y="66" width="170" height="110" rx="18"/><text class="t" x="772" y="108">Frozen teacher</text><text class="s" x="772" y="136">labels the student's</text><text class="s" x="772" y="156">decisions</text>
+<path class="a" d="M240 121 H270"/><path class="ah" d="M270 113 L281 121 L270 129Z"/>
+<path class="a" d="M470 121 H500"/><path class="ah" d="M500 113 L511 121 L500 129Z"/>
+<path class="a" d="M710 121 H740"/><path class="ah" d="M740 113 L751 121 L740 129Z"/>
+<path class="a" d="M835 176 V214 H420 V248"/><path class="ah" d="M412 248 L420 259 L428 248Z"/>
+<text class="k" x="40" y="242">2 · STUDENT — sees only what sensors see</text>
+<rect class="box" x="40" y="260" width="200" height="110" rx="18"/><text class="t" x="62" y="302">Observation</text><text class="s" x="62" y="330">estimated objects,</text><text class="s" x="62" y="350">LiDAR, past attempts</text>
+<rect class="box" x="280" y="260" width="190" height="110" rx="18"/><text class="t" x="302" y="302">Imitation</text><text class="s" x="302" y="330">learns the teacher's</text><text class="s" x="302" y="350">choices (BC + DAgger)</text>
+<rect class="box" x="510" y="260" width="200" height="110" rx="18"/><text class="t" x="532" y="302">PPO fine-tuning</text><text class="s" x="532" y="330">improves on its own</text><text class="s" x="532" y="350">with the task reward</text>
+<rect class="hl" x="750" y="260" width="170" height="110" rx="18"/><text class="t" x="772" y="302">Deployable</text><text class="s" x="772" y="330">benchmark, then</text><text class="s" x="772" y="350">the real UR5</text>
+<path class="a" d="M240 315 H270"/><path class="ah" d="M270 307 L281 315 L270 323Z"/>
+<path class="a" d="M470 315 H500"/><path class="ah" d="M500 307 L511 315 L500 323Z"/>
+<path class="a" d="M710 315 H740"/><path class="ah" d="M740 307 L751 315 L740 323Z"/>
+<text class="s" x="40" y="420">The privileged state exists only in simulation; the student is the policy that can run on the real robot.</text>
+</svg>

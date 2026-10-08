@@ -81,6 +81,36 @@
       ]
     },
     {
+      "id": "safety",
+      "title": "Safety before every action",
+      "body": [
+        "Before the arm moves, the chosen object is checked against what the sensors can see: can the gripper actually reach it, from at least one side, without hitting anything else? If not, the action is refused — the arm doesn't move, the refusal costs a small penalty and is remembered, and the policy decides again.",
+        {
+          "type": "image",
+          "src": "media/safety-check.svg",
+          "width": 960,
+          "height": 520,
+          "alt": "Flow: observe, decide, safety check; if reachable the arm acts, otherwise the action is refused and the policy decides again",
+          "caption": "An impossible action is rejected before anything touches the scene."
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "title": "How the policy is trained",
+      "body": [
+        "In simulation a teacher can see everything — exact poses, contacts, which object supports which. It is trained first, and only if it beats rule-based baselines on held-out scenes does it supervise the student. The student sees only sensor observations: it imitates the teacher, then keeps improving with reinforcement learning. The student is the policy meant for the real robot.",
+        {
+          "type": "image",
+          "src": "media/teacher-student.svg",
+          "width": 960,
+          "height": 470,
+          "alt": "Two rows: teacher trained on privileged state with PPO and a quality gate; student trained by imitation and PPO fine-tuning on sensor observations",
+          "caption": "Teacher–student training: privileged information is used only to teach, never at deployment."
+        }
+      ]
+    },
+    {
       "id": "real-robot",
       "title": "Toward the real robot",
       "body": [
