@@ -1,6 +1,6 @@
 {
   "slug": "watch",
-  "order": 4,
+  "order": 3,
   "tier": "featured",
   "color": "yellow",
   "category": "Manufacturing",
@@ -89,7 +89,7 @@
       "id": "process",
       "title": "Process route",
       "body": [
-        "Seven steps from raw sheet to finished case. Use the arrows to go through them.",
+        "From raw sheet to finished case, step by step. Use the arrows to go through it.",
         {
           "type": "steps",
           "title": "PROCESS",
@@ -98,36 +98,49 @@
               "src": "../../assets/watch-proc-nesting.webp",
               "alt": "Drawing of the 1500 by 1000 mm panel with the grid of 608 blanks and the locating-hole detail",
               "title": "Sheet to panels",
-              "text": "A 3000 × 1500 × 10 mm Al 7005-T6 sheet is laser-cut (AMADA REGIUS fibre laser) into three 1500 × 1000 mm panels. Each panel holds 608 blanks; Ø6 H7 holes locate it on the machine."
+              "text": "A 3000 × 1500 × 10 mm Al 7005-T6 sheet is laser-cut (AMADA REGIUS fibre laser) into three 1500 × 1000 mm panels of 608 blanks each; Ø6 H7 holes locate each panel on the machine."
             },
             {
-              "src": "../../assets/watch-proc-cavity.webp",
-              "alt": "CAD of the internal cavity milled into the blank, with dimensions",
-              "title": "Cavities milled on the panel",
-              "text": "After facing, the internal cavity of every blank is milled from both sides while the blanks are still joined — the panel itself holds them."
+              "src": "../../assets/watch-m-roughing.webp",
+              "alt": "CAD of the underside roughing pass on a blank",
+              "title": "Roughing the underside",
+              "text": "With the panel faced, the underside of every blank is roughed out while the blanks are still joined — the panel itself is the fixture."
             },
             {
-              "src": "../../assets/watch-step-blank.webp",
-              "alt": "Single blank after cavity milling",
-              "title": "Blank separation",
-              "text": "The 608 blanks are cut out of the panel, each one already carrying its internal geometry."
+              "src": "../../assets/watch-m-internal.webp",
+              "alt": "CAD of the internal cavity milled into the blank",
+              "title": "Internal cavity",
+              "text": "The internal cavity is milled from the other side, leaving the case ring and the seats for the display and internal parts."
             },
             {
-              "src": "../../assets/watch-proc-mic-hole.webp",
-              "alt": "Drawing of the microphone hole with detail views",
-              "title": "Small features",
-              "text": "Microphone hole, button and crown seats: features small enough to need 1 mm tools, which is why the DATRON MLCube's 60,000 rpm spindle was chosen."
+              "src": "../../assets/watch-m-vise.webp",
+              "alt": "CAD of a separated blank clamped in a custom vise",
+              "title": "Separation and fixturing",
+              "text": "The blanks are cut out of the panel and each one is clamped in a custom vise designed for the case, so the external surfaces can be reached."
             },
             {
-              "src": "../../assets/watch-proc-external.webp",
-              "alt": "CAD and drawing of the external wall machining",
-              "title": "External surfaces",
-              "text": "External walls and strap attachments are machined on the single part, holding ±0.01 mm on the critical outer dimensions."
+              "src": "../../assets/watch-m-contour.webp",
+              "alt": "CAD of the external contour machining on the blank",
+              "title": "External contour",
+              "text": "The external profile is machined on the single part, holding ±0.01 mm on the critical outer dimensions."
             },
             {
-              "big": "Ra 0.4",
-              "title": "Finishing",
-              "text": "Vibratory tumbling with low-aggressiveness plastic cones brings the surface from Ra 0.8 to the Ra 0.4 µm target without rounding the edges (30-minute cycle)."
+              "src": "../../assets/watch-m-strap.webp",
+              "alt": "CAD of the strap attachment slots",
+              "title": "Strap slots and side grooves",
+              "text": "Strap attachment slots and side grooves need small tools — one reason for the DATRON MLCube and its 60,000 rpm spindle."
+            },
+            {
+              "src": "../../assets/watch-m-pockets.webp",
+              "alt": "CAD of the crown and button pockets on the side of the case",
+              "title": "Crown, button and microphone features",
+              "text": "Digital Crown bore (Ø3 H7, Ø0.05 concentricity), side button pocket and microphone holes are machined last."
+            },
+            {
+              "src": "../../assets/watch-m-finished.webp",
+              "alt": "CAD of the finished case",
+              "title": "Finished case",
+              "text": "Vibratory tumbling with low-aggressiveness plastic cones takes the surface from Ra 0.8 to the Ra 0.4 µm target without rounding the edges (30-minute cycle)."
             },
             {
               "src": "../../assets/watch-schedule.png",

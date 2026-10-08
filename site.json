@@ -20,7 +20,7 @@
     "scope": "M.Sc. Mechatronics student (UNIVPM · ULB/VUB Brussels) · Physical-AI research intern at the Royal Military Academy.",
     "availability": "Brussels · Available from February 2027 · Willing to relocate"
   },
-  "work_lead": "Six case studies across robot learning, robotic hardware, manufacturing and data — each with the decisions I made and the numbers behind them.",
+  "work_lead": "Seven case studies across robot learning, robotic hardware, product design, manufacturing and data — each with the decisions I made and the numbers behind them.",
   "about": [
     "I'm a mechanical engineer finishing an M.Sc. in Mechatronics at UNIVPM, with a year of coursework at ULB and VUB in Brussels. I like problems where the hardware, the physics and the software have to be designed together.",
     "Right now I'm building a reinforcement-learning pipeline in MuJoCo that decides how a robot arm should clear a cluttered pile, as a research intern at the Royal Military Academy. Next step: a simulated UR5, then transfer to the real robot."

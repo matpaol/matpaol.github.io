@@ -1,13 +1,136 @@
 {
   "slug": "vacuuum",
-  "order": 11,
-  "tier": "archive",
-  "page": false,
-  "color": "blue",
-  "category": "Mechanical design",
+  "order": 4,
+  "tier": "featured",
+  "page": true,
+  "color": "green",
+  "category": "Product design",
   "year": "2025",
-  "title": "vacUUUm cordless vacuum",
-  "summary": "Two-person product design in Siemens NX: market and requirements analysis, six subsystems, full assembly, exploded views and drawings.",
-  "role": "",
-  "links": []
+  "title": "vacUUUm: cordless vacuum, concept to drawings",
+  "summary": "A complete product-development cycle in Siemens NX: from user needs and requirements to subsystem design, exploded assemblies, production drawings and an ergonomic check in Tecnomatix.",
+  "role": "Academic project · Siemens NX & Tecnomatix",
+  "cover": {
+    "src": "assets/vac-colours.webp",
+    "alt": "Five colour variants of the vacUUUm cordless vacuum",
+    "fit": "contain"
+  },
+  "hero_media": {
+    "src": "assets/vac-exploded.webp",
+    "alt": "Exploded view of the vacuum's main subsystems",
+    "fit": "contain",
+    "caption": "Exploded view of the main subsystems."
+  },
+  "metrics": [
+    [
+      "11",
+      "technical requirements"
+    ],
+    [
+      "7",
+      "functional subsystems"
+    ],
+    [
+      "2.4–3 kg",
+      "target weight"
+    ]
+  ],
+  "tools": [
+    "Siemens NX",
+    "Tecnomatix (ergonomics)",
+    "QFD / requirements",
+    "Functional decomposition",
+    "Technical drawings",
+    "DFM"
+  ],
+  "tldr": [
+    "Turned user research into 11 measurable technical requirements, then into a modular architecture of seven subsystems.",
+    "Modelled every subsystem in Siemens NX — motor and impeller, cyclonic + HEPA filtration, 1 L bin, removable battery, charging base — with exploded views and drawings.",
+    "Checked the posture of right- and left-handed users in Tecnomatix before freezing the design."
+  ],
+  "facts": [
+    [
+      "Type",
+      "Academic project"
+    ],
+    [
+      "Context",
+      "Virtual Prototyping, UNIVPM"
+    ],
+    [
+      "Period",
+      "2025"
+    ],
+    [
+      "Tools",
+      "Siemens NX, Tecnomatix"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "process",
+      "title": "The process",
+      "body": [
+        "The course follows a full product-development cycle on one product. Use the arrows to go through it.",
+        {
+          "type": "steps",
+          "title": "PROCESS",
+          "items": [
+            {
+              "big": "11",
+              "title": "From user needs to requirements",
+              "text": "Market and user-review analysis gave 13 user needs, translated into 11 technical requirements: 2.4–3 kg, 60 min autonomy, about 200 AW suction, under 80 dB, a 1 L bin, cyclonic separation with a HEPA filter, recharge under 240 min and maximum footprints for the vacuum and its base."
+            },
+            {
+              "src": "../../assets/vac-sketches.webp",
+              "alt": "Hand sketches of concept solutions for the vacuum's subsystems",
+              "title": "Functions and concepts",
+              "text": "A black-box and modular breakdown split the product into subsystems; each one got several sketched concepts before choosing."
+            },
+            {
+              "src": "../../assets/vac-concept-3d.webp",
+              "alt": "Concept evolving into the first 3D models",
+              "title": "From concept to 3D",
+              "text": "The chosen layout became a first 3D model in Siemens NX, then the full product."
+            },
+            {
+              "src": "../../assets/vac-impeller.webp",
+              "alt": "CAD of the motor housing and impeller",
+              "title": "Subsystem design",
+              "text": "Each subsystem is traced back to the requirements it serves. The propulsion unit (ABS housing, steel impeller, 310 g) drives suction power and noise; the battery pack (340 g) is removable."
+            },
+            {
+              "src": "../../assets/vac-exploded.webp",
+              "alt": "Exploded view of the vacuum's main subsystems",
+              "title": "Exploded assemblies",
+              "text": "Exploded views of the main subsystems check assembly order and part count — designed without undercuts and with injection-mouldable wall thicknesses."
+            },
+            {
+              "src": "../../assets/vac-drawing.webp",
+              "alt": "Technical drawing of the impeller",
+              "title": "Production drawings",
+              "text": "Dimensioned drawings for every major component, generated in NX."
+            },
+            {
+              "src": "../../assets/vac-base.webp",
+              "alt": "The vacuum standing in its charging base",
+              "title": "Charging base",
+              "text": "A vertical charging base stores the vacuum and accessories in a small footprint."
+            },
+            {
+              "src": "../../assets/vac-colours.webp",
+              "alt": "Five colour variants of the vacuum",
+              "title": "Final design",
+              "text": "The final assembly, with interchangeable coloured shells as an attractiveness requirement."
+            },
+            {
+              "src": "../../assets/vac-ergonomics.webp",
+              "alt": "Digital human models using the vacuum in Tecnomatix",
+              "title": "Ergonomic check",
+              "text": "Digital human models in Tecnomatix scored the posture of right-handed and left-handed users, and of a bent posture, with RULA tables."
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
