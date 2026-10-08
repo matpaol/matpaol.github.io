@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://matpaol.github.io/sitemap.xml

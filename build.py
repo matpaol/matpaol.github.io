@@ -83,7 +83,13 @@ home_body = f'''<section id="top" class="hero wrap"><div><h1 class="reveal d1">{
 <section id="work" class="wrap section"><header class="head"><p class="label">HIGHLIGHTS</p><a class="text-link" href="work.html">All projects →</a></header><div class="project-grid">{''.join(card(p, wide=(i == 0 or (i == len(featured) - 1 and len(featured) % 2 == 0))) for i, p in enumerate(featured))}</div></section>
 <section id="about" class="wrap section"><p class="label">ABOUT</p><p class="statement">An engineer interested in the space between an <span class="blue">idea</span>, a <span class="pink">simulation</span> and a working <span class="yellow">machine</span>.</p><div class="about-grid">{''.join('<p>' + esc(t) + '</p>' for t in SITE['about'])}</div><dl class="about-facts">{''.join(f'<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>' for k, v in SITE['facts'])}</dl><div class="expertise" aria-label="Toolkit">{''.join(f'<span>{esc(t)}</span>' for t in SITE['toolkit'])}</div></section>'''
 nerd_dialog = '''<dialog id="nerd-dialog" class="nerd-dialog" aria-labelledby="nerd-title"><button class="dialog-close" type="button" data-close aria-label="Close nerd mode">×</button><div class="nerd-orbit" aria-hidden="true"><span>🤓</span><i></i><i></i><i></i><i></i></div><p class="label">YOU FOUND THE EASTER EGG</p><h2 id="nerd-title">Nerd mode unlocked.</h2><p>Cool ideas don’t build themselves.</p><p class="nerd-log">Curiosity: 100%<br>Prototypes: always in progress<br>Unexpected bugs: part of the process</p><button class="button" type="button" data-close>Back to tinkering</button></dialog>'''
-(ROOT / 'index.html').write_text(page(SITE['title'], SITE['description'], home_body).replace('</body>', nerd_dialog + '</body>'))
+person = {'@context': 'https://schema.org', '@type': 'Person', 'name': 'Matteo Paolini', 'url': BASE_URL + '/',
+          'jobTitle': 'Mechanical engineer', 'email': 'mailto:' + SITE['email'],
+          'alumniOf': {'@type': 'CollegeOrUniversity', 'name': 'Università Politecnica delle Marche'},
+          'knowsAbout': ['Physical AI', 'Reinforcement learning', 'Sim-to-real', 'Robotics', 'Mechanical design'],
+          'sameAs': [u for _, u in SITE['profiles']]}
+ld = '<script type="application/ld+json">' + json.dumps(person, ensure_ascii=False) + '</script>'
+(ROOT / 'index.html').write_text(page(SITE['title'], SITE['description'], home_body).replace('</head>', ld + '</head>', 1).replace('</body>', nerd_dialog + '</body>'))
 
 # ---------- Work ----------
 cats = list(dict.fromkeys(p['category'] for p in featured))
@@ -178,3 +184,9 @@ nf_body = '''<section class="archive-intro wrap" id="top" style="padding-bottom:
 nf = page('Page not found — Matteo Paolini', 'Page not found.', nf_body, '/', None, '404.html')
 nf = nf.replace('href="/index.html', 'href="/').replace('<meta property="og', '<meta name="robots" content="noindex"><meta property="og', 1)
 (ROOT / '404.html').write_text(nf)
+
+# ---------- Sitemap and robots ----------
+urls = [BASE_URL + '/', BASE_URL + '/work.html'] + [f"{BASE_URL}/projects/{p['slug']}/" for p in paged]
+(ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                 + ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n')
+(ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n')
