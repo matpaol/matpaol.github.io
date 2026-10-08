@@ -155,7 +155,7 @@ for p in paged:
 # Old URLs of projects that no longer have a page redirect to the archive list.
 for p in data:
     if not p.get('page', True):
-        target = '../../work.html#archive'
+        target = p.get('redirect', '../../work.html#archive')
         (ROOT / 'projects' / p['slug'] / 'index.html').write_text(
             f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={target}"><link rel="canonical" href="{BASE_URL}/work.html"><title>{esc(p["title"])} — Matteo Paolini</title></head><body><p><a href="{target}">{esc(p["title"])} is listed under More projects.</a></p></body></html>\n')
 

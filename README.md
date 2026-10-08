@@ -26,9 +26,9 @@ python3 -m http.server    # preview at http://localhost:8000
 - `sections`: each has `id`, `title` and `body`. A body item is a paragraph string, `{"list": [...]}`, `{"note": "..."}`, `{"log": [[date, text], ...]}` or a media block (`image`, `gallery`, `video`, `youtube`, `map`, `svg`).
 - `links` (`[label, url]`) and an optional `links_note`.
 
-## Updating the DREAM page
+## Updating the research page
 
-Add a line at the top of the `Research log` section in `projects/dream/project.json`, update `Status` in `facts`, then rebuild. Check with the RMA supervisor before publishing new figures or results.
+Add a line at the top of the `Research log` section in `projects/robot-manipulation-rl/project.json`, update `Status` in `facts`, then rebuild. Check with the RMA supervisor before publishing new figures or results.
 
 ## Rollback
 

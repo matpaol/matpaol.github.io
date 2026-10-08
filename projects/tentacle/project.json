@@ -8,45 +8,148 @@
   "title": "Soft tentacle gripper",
   "summary": "Four pneumatic silicone tentacles that wrap around fragile, irregular produce — designed in hyperelastic FEA, cast in 3D-printed molds and built into a working 2-DOF robot.",
   "role": "Team of 5 · FEA, mold design & casting",
-  "cover": {"src": "assets/tentacle-prototype.webp", "alt": "The assembled tentacle gripper prototype on a lab bench"},
-  "metrics": [["0.5 bar", "service pressure"], ["4", "cast silicone tentacles"], ["200 g", "payload requirement"]],
-  "tools": ["ANSYS Workbench", "Ogden hyperelastic model", "Siemens NX", "FDM 3D printing", "Silicone casting"],
+  "cover": {
+    "src": "assets/tentacle-prototype.webp",
+    "alt": "The assembled tentacle gripper prototype on a lab bench"
+  },
+  "metrics": [
+    [
+      "4",
+      "cast silicone tentacles"
+    ],
+    [
+      "200 g",
+      "payload requirement"
+    ],
+    [
+      "2-part",
+      "reusable casting mold"
+    ]
+  ],
+  "tools": [
+    "ANSYS Workbench",
+    "Ogden hyperelastic model",
+    "Siemens NX",
+    "FDM 3D printing",
+    "Silicone casting"
+  ],
   "tldr": [
     "I owned the tentacle: chamber geometry in FEA, the casting mold and the 3D-printed tooling.",
     "Silicone modelled as a 2nd-order Ogden hyperelastic material; geometry chosen in simulation before printing any tooling.",
     "The team integrated it on a 2-DOF arm with belt reductions, an Arduino-controlled pneumatic circuit and a public build guide."
   ],
-  "facts": [["My role", "Tentacle FEA, casting mold design, 3D-printed tooling"], ["Team", "Ayoub Hamam, Julian Meskens, Matteo Paolini, Ariadne Samaey, Henri Wauthier"], ["Context", "Mechatronics project, VUB / ULB Brussels — supervised by Prof. Bram Vanderborght"], ["Period", "Autumn 2025"]],
-  "sections": [
-    {"id": "problem", "title": "The problem", "body": [
-      "Fruit sorting is still largely manual because produce is delicate and every piece has a different shape. Rigid grippers either damage it or need a custom tool per product. The brief: a low-cost soft gripper that can pick up a small fruit (200 g) safely, on a simple robot arm."
-    ]},
-    {"id": "fea", "title": "Designing the tentacle in simulation", "body": [
-      "Each tentacle is a silicone finger with internal air chambers. When pressurised, the thin side stretches more than the thick side and the finger curls around the object. Getting enough curvature at a low, safe pressure is all about the chamber geometry — so I worked it out in FEA before printing anything.",
-      {"list": [
-        "Material: Dragon Skin 20 silicone, modelled in ANSYS Workbench as a second-order Ogden hyperelastic material (incompressible, 1070 kg/m³).",
-        "Boundary conditions: tentacle base fixed, internal pressure applied in steps on the chamber walls around the 0.5 bar service pressure.",
-        "Design comparison: equal chambers versus a graded layout (one larger chamber followed by a smaller one), compared on the resulting bending."
-      ]},
-      {"type": "gallery", "items": [
-        {"src": "../../assets/tentacle-fea-equal.webp", "width": 566, "height": 477, "alt": "FEA deformation of a tentacle with two equal air chambers", "caption": "Two equal chambers: deformation under internal pressure."},
-        {"src": "../../assets/tentacle-fea-graded.webp", "width": 627, "height": 448, "alt": "FEA deformation of a tentacle with a large chamber followed by a smaller one", "caption": "Graded chambers (larger, then smaller): the alternative layout compared in simulation."}
-      ]}
-    ]},
-    {"id": "mold", "title": "From model to cast part", "body": [
-      "Silicone parts are only as good as their mold. I designed a two-part PLA mold with a removable core that forms the air channel. The halves are screwed together so they can be opened without tearing the part and reused for every tentacle; compressed air breaks the seal between silicone and core during demoulding.",
-      {"type": "image", "src": "../../assets/tentacle-mold-drawing.webp", "width": 635, "height": 400, "alt": "Technical drawing of the 3D-printed casting mold with its core", "caption": "Technical drawing of the casting mold and core."}
-    ]},
-    {"id": "system", "title": "The full robot", "body": [
-      "The team integrated four tentacles on a gripper hub mounted on a 2-DOF arm. A torque analysis showed the shoulder needed 2.40 N·m — more than the MG996R servos can deliver directly — so the arm uses belt reductions of 4 and 1.5. An Arduino switches the pump and valves through MOSFETs.",
-      {"type": "youtube", "id": "5TBewZ9wyTY", "title": "Watch the prototype grasp and lift objects"},
-      {"type": "image", "src": "../../assets/tentacle-assembled.webp", "width": 666, "height": 428, "alt": "The assembled robot photographed next to its CAD model", "caption": "The assembled prototype, built to match the CAD layout."}
-    ]},
-    {"id": "results", "title": "Results and what I'd do next", "body": [
-      "The prototype grasps and lifts the target objects by bending the four tentacles at service pressure, which validated the proof of concept and the FEA-first approach to the chamber geometry.",
-      "The team's critical review found the shoulder not stiff enough, the custom timing belts unreliable, and no active pump regulation. On my side, the next step would be to measure tentacle bending against pressure on a test rig and fit the Ogden parameters to it, so the model predicts the real part instead of a literature material."
-    ]}
+  "facts": [
+    [
+      "My role",
+      "Tentacle FEA, casting mold design, 3D-printed tooling"
+    ],
+    [
+      "Team",
+      "Ayoub Hamam, Julian Meskens, Matteo Paolini, Ariadne Samaey, Henri Wauthier"
+    ],
+    [
+      "Context",
+      "Mechatronics project, VUB / ULB Brussels — supervised by Prof. Bram Vanderborght"
+    ],
+    [
+      "Period",
+      "Autumn 2025"
+    ]
   ],
-  "links": [["Prototype video", "https://www.youtube.com/watch?v=5TBewZ9wyTY"], ["Full build guide (Instructables)", "https://www.instructables.com/Tentacle-Robotic-Gripper/"]],
+  "sections": [
+    {
+      "id": "problem",
+      "title": "The problem",
+      "body": [
+        "Fruit sorting is still largely manual because produce is delicate and every piece has a different shape. Rigid grippers either damage it or need a custom tool per product. The brief: a low-cost soft gripper that can pick up a small fruit (200 g) safely, on a simple robot arm."
+      ]
+    },
+    {
+      "id": "fea",
+      "title": "Designing the tentacle in simulation",
+      "body": [
+        "Each tentacle is a silicone finger with internal air chambers. When pressurised, the thin side stretches more than the thick side and the finger curls around the object. Getting enough curvature at a low, safe pressure depends on the chamber geometry — so I worked it out in FEA before printing anything.",
+        {
+          "list": [
+            "Material: Dragon Skin 20 silicone, modelled in ANSYS Workbench as a second-order Ogden hyperelastic material (incompressible, 1070 kg/m³).",
+            "Boundary conditions: tentacle base fixed, internal pressure applied in steps on the chamber walls.",
+            "Design comparison: equal chambers versus a graded layout (one larger chamber followed by a smaller one), compared on the resulting bending."
+          ]
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "../../assets/tentacle-fea-equal.webp",
+              "width": 566,
+              "height": 477,
+              "alt": "FEA deformation of a tentacle with two equal air chambers",
+              "caption": "Two equal chambers: deformation under internal pressure."
+            },
+            {
+              "src": "../../assets/tentacle-fea-graded.webp",
+              "width": 627,
+              "height": 448,
+              "alt": "FEA deformation of a tentacle with a large chamber followed by a smaller one",
+              "caption": "Graded chambers (larger, then smaller): the alternative layout compared in simulation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mold",
+      "title": "From model to cast part",
+      "body": [
+        "Silicone parts are only as good as their mold. I designed a two-part PLA mold with a removable core that forms the air channel. The halves are screwed together so they can be opened without tearing the part and reused for every tentacle; compressed air breaks the seal between silicone and core during demoulding.",
+        {
+          "type": "image",
+          "src": "../../assets/tentacle-mold-drawing.webp",
+          "width": 635,
+          "height": 400,
+          "alt": "Technical drawing of the 3D-printed casting mold with its core",
+          "caption": "Technical drawing of the casting mold and core."
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "title": "The full robot",
+      "body": [
+        "The team integrated four tentacles on a gripper hub mounted on a 2-DOF arm. A torque analysis showed the shoulder needed 2.40 N·m — more than the MG996R servos can deliver directly — so the arm uses belt reductions of 4 and 1.5. An Arduino switches the pump and valves through MOSFETs.",
+        {
+          "type": "youtube",
+          "id": "5TBewZ9wyTY",
+          "title": "Watch the prototype grasp and lift objects"
+        },
+        {
+          "type": "image",
+          "src": "../../assets/tentacle-assembled.webp",
+          "width": 666,
+          "height": 428,
+          "alt": "The assembled robot photographed next to its CAD model",
+          "caption": "The assembled prototype, built to match the CAD layout."
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results and what I'd do next",
+      "body": [
+        "The prototype grasps and lifts the target objects by bending the four tentacles at service pressure, which validated the proof of concept and the FEA-first approach to the chamber geometry.",
+        "The team's critical review found the shoulder not stiff enough, the custom timing belts unreliable, and no active pump regulation. On my side, the next step would be to measure tentacle bending against pressure on a test rig and fit the Ogden parameters to it, so the model predicts the real part instead of a literature material."
+      ]
+    }
+  ],
+  "links": [
+    [
+      "Prototype video",
+      "https://www.youtube.com/watch?v=5TBewZ9wyTY"
+    ],
+    [
+      "Full build guide (Instructables)",
+      "https://www.instructables.com/Tentacle-Robotic-Gripper/"
+    ]
+  ],
   "links_note": "Photos and figures are from the team's public build guide."
 }
