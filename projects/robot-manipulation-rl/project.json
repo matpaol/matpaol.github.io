@@ -21,16 +21,16 @@
   },
   "metrics": [
     [
-      "24 / 25",
-      "best rule-based baseline (6 objects)"
+      "×2.6",
+      "training throughput after profiling"
     ],
     [
-      "16",
-      "parallel MuJoCo workers"
+      "7,150",
+      "pre-settled scenes, bit-exact replay"
     ],
     [
-      "3",
-      "simulated sensor types"
+      "15",
+      "benchmark runs in progress"
     ]
   ],
   "tools": [
@@ -43,7 +43,7 @@
   ],
   "tldr": [
     "Built so far: procedural scene generation, physics diagnostics, simulated sensors with a trained segmentation detector, and a PPO training pipeline with a teacher–student design.",
-    "Measured so far: simple rule-based baselines; the learned policies have not been evaluated yet.",
+    "Measured so far: rule-based baselines and the training infrastructure; the first full benchmark of the learned policies started on 8 October.",
     "Planned: full training and ablation runs, then a simulated UR5 and transfer to the physical robot."
   ],
   "facts": [
@@ -108,10 +108,10 @@
       "body": [
         {
           "list": [
-            "A persistent bank of pre-settled scenes with an 80/20 train/evaluation split, so training doesn't spend its time waiting for piles to settle.",
-            "16 asynchronous MuJoCo workers, with a guard that refuses to start if any worker loaded a different configuration.",
-            "Resumable training: a checkpoint restores weights, optimizer state, schedules and random-generator states, verified with checksums.",
-            "An ablation benchmark, ready to run, that compares the learned decision-makers against rule-based baselines on the same scenes."
+            "A persistent bank of 7,150 pre-settled piles that stores the full solver state. Replaying 300 of them reproduces every pile and every one of 771 removals bit-for-bit; the in-memory cache used before diverged in 726 of 769 removals because it dropped the solver's warm start.",
+            "Profiling-driven speed-up: scene bank plus an asynchronous collector with 16 MuJoCo workers took training from 3.7 to 9.9 steps/s (×2.6) on a 20-core workstation; the profile shows the reachability check is now the main cost.",
+            "Resumable training: a checkpoint restores weights, optimizer state, schedules and random-generator states, verified with checksums; a guard stops a run if any worker loaded a different configuration.",
+            "An ablation benchmark that compares the learned decision-makers against rule-based baselines on the same held-out scenes."
           ]
         }
       ]
@@ -121,7 +121,7 @@
       "title": "Results so far",
       "body": [
         "Measured so far are only simple rule-based baselines. On 25 episodes with 6 objects, always removing the top object succeeded 24/25 times, a random choice 21/25, and going straight for the target 18/25 — the order of removal matters.",
-        "The learned policies have not been evaluated yet. I'll publish the ablation results here once the first full round with three seeds is complete."
+        "The first full benchmark started on 8 October: 15 training runs (3 seeds × 2 teacher variants + 3 student variants), each evaluated on 100 held-out test scenes against random and ‘remove the highest object’ baselines. A teacher has to beat both baselines before its students are trained. Results here when it finishes."
       ]
     },
     {
@@ -146,7 +146,11 @@
           "log": [
             [
               "Oct 2026",
-              "Official training setup ready: scene bank, 16 parallel workers, resumable runs — next is the first round of ablation training."
+              "First full benchmark running: 15 runs over 3 seeds on a 20-core workstation, tested on 100 held-out scenes."
+            ],
+            [
+              "Oct 2026",
+              "Scene bank with full solver state (bit-exact replay), asynchronous collector, resumable runs: training ×2.6 faster."
             ],
             [
               "Oct 2026",
