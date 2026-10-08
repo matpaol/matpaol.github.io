@@ -1,26 +1,27 @@
 {
   "slug": "dream",
   "tags": [
+    "physicalai",
+    "reinforcementlearning",
+    "hierarchicalrl",
+    "sim2real",
     "robotics",
     "mujoco",
-    "simulation",
-    "python",
-    "physicalai",
-    "research"
+    "python"
   ],
-  "title": "DREAM \u2014 Robotics research",
+  "title": "DREAM — Robotics research",
   "category": "Robotics",
   "year": "2026",
-  "summary": "Building a reproducible physics testbed for manipulation and reasoning in cluttered scenes at RMA.",
+  "summary": "Physical AI for robotic manipulation: reinforcement learning, hierarchical policies and sim-to-real research.",
   "context": "Research internship",
-  "status": "In progress",
+  "status": "Work in progress",
   "team": "RMA research environment",
   "color": "blue",
   "featured": true,
   "links": [],
   "overview": [
-    "My research internship at the Royal Military Academy in Brussels is part of DREAM. The work explores manipulation in cluttered scenes and how physical interactions can inform action selection.",
-    "The uploaded archive contains successive designs and prototypes. The concrete MuJoCo implementation documented here builds and measures reproducible piles of objects; the wider research direction includes reasoning, robot execution and eventual physical validation."
+    "Research internship at the Royal Military Academy in Brussels, within the DREAM project. I work on Physical AI for robotic manipulation, with a focus on reinforcement learning, hierarchical reinforcement learning and sim-to-real transfer.",
+    "The research explores how robots can reason about physical interactions and select actions in cluttered scenes. Physics simulation and counterfactual experiments provide a testbed for learning and evaluating manipulation strategies."
   ],
   "constraints": [
     "An object may support or obstruct another. Geometric contact is not sufficient evidence of a causal dependency: removal experiments are needed.",
@@ -28,23 +29,22 @@
     "The long-term architecture must distinguish observing the scene, deciding on an executable action and executing it. Physical validation remains a separate milestone."
   ],
   "contribution": [
-    "I develop simulation experiments during my research internship: scene generation, configurable runs, physics diagnostics and technical documentation."
+    "I develop the simulation and experimental pipeline: procedural scene generation, physics checks, Gymnasium-based environments and reinforcement-learning experiments. My current work also explores hierarchical policies and the steps needed for sim-to-real transfer."
   ],
   "approach": [
-    "Phase 0A constructs scenes from object catalogs, ground definitions and scenario rules. A seed determines geometry, release grouping and sampled physical properties.",
-    "The scene is converted to MJCF and simulated in MuJoCo until a settling criterion or timeout is reached. Scene descriptions and diagnostic reports are saved for reproduction.",
-    "The robotic-removal prototype randomizes an internal weight, deriving the resulting center of mass and inertia. Materials and friction values are initial hypotheses rather than measurements of real objects.",
-    "Validation includes free-fall comparison, valid inertia checks, incline/friction tests and multi-seed diagnostics. The broader observe\u2013decide\u2013execute architecture places robot feasibility checks before execution."
+    "Generate seeded scenes with several objects and configurable physical properties. Settle each scene in MuJoCo and record its initial conditions so experiments can be repeated.",
+    "Use removal experiments to investigate interactions between objects. Compare the scene before and after an intervention rather than inferring physical dependencies from contact alone.",
+    "Connect simulation to a Gymnasium-based learning pipeline and investigate parallel rollouts, policy updates and compute utilization.",
+    "Explore hierarchical reinforcement learning to connect higher-level action selection with lower-level execution. Evaluate the resulting strategies in simulation before investigating transfer to the physical robot.",
+    "Check the simulation through free-fall, inertia, friction and multi-seed diagnostics before interpreting learning results. Robot execution and sim-to-real evaluation are subsequent research milestones."
   ],
   "results": [
-    "The archive documents configurable scene generation, headless and viewer execution, saved scene descriptions, physical checks and a benchmark command over 200 seeds.",
-    "One prototype README reports that 12 of the 200 scenes exceed a final penetration threshold of 1 mm. This is a useful diagnostic limitation, not a solved robustness result.",
-    "Gymnasium removal tasks, strategic decision-making, robot deployment and sim-to-real validation appear at different stages across versions. No completed physical transfer result is claimed here."
+    "Implemented reproducible scene generation, headless and interactive simulation, saved scene descriptions and physics diagnostics.",
+    "Reinforcement-learning experiments and evaluation are ongoing. This page presents the research direction and implemented tools; final policy performance and physical robot results are still work in progress."
   ],
   "limits": [
-    "The internship is ongoing, and the uploaded README snapshots may precede the latest training work. Their results should not be treated as the current final state.",
-    "A stable simulated pile is not proof of correct real-world interaction. Material calibration, causal removal experiments and physical validation remain important.",
-    "Different source folders are versions of the same research effort, not separate portfolio projects."
+    "The internship is ongoing. Reliable action selection requires further evaluation across object configurations and physical parameters.",
+    "Simulation results depend on material, friction and contact assumptions. Real-world calibration and robot experiments are needed to evaluate transfer."
   ],
   "media": [],
   "order": 1
