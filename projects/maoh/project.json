@@ -8,11 +8,11 @@
   ],
   "title": "Dual-arm object handover",
   "category": "Robotics",
-  "year": "2025\u201326",
+  "year": "2025–26",
   "summary": "Coordinating two Franka Panda arms through pick, handover and place in Drake.",
   "context": "Academic project",
   "status": "Simulation study",
-  "team": "Four-person academic team",
+  "team": "Individual project — Matteo Paolini",
   "color": "pink",
   "featured": true,
   "links": [
@@ -30,16 +30,16 @@
     "The transfer sequence must give the receiving robot ownership of the cube before the first robot releases it. A shared state machine coordinates these events."
   ],
   "contribution": [
-    "In a four-person team, we developed a dual-arm handover pipeline combining workspace analysis, inverse kinematics, motion planning and task coordination."
+    "I developed the complete project independently: workspace analysis, inverse kinematics, motion planning, gripper ownership logic, task coordination and simulation integration."
   ],
   "approach": [
     "A hierarchical architecture separates coordination, planning and control. A central finite-state machine synchronizes the task; each arm has its own controller.",
     "OMPL planning is reserved for the critical approach to the exchange pose. Pick and place motions in the open workspace use simpler trajectories, reducing planning work.",
     "The handover configuration is computed offline through workspace analysis and loaded at runtime. This favors repeatability and fast execution over online adaptation.",
-    "After contact-based grasp simulation proved unstable, the team used a kinematic attachment: the cube follows the owning gripper and ownership changes during the exchange. State transitions are based on trajectory completion."
+    "After contact-based grasp simulation proved unstable, I used a kinematic attachment: the cube follows the owning gripper and ownership changes during the exchange. State transitions are based on trajectory completion."
   ],
   "results": [
-    "The January 2026 final presentation reports a completed pick\u2013handover\u2013place sequence in approximately 20 seconds, with a final placement error of 9.1 mm.",
+    "The January 2026 final presentation reports a completed pick–handover–place sequence in approximately 20 seconds, with a final placement error of 9.1 mm.",
     "The demonstrated sequence contains 13 states. Validation covered one complete run in the nominal configuration, with the cube initially at [0.5, 0.5, 0.55] and standard controller gains."
   ],
   "limits": [
@@ -54,7 +54,7 @@
       "src": "../../assets/maho-handover.mp4",
       "poster": "../../assets/maho-poster.jpg",
       "title": "MAHO dual-arm handover demo",
-      "caption": "Team simulation demo: two Franka Panda arms execute the object handover sequence."
+      "caption": "Simulation demo: two Franka Panda arms execute the object handover sequence."
     }
   ],
   "order": 3
