@@ -1,51 +1,13 @@
 {
   "slug": "responsible-ml",
-  "tags": [
-    "python",
-    "machinelearning",
-    "fairness",
-    "privacy",
-    "xai",
-    "lime",
-    "counterfactuals"
-  ],
-  "title": "Privacy, fairness & explanations",
-  "category": "Data & AI",
-  "year": "2025\u201326",
-  "summary": "Investigating trade-offs in an Adult-income classification pipeline.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "Six-person academic team",
+  "order": 16,
+  "tier": "archive",
+  "page": false,
   "color": "blue",
-  "featured": false,
-  "links": [],
-  "overview": [
-    "A six-person Responsible Data Science project uses the Adult income dataset to study prediction quality alongside fairness, privacy and explainability.",
-    "The study treats a classifier as more than an accuracy score: it asks who receives errors, how mitigation changes outcomes and what explanations reveal about decisions."
-  ],
-  "constraints": [
-    "The income classes are imbalanced, so overall accuracy must be read alongside minority-class precision and recall.",
-    "Fairness depends on the protected attribute, subgroup definition and metric. Privacy mechanisms introduce an additional accuracy\u2013privacy trade-off."
-  ],
-  "contribution": [
-    "As part of a six-person team, I contributed to a responsible machine-learning study covering predictive performance, fairness, privacy and explainability. Results below describe our shared pipeline."
-  ],
-  "approach": [
-    "After removing rows with missing categorical values, the dataset contains 30,162 records. The documented split uses 21,716 training, 2,413 validation and 6,033 test examples.",
-    "A scikit-learn pipeline combines numerical scaling, categorical one-hot encoding and logistic regression. Class-specific evaluation complements the confusion matrix.",
-    "The team examines Equal Opportunity Difference across sex, age and intersectional groups and compares reweighing strategies.",
-    "Further experiments investigate privacy and fairness together, local explanations with LIME, counterfactuals with MACE and global relationships through additional explanatory analyses."
-  ],
-  "results": [
-    "The report records 85.35% test accuracy for the baseline logistic regression. Recall is 0.93 for the majority income class and 0.61 for the higher-income class.",
-    "This gap motivates the fairness and explanation work: a strong aggregate score can coexist with substantially different errors across classes and subgroups.",
-    "The deliverables include the report, executable notebook versions, model comparisons and explanation figures."
-  ],
-  "limits": [
-    "This is a dataset study, not a deployed decision system. Fairness metrics do not establish causal fairness or justify using the model for consequential decisions.",
-    "Age definitions and preprocessing descriptions vary between parts of the report. Those details must be reconciled before publishing detailed subgroup comparisons.",
-    "Team-wide results should not be presented as an individually authored end-to-end implementation."
-  ],
-  "media": [],
-  "order": 13
+  "category": "Data & ML",
+  "year": "2025",
+  "title": "Privacy, fairness and explanations in ML",
+  "summary": "Six-person study of accuracy, group fairness, local differential privacy and LIME/counterfactual explanations on the Adult dataset.",
+  "role": "",
+  "links": []
 }

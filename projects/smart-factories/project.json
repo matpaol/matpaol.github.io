@@ -1,62 +1,42 @@
 {
   "slug": "smart-factories",
-  "tags": [
-    "python",
-    "machinelearning",
-    "randomforest",
-    "faultdiagnosis",
-    "dataanalysis",
-    "manufacturing"
-  ],
-  "title": "Fault diagnosis in a multiphase process",
-  "category": "Data & AI",
+  "order": 5,
+  "tier": "featured",
+  "color": "blue",
+  "category": "Data & ML",
   "year": "2026",
-  "summary": "Detecting anomalies while checking that a model is not learning the wrong shortcut.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "Individual university study",
-  "color": "yellow",
-  "featured": false,
-  "links": [],
-  "overview": [
-    "An experimental water\u2013air plant reproduces aspects of multiphase transport through an ejector. My study uses its public recordings to detect abnormal operation and distinguish three fault types.",
-    "The central challenge is separating the physical signature of a fault from the operating regime: in this dataset, all fault recordings were collected at just one operating point."
+  "title": "Fault diagnosis on a multiphase plant",
+  "summary": "Detecting and classifying faults in an experimental water–air plant — and proving the model learned the fault, not the operating point it was recorded at.",
+  "role": "Individual study",
+  "cover": {"src": "assets/smart-factories-shortcut-en.png", "alt": "Bar chart: a global detector flags 52.6% of healthy samples at the reference regime as faulty, versus 1.1% elsewhere", "fit": "contain"},
+  "metrics": [["0 / 798", "false alarms on healthy samples"], ["502–515 / 523", "faults detected"], ["0.973", "multiclass accuracy"]],
+  "tools": ["Python", "scikit-learn", "Random Forest", "Local Outlier Factor", "Time-series validation"],
+  "tldr": [
+    "All fault recordings in the public dataset come from a single operating point — a model can score well just by recognising that point.",
+    "I built leakage-free temporal splits and a test that exposes this shortcut before trusting any accuracy number.",
+    "A regime-conditioned Random Forest detects 502–515 of 523 faulty samples with zero false alarms; a global model raises 49–58."
   ],
-  "constraints": [
-    "Measurements are continuous time series sampled at 10 Hz. Randomly distributing adjacent samples across training and test sets would produce an overly optimistic evaluation.",
-    "The public dataset contains 67 recordings: 46 nominal recordings across 45 operating regimes and 21 fault recordings. The study selects water-inlet obstruction, air-outlet obstruction and an air leak, each at one severity level.",
-    "Detection and fault identification must be evaluated separately, and the operating-regime shortcut must be explicitly checked."
-  ],
-  "contribution": [
-    "I developed the diagnostic analysis: dataset inspection, temporal partitioning, model comparison and error interpretation. The study uses public measurements from an experimental water\u2013air ejector."
-  ],
-  "approach": [
-    "Eight sensor readings and internal signals from three PID controllers form the inputs. Two nearly constant variables are removed, leaving 27 features.",
-    "The main evaluation partitions recordings into ten-second blocks and discards samples at their boundaries to preserve a two-second temporal gap. A consecutive-window split provides a separate robustness check.",
-    "A regime-conditioned Random Forest is compared with a global model trained across operating regimes. Binary detection and multiclass diagnosis use the same evaluation split; Local Outlier Factor is tested as a one-class alternative.",
-    "The analysis examines how the operating point can be reconstructed from controller signals. Feature importance, confusion matrices and the LOF score behavior help explain why different approaches succeed or fail."
-  ],
-  "results": [
-    "The report summarizes multiclass accuracy at approximately 97% for the regime-conditioned model in the main evaluation.",
-    "At the alarm threshold selected on validation data, the conditioned detector identifies 502\u2013515 of 523 anomalous test samples across three training seeds, with zero false alarms among 798 nominal samples.",
-    "The corresponding global detector misses 163\u2013171 anomalous samples and produces 49\u201358 false alarms. This comparison illustrates the cost of treating operating-regime variation as fault evidence.",
-    "LOF did not support the original hypothesis: the selected fault states were locally more compact than nominal states. The negative result is part of the study, rather than an omitted experiment."
-  ],
-  "limits": [
-    "Training and test intervals come from the same available fault recordings. The evaluation does not establish generalization to an independent repetition of a fault.",
-    "Results cover three selected fault\u2013severity combinations at the reference operating regime. They are not performance guarantees for other regimes, all severities or an industrial deployment.",
-    "The archive contains multiple drafts and summaries. Numerical claims here follow the final report and its stated alarm evaluation; different threshold metrics should not be mixed."
-  ],
-  "media": [
-    {
-      "type": "image",
-      "section": "approach",
-      "src": "../../assets/smart-factories-operating-regime.png",
-      "width": 1500,
-      "height": 1000,
-      "alt": "Original project plot examining the association between operating regime and anomaly labels.",
-      "caption": "Original project output: checking the operating-regime shortcut before evaluating fault detection."
-    }
-  ],
-  "order": 12
+  "facts": [["My role", "Whole study: data inspection, splits, models, error analysis"], ["Team", "Individual"], ["Context", "Smart Factories course, UNIVPM"], ["Period", "2026"]],
+  "sections": [
+    {"id": "problem", "title": "The problem", "body": [
+      "An experimental plant moves water and air through an ejector, logging 8 sensors and the internal signals of 3 PID controllers at 10 Hz. The public dataset has 67 recordings: 46 healthy ones over 45 operating regimes, and 21 faulty ones. I studied three faults — water-inlet obstruction, air-outlet obstruction and an air leak — and had to both detect them and tell them apart."
+    ]},
+    {"id": "shortcut", "title": "The trap: learning the operating point", "body": [
+      "Every fault was recorded at the same reference regime. Since the controller signals reveal the regime, a classifier can look accurate by learning ‘this is the reference regime’ instead of ‘this is a fault’. I tested for it directly: a detector trained on all regimes flags 52.6% of healthy samples at the reference regime as faulty, against 1.1% at the other 44 regimes.",
+      {"type": "image", "src": "../../assets/smart-factories-shortcut-en.png", "width": 1600, "height": 900, "alt": "Bar chart comparing false-alarm rates at the reference regime and at the other regimes", "caption": "Healthy samples wrongly flagged by a detector trained on all regimes: the operating point, not the fault, drives the alarm."}
+    ]},
+    {"id": "method", "title": "Method", "body": [
+      {"list": [
+        "Leakage-free evaluation: adjacent 10 Hz samples are nearly identical, so random splits would be wildly optimistic. Recordings are cut into 10-second blocks with a 2-second gap discarded at each boundary; a consecutive-window split is a second check.",
+        "Features: 8 sensors + PID signals, minus two near-constant variables → 27 features.",
+        "Models: a Random Forest conditioned on the regime versus a global one, for binary detection and for multiclass diagnosis; Local Outlier Factor as a one-class alternative.",
+        "Interpretation: feature importance, confusion matrices and LOF score distributions to explain why each approach works or fails."
+      ]}
+    ]},
+    {"id": "results", "title": "Results", "body": [
+      "With the alarm threshold chosen on validation data, the regime-conditioned detector finds 502–515 of 523 faulty test samples across three seeds with zero false alarms on 798 healthy ones; the multiclass model reaches 0.973 ± 0.007 accuracy. The global detector misses 163–171 faults and raises 49–58 false alarms.",
+      "LOF did not work, and the reason was informative: the fault states were locally more compact than normal operation, the opposite of what a density-based outlier detector assumes.",
+      {"note": "All faults come from one regime and one severity, and training and test intervals come from the same recordings — so this shows a sound method on this dataset, not generalisation to new fault repetitions or other regimes."}
+    ]}
+  ]
 }

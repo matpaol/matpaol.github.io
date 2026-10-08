@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Matteo Paolini — CV</title>
+<!-- Source of assets/Matteo-Paolini-CV.pdf. Edit here, then print to PDF (A4, no margins, background graphics on). -->
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#0a0a0b;--gray:#5f5f66;--line:#e3e3e6;--blue:#2457ff}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;min-height:297mm;padding:11mm 14mm 8mm}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h1{font-size:26pt;line-height:1;letter-spacing:-.03em;margin:0;font-weight:750}
+.tag{font-size:10.5pt;margin-top:6px;color:var(--ink)}
+.contact{font-size:8.4pt;line-height:1.6;color:var(--gray);text-align:right;flex:0 0 auto}
+.contact a{color:var(--blue);text-decoration:none}
+h2{font-size:7.6pt;letter-spacing:.16em;font-weight:700;margin:10px 0 4px;color:var(--blue)}
+.item{margin:0 0 7px}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.title{font-size:9.8pt;font-weight:650}
+.where{font-size:9pt;color:var(--gray);font-weight:400}
+.date{font-size:8.6pt;color:var(--gray);white-space:nowrap;font-variant-numeric:tabular-nums}
+ul{margin:3px 0 0;padding-left:13px}
+li{font-size:8.6pt;line-height:1.4;margin:1px 0}
+li::marker{color:var(--blue)}
+p.line{font-size:8.75pt;line-height:1.42;margin:3px 0 0}
+b{font-weight:650}
+.skills{display:grid;grid-template-columns:92px 1fr;gap:3px 10px;font-size:8.75pt;line-height:1.42}
+.skills dt{font-weight:650}.skills dd{margin:0}
+.foot{margin-top:10px;padding-top:7px;border-top:1px solid var(--line);font-size:8.2pt;color:var(--gray);display:flex;justify-content:space-between}
+</style>
+</head>
+<body><div class="page">
+<header>
+  <div><h1>Matteo Paolini</h1><div class="tag">Mechanical engineer · mechanical design, simulation &amp; robot learning</div></div>
+  <div class="contact">paolini134@gmail.com<br><a href="https://matpaol.github.io">matpaol.github.io</a> · <a href="https://github.com/matpaol">github.com/matpaol</a><br><a href="https://www.linkedin.com/in/matpaolini/">linkedin.com/in/matpaolini</a> · Brussels · EU citizen, open to relocation</div>
+</header>
+
+<h2>EXPERIENCE</h2>
+<div class="item">
+  <div class="row"><span class="title">Research Intern — Physical AI for robotic manipulation <span class="where">· Royal Military Academy, Brussels</span></span><span class="date">2026 – present</span></div>
+  <ul>
+    <li>Building, as my own project within the DREAM research programme, a MuJoCo + reinforcement-learning pipeline that decides which object a robot should remove next from a cluttered pile to reach a buried target without collapsing it.</li>
+    <li>Observe → decide → execute architecture: simulated stereo / RGB-D / LiDAR, segmentation detector trained on domain-randomised images, <b>teacher–student PPO</b> (privileged teacher, sensor-only student) and a gripper-reachability check.</li>
+    <li>Training infrastructure: bank of pre-settled scenes, <b>16 parallel MuJoCo workers</b>, bit-exact resumable runs and an ablation benchmark against rule-based baselines.</li>
+    <li>Found simulation artefacts that invalidated measurements and fixed them (settle-to-rest, rolling friction: buried-target scenes from 0/10 to 6/10). Next: simulated UR5, then sim-to-real on the physical arm.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="title">Assembly &amp; Machine Calibration Intern <span class="where">· Co.Me.Ta. Srl, Montegranaro (IT)</span></span><span class="date">Summer 2019</span></div>
+  <p class="line">Assembled frames and integrated sensors, motors and electromechanical parts into industrial machines; final functional calibration.</p>
+</div>
+
+<h2>EDUCATION</h2>
+<div class="item">
+  <div class="row"><span class="title">M.Sc. Mechanical Engineering — Mechatronics <span class="where">· UNIVPM, Ancona · Erasmus at ULB &amp; VUB, Brussels (2025–26)</span></span><span class="date">2024 – present</span></div>
+  <p class="line">Robotics, control system design, industrial automation, machine learning, composite structures, manufacturing.</p>
+</div>
+<div class="item">
+  <div class="row"><span class="title">B.Sc. Mechanical Engineering <span class="where">· UNIVPM, Ancona</span></span><span class="date">2021 – 2024</span></div>
+  <p class="line">Thesis: collision-free motion planning for the redundant TIAGo arm — implemented and compared RRT and RRT*.</p>
+</div>
+
+<h2>SELECTED PROJECTS</h2>
+<div class="item">
+  <div class="row"><span class="title">Soft tentacle gripper <span class="where">· VUB Brussels · team of 5, supervised by Prof. B. Vanderborght</span></span><span class="date">2025</span></div>
+  <ul>
+    <li>Owned the tentacle: chamber geometry in ANSYS with a 2nd-order <b>Ogden hyperelastic</b> silicone model at 0.5 bar service pressure; two-part 3D-printed casting mold with removable core.</li>
+    <li>Integrated by the team on a 2-DOF arm (belt reductions sized from a 2.40 N·m torque requirement, Arduino pneumatic control); public build guide and video.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="title">Dual-arm object handover <span class="where">· Robotics II, VUB · team of 4, I wrote the implementation</span></span><span class="date">2025 – 26</span></div>
+  <ul>
+    <li>Two Franka Panda arms pass a cube mid-air in Drake: offline handover-pose search from the arms' workspace intersection, IK, OMPL only where collisions are likely, 13-state coordinator.</li>
+    <li>Full pick → handover → place in ≈ 20 s with a <b>9.1 mm</b> final placement error.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="title">Apple Watch case — production study <span class="where">· UNIVPM · team of 2</span></span><span class="date">2025</span></div>
+  <ul>
+    <li>Reconstructed the Al 7005-T6 case in Siemens NX with functional GD&amp;T (±0.01 mm fits, Ø0.05 concentricity on the Ø3 H7 crown bore); full process route from laser blanking to tumbling.</li>
+    <li>Sized a <b>1,000,000 parts/year</b> line (1 laser, 89 CNC centres, 1 tumbler) from MRR and cutting power; removed a milling bottleneck by scheduling the fleet over four periods; Taylor tool-life and cost-per-part model.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="title">Fault diagnosis on a multiphase plant <span class="where">· Smart Factories, UNIVPM · individual</span></span><span class="date">2026</span></div>
+  <ul>
+    <li>Showed that a global detector learns the operating point instead of the fault (52.6% vs 1.1% false alarms on healthy data); built leakage-free temporal splits.</li>
+    <li>Regime-conditioned Random Forest: 502–515 of 523 faults detected with <b>0 false alarms</b> on 798 healthy samples; 0.973 multiclass accuracy.</li>
+  </ul>
+</div>
+<p class="line"><b>Also:</b> vacUUUm cordless vacuum (Siemens NX product design) · 1U CubeSat CFRP/aluminium structure (ANSYS ACP) · LPBF 316L metallography and Vickers testing · PLC elevator controller (GRAFCET) · wheelchair-accessible routing (A*, MDP).</p>
+
+<h2>SKILLS</h2>
+<dl class="skills">
+  <dt>Robotics &amp; ML</dt><dd>Python · MuJoCo · Gymnasium · Stable-Baselines3 · Drake · OMPL · scikit-learn · pytest · Git</dd>
+  <dt>Mechanical</dt><dd>Siemens NX · SolidWorks · ANSYS Workbench / ACP · hyperelastic FEA · GD&amp;T &amp; drawings · DFM · mold design · process planning</dd>
+  <dt>Prototyping</dt><dd>FDM 3D printing · silicone casting · Arduino · MATLAB / Simulink</dd>
+  <dt>Languages</dt><dd>Italian (native) · English (C1)</dd>
+</dl>
+<div class="foot"><span>Project details, figures and code: matpaol.github.io</span><span>October 2026</span></div>
+</div></body></html>

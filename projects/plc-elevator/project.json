@@ -1,34 +1,13 @@
 {
   "slug": "plc-elevator",
-  "tags": ["plc","automation","grafcet"],
-  "title": "Three-floor elevator controller",
-  "category": "Robotics",
-  "year": "2025–26",
-  "summary": "Sequencing an elevator with call memory and proximity-based priorities.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "University automation project",
-  "color": "pink",
-  "featured": false,
-  "links": [],
-  "overview": [
-    "An industrial-automation project modelling control of a three-floor elevator."
-  ],
-  "constraints": [
-    "The controller must account for calls, direction, position, overload and emergency-stop behaviour."
-  ],
-  "contribution": [
-    "Academic control and PLC work, as documented in my previous technical portfolio."
-  ],
-  "approach": [
-    "The study describes sequential function charts, state memory and a proximity rule for serving multiple pending calls."
-  ],
-  "results": [
-    "The previous portfolio documents implementation and simulation of the control logic."
-  ],
-  "limits": [
-    "Simulation of scheduling logic is distinct from certification or validation of a physical elevator."
-  ],
-  "media": [],
-  "order": 15
+  "order": 14,
+  "tier": "archive",
+  "page": false,
+  "color": "blue",
+  "category": "Automation",
+  "year": "2025",
+  "title": "Three-floor elevator controller (PLC)",
+  "summary": "GRAFCET / SFC controller with call memory, nearest-call priority, overload and emergency stop.",
+  "role": "",
+  "links": []
 }

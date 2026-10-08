@@ -1,61 +1,123 @@
 {
   "slug": "maoh",
-  "tags": [
-    "robotics",
-    "python",
-    "drake",
-    "ompl"
-  ],
-  "title": "Dual-arm object handover",
-  "category": "Robotics",
-  "year": "2025–26",
-  "summary": "Coordinating two Franka Panda arms through pick, handover and place in Drake.",
-  "context": "Academic project",
-  "status": "Simulation study",
-  "team": "Individual project — Matteo Paolini",
+  "order": 3,
+  "tier": "featured",
   "color": "pink",
-  "featured": true,
+  "category": "Robot learning",
+  "year": "2025 – 26",
+  "title": "Dual-arm object handover",
+  "summary": "Two Franka Panda arms pass a cube mid-air between tables that neither can reach alone — workspace analysis, IK, motion planning and coordination in Drake.",
+  "role": "Team of 4 · I wrote the implementation",
+  "cover": {
+    "src": "assets/maho-poster.jpg",
+    "alt": "Two Franka Panda arms in the Drake simulation"
+  },
+  "metrics": [
+    [
+      "9.1 mm",
+      "final placement error"
+    ],
+    [
+      "≈ 20 s",
+      "pick → handover → place"
+    ],
+    [
+      "13",
+      "states in the task machine"
+    ]
+  ],
+  "tools": [
+    "Python",
+    "Drake",
+    "OMPL",
+    "Inverse kinematics",
+    "Finite-state machines"
+  ],
+  "tldr": [
+    "Robot 1 can only reach the start platform, robot 2 only the goal — the cube has to change hands in the air.",
+    "I wrote the full pipeline: offline handover-pose search, IK, selective OMPL planning, grasp ownership and a 13-state coordinator.",
+    "The complete sequence runs in about 20 s and places the cube with a 9.1 mm error."
+  ],
+  "facts": [
+    [
+      "My role",
+      "All implementation code: workspace analysis, IK, planning, coordination, simulation"
+    ],
+    [
+      "Team",
+      "4 students (Robotics II)"
+    ],
+    [
+      "Context",
+      "Robotics II, VUB Brussels"
+    ],
+    [
+      "Period",
+      "Dec 2025 – Jan 2026"
+    ]
+  ],
+  "hero_media": {
+    "src": "assets/maho-poster.jpg",
+    "alt": "Two Franka Panda arms in the Drake simulation"
+  },
+  "sections": [
+    {
+      "id": "problem",
+      "title": "The problem",
+      "body": [
+        "Two 7-DOF Franka Panda arms stand on separate tables with a gap between them. The cube starts on a platform only the first arm can reach and must end on a platform only the second can reach. They have to meet in a shared workspace, hand the cube over without dropping it, and never collide with each other or the scene.",
+        {
+          "type": "video",
+          "src": "../../assets/maho-handover.mp4",
+          "poster": "../../assets/maho-poster.jpg",
+          "title": "Dual-arm handover demo",
+          "caption": "The full pick → handover → place sequence in Drake."
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "body": [
+        "I split the problem into three levels. One finite-state machine coordinates both robots, so the handover is always synchronised. Each arm plans its own path against a shared collision model. Each arm has its own controller that knows only its own state — centralised planning, distributed execution."
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Key decisions",
+      "body": [
+        {
+          "list": [
+            "Where to meet: the handover pose has to be reachable by both arms. I computed it offline by intersecting their reachable workspaces and load it at runtime — fast and validated in advance, at the cost of not adapting online.",
+            "Where to plan: OMPL is used only for the approach to the handover, where the two arms are close and collisions are likely. Open-space pick and place use simpler trajectories, which keeps execution fast.",
+            "How to grasp: contact-based grasping made the cube roll on the fingers and crash the handover. I switched to a kinematic attachment with explicit ownership, which changes from robot 1 to robot 2 at the exchange.",
+            "When to switch states: on trajectory completion, which is simple and reliable with a kinematic grasp."
+          ]
+        },
+        {
+          "type": "image",
+          "src": "../../assets/maoh-workspace.webp",
+          "width": 808,
+          "height": 822,
+          "alt": "Point cloud of handover poses reachable by both arms",
+          "caption": "Offline workspace analysis: candidate handover poses that both arms can reach."
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "body": [
+        "In the nominal configuration the full 13-state sequence completes in about 20 seconds, with no collisions, a stable transfer and a 9.1 mm final placement error.",
+        "Next I'd randomise the cube's start pose over many runs to report success rate and error statistics, and bring back contact-based grasping to test slip during the exchange."
+      ]
+    }
+  ],
   "links": [
     [
-      "Implementation branch",
+      "Code (my branch)",
       "https://github.com/matpaol/MAOH/tree/maho_matpao"
     ]
   ],
-  "overview": [
-    "Two Franka Panda manipulators transfer a cube between platforms on separate tables. Neither arm can complete the full task alone: they must meet in a shared workspace and exchange the object in mid-air.",
-    "Developed for Robotics II in Brussels, this simulation project brings together workspace analysis, inverse kinematics, motion planning and task coordination."
-  ],
-  "constraints": [
-    "The exchange pose must be reachable by both seven-degree-of-freedom arms. Their concurrent approach must avoid collisions with the environment and each other.",
-    "The transfer sequence must give the receiving robot ownership of the cube before the first robot releases it. A shared state machine coordinates these events."
-  ],
-  "contribution": [
-    "I developed the complete project independently: workspace analysis, inverse kinematics, motion planning, gripper ownership logic, task coordination and simulation integration."
-  ],
-  "approach": [
-    "A hierarchical architecture separates coordination, planning and control. A central finite-state machine synchronizes the task; each arm has its own controller.",
-    "OMPL planning is reserved for the critical approach to the exchange pose. Pick and place motions in the open workspace use simpler trajectories, reducing planning work.",
-    "The handover configuration is computed offline through workspace analysis and loaded at runtime. This favors repeatability and fast execution over online adaptation.",
-    "After contact-based grasp simulation proved unstable, I used a kinematic attachment: the cube follows the owning gripper and ownership changes during the exchange. State transitions are based on trajectory completion."
-  ],
-  "results": [
-    "The January 2026 final presentation reports a completed pick–handover–place sequence in approximately 20 seconds, with a final placement error of 9.1 mm.",
-    "The demonstrated sequence contains 13 states. Validation covered one complete run in the nominal configuration, with the cube initially at [0.5, 0.5, 0.55] and standard controller gains."
-  ],
-  "limits": [
-    "These are proof-of-concept results from a single nominal simulation, not statistics over repeated trials or physical robot measurements.",
-    "The kinematic grasp cannot validate slip, grasp failure or force-based transfer. The exchange pose is fixed, and trajectory completion does not independently verify actual proximity.",
-    "A stronger evaluation would vary initial object positions, introduce disturbances and test contact-based grasping over repeated runs."
-  ],
-  "media": [
-    {
-      "type": "video",
-      "section": "overview",
-      "src": "../../assets/maho-handover.mp4",
-      "poster": "../../assets/maho-poster.jpg",
-      "title": "MAHO dual-arm handover demo",
-      "caption": "Simulation demo: two Franka Panda arms execute the object handover sequence."
-    }
-  ],
-  "order": 3
+  "links_note": "The repository was created by a teammate; the implementation on the linked branch is my work."
 }

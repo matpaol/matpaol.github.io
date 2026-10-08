@@ -1,34 +1,13 @@
 {
   "slug": "tiago",
-  "tags": ["robotics","control"],
-  "title": "Motion planning for TIAGo",
+  "order": 10,
+  "tier": "archive",
+  "page": false,
+  "color": "blue",
   "category": "Robotics",
   "year": "2024",
-  "summary": "Bachelor’s thesis investigating collision-free motion planning for a redundant robot.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "Individual bachelor’s thesis",
-  "color": "green",
-  "featured": false,
-  "links": [],
-  "overview": [
-    "The thesis addresses motion planning for a redundant manipulator in pick-and-place scenarios."
-  ],
-  "constraints": [
-    "Feasible paths and computation time compete with path quality in cluttered scenes."
-  ],
-  "contribution": [
-    "My bachelor’s thesis at UNIVPM focused on robot motion planning."
-  ],
-  "approach": [
-    "The previous CV and portfolio describe investigation of RRT and RRT* and their planning trade-offs."
-  ],
-  "results": [
-    "The thesis is part of my completed undergraduate work. The full report will provide the benchmark conditions and detailed results."
-  ],
-  "limits": [
-    "Algorithm comparisons need their actual scenario definitions and metrics. This summary does not imply physical robot deployment."
-  ],
-  "media": [],
-  "order": 10
+  "title": "Motion planning for TIAGo (B.Sc. thesis)",
+  "summary": "Implemented and compared RRT and RRT* for collision-free pick-and-place with a redundant 7-DOF arm.",
+  "role": "",
+  "links": []
 }

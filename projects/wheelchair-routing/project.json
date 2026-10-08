@@ -1,64 +1,79 @@
 {
   "slug": "wheelchair-routing",
-  "tags": [
-    "python",
-    "pathplanning",
-    "osm",
-    "networkx",
-    "csp",
-    "astar",
-    "mdp"
-  ],
-  "title": "Wheelchair-accessible routing",
-  "category": "Data & AI",
+  "order": 21,
+  "tier": "archive",
+  "page": true,
+  "color": "green",
+  "category": "Robotics",
   "year": "2026",
-  "summary": "Comparing A*, constraint filtering and MDP planning on Brussels street graphs.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "Fatima Ben Mostefa, Francesca Grasso, Lara Moreno & Matteo Paolini",
-  "color": "pink",
-  "featured": false,
+  "title": "Wheelchair-accessible routing in Brussels",
+  "summary": "Comparing A*, constraint filtering and MDP planning on OpenStreetMap graphs enriched with slope, width, kerb and surface data.",
+  "role": "Team of 4 · map pipeline, graph attributes, benchmark",
+  "metrics": [
+    [
+      "8",
+      "benchmark scenarios"
+    ],
+    [
+      "8 / 8",
+      "routes found by A* and MDP"
+    ]
+  ],
+  "tools": [
+    "Python",
+    "OpenStreetMap / NetworkX",
+    "A*",
+    "CSP",
+    "MDP"
+  ],
+  "tldr": [
+    "Plans routes that respect a maximum slope (8%) and minimum width (1.2 m), with a controlled fallback when no route exists.",
+    "I built the shared map pipeline, graph attributes, configuration and benchmark integration."
+  ],
+  "facts": [
+    [
+      "My role",
+      "Map pipeline, edge attributes, configuration, benchmark integration"
+    ],
+    [
+      "Team",
+      "Fatima Ben Mostefa, Francesca Grasso, Lara Moreno, Matteo Paolini"
+    ],
+    [
+      "Context",
+      "Techniques of AI (INFO-H410), ULB Brussels"
+    ],
+    [
+      "Period",
+      "2026"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "pipeline",
+      "title": "Pipeline",
+      "body": [
+        "The pipeline geocodes the endpoints, downloads only the area around them (500 m margin) and caches the graph. Edges are enriched with slope, width, kerb, surface and wheelchair tags. If no route satisfies the constraints, the area grows and the limits relax to 15% slope and 1.0 m width, while absolute exclusions stay in place."
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "body": [
+        "On eight Brussels scenarios A* and the MDP planner found routes in all eight, the CSP planner in seven. Interactive maps make each comparison inspectable.",
+        {
+          "type": "map",
+          "src": "../../assets/wheelchair-scenario-1.html",
+          "title": "Wheelchair routing — scenario 1",
+          "caption": "Route comparison for scenario 1. A research prototype: OpenStreetMap accessibility data is incomplete and routes are not field-validated."
+        }
+      ]
+    }
+  ],
   "links": [
     [
       "Repository",
       "https://github.com/francescagrasso02/TechniquesOfAI"
     ]
-  ],
-  "overview": [
-    "A team routing project compares ways to plan wheelchair-oriented journeys through Brussels. Rather than optimizing distance alone, the graph includes accessibility-related street attributes.",
-    "Saved maps and an eight-scenario benchmark make it possible to compare route length, search time and method-specific outputs."
-  ],
-  "constraints": [
-    "OpenStreetMap accessibility tags can be missing or incomplete. Graph coverage, attribute defaults and planner constraints influence whether a route can be found.",
-    "The documented configuration starts with an 8% maximum slope and 1.2 m minimum width. A fallback relaxes these to 15% and 1.0 m; these are project parameters, not universal accessibility recommendations.",
-    "Distance, execution time and accessibility-related cost are different objectives. A short route does not by itself prove suitability for a wheelchair user."
-  ],
-  "contribution": [
-    "I worked on the shared map pipeline, graph attributes, configuration and benchmark integration. Our team compared CSP, A* and MDP planners on the same scenarios."
-  ],
-  "approach": [
-    "The map pipeline geocodes the endpoints and downloads the relevant area with an initial 500 m margin, rather than loading the entire city. Cached graphs support repeated experiments.",
-    "Edges are enriched with slope, width, kerb, surface and wheelchair-related attributes. The documented fallback expands the area and relaxes selected constraints while retaining absolute exclusions.",
-    "A common benchmark compares a baseline with CSP, A* and MDP. Interactive HTML maps and saved plots provide inspectable outputs alongside the numerical results."
-  ],
-  "results": [
-    "The saved CSV contains eight Brussels scenarios. In that run, A* and MDP return routes for all eight; CSP returns routes for seven and fails on Palais Royal \u2192 Place Luxembourg.",
-    "For Georges Henri \u2192 Montgomery, all three planners report a 574.8 m route, with materially different recorded search times. Other scenarios show longer alternatives and method-dependent trade-offs.",
-    "The saved benchmark is evidence of an algorithmic comparison on the configured graph. Timing numbers reflect that execution, not a repeated hardware-independent performance study."
-  ],
-  "limits": [
-    "Routes have not been field-validated. Missing tags, default or synthetic attributes and relaxed constraints can all affect real accessibility.",
-    "A data-coverage confidence score is not a probability that a route is safe. The prototype should be presented as a planning study, not navigation guidance.",
-    "The documentation and saved results represent particular project versions; evaluation assumptions should accompany any published route comparison."
-  ],
-  "media": [
-    {
-      "type": "map",
-      "section": "results",
-      "src": "../../assets/wheelchair-scenario-1.html",
-      "title": "Wheelchair routing \u2014 scenario 1",
-      "caption": "Interactive route comparison from scenario 1. This is a research prototype; accessibility attributes are not a verified navigation service. Map tiles load when opened."
-    }
-  ],
-  "order": 7
+  ]
 }

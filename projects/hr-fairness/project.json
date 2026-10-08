@@ -1,23 +1,98 @@
 {
   "slug": "hr-fairness",
-  "tags": [
-    "python",
-    "fairness",
-    "counterfactuals",
-    "dice",
-    "xgboost",
-    "randomforest",
-    "xai"
-  ],
-  "title": "Are AI recommendations equally achievable?",
-  "category": "Data & AI",
-  "year": "2026",
-  "summary": "Auditing the cost and availability of algorithmic recourse across groups.",
-  "context": "Academic project",
-  "status": "Analysis with saved outputs",
-  "team": "Francesca, Lisa & Matteo",
+  "order": 20,
+  "tier": "archive",
+  "page": true,
   "color": "blue",
-  "featured": false,
+  "category": "Data & ML",
+  "year": "2026",
+  "title": "Are AI recommendations equally achievable?",
+  "summary": "Auditing whether the counterfactual ‘what to change’ advice of an attrition model costs some demographic groups more than others.",
+  "role": "Team of 3 · led the fairness & recourse analysis",
+  "cover": {
+    "src": "projects/hr-fairness/media/hr-recourse-cost.png",
+    "alt": "Median recourse cost by subgroup",
+    "fit": "contain"
+  },
+  "metrics": [
+    [
+      "2×",
+      "XGBoost effectiveness gap under a tight salary cap"
+    ],
+    [
+      "3",
+      "protected attributes audited"
+    ]
+  ],
+  "tools": [
+    "Python",
+    "scikit-learn",
+    "XGBoost",
+    "DiCE",
+    "FACTS-style recourse metrics"
+  ],
+  "tldr": [
+    "Equal prediction metrics don't mean equal recourse: we measured the cost and availability of counterfactual actions per group.",
+    "I led the fairness and FACTS analysis, the interpretation and the visualisations."
+  ],
+  "facts": [
+    [
+      "My role",
+      "Fairness & FACTS analysis, salary-cap sensitivity, interpretation, figures"
+    ],
+    [
+      "Team",
+      "Francesca, Lisa & Matteo"
+    ],
+    [
+      "Context",
+      "INFO-H512, ULB Brussels"
+    ],
+    [
+      "Period",
+      "2026"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "question",
+      "title": "Question",
+      "body": [
+        "An employee-attrition model (Random Forest and XGBoost on the IBM HR dataset) flags people at risk, and DiCE suggests changes that would flip the prediction. We asked whether those suggestions are equally achievable across gender, age and marital-status groups — not just whether the predictions are equally accurate."
+      ]
+    },
+    {
+      "id": "method",
+      "title": "Method",
+      "body": [
+        {
+          "list": [
+            "Constraints so actions are realistic: immutable features, permitted ranges and a cap on salary changes.",
+            "FACTS-inspired comparisons per group: effectiveness, cost, effectiveness within a budget and number of options.",
+            "A sensitivity experiment tightening the salary cap from +50% to +35% and +20%."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "body": [
+        "Recourse was available for almost everyone under the explored caps, but cost and within-budget effectiveness revealed gaps that availability alone hides. Tightening the salary cap doubled XGBoost's effectiveness gap for marital status (0.017 → 0.034), while Random Forest stayed more stable.",
+        {
+          "type": "image",
+          "src": "media/hr-recourse-cost.png",
+          "width": 1800,
+          "height": 480,
+          "alt": "Median recourse cost for Random Forest and XGBoost across gender, age and marital-status groups",
+          "caption": "Median recourse cost (L1 feature change) by subgroup."
+        },
+        {
+          "note": "An audit of a benchmark dataset, not a validated HR system; changing model inputs doesn't prove an action would prevent real attrition."
+        }
+      ]
+    }
+  ],
   "links": [
     [
       "Project repository",
@@ -27,44 +102,5 @@
       "Analysis notebook",
       "https://github.com/francescagrasso02/infoh512-project/blob/main/notebooks/5.%20FACTS.ipynb"
     ]
-  ],
-  "overview": [
-    "A team project asks whether counterfactual actions suggested by an employee-attrition model are equally achievable for different demographic groups.",
-    "Using the IBM HR Attrition dataset, the analysis goes beyond prediction parity to examine the effectiveness, cost and choice of recommended changes."
-  ],
-  "constraints": [
-    "An action can flip a model prediction without being realistic for a person. Immutable features, permitted ranges and salary-change limits therefore matter.",
-    "The analysis compares gender, age and marital-status groups. Group size, classifier threshold and the recourse cost definition affect the apparent gaps."
-  ],
-  "contribution": [
-    "I led fairness and FACTS analysis, results interpretation and visualization. I examined prediction disparities and how salary constraints change access to recourse."
-  ],
-  "approach": [
-    "Random Forest and XGBoost supply predictions; DiCE generates candidate counterfactual changes for people classified as at risk.",
-    "The analysis examines group prediction metrics, feature-flip sensitivity and FACTS-inspired recourse comparisons: effectiveness, cost, effectiveness within budget and number of options.",
-    "A separate sensitivity experiment tightens the salary cap from +50% to +35% and +20%. Keeping this separate allows the baseline recourse generation to be reused.",
-    "Shared utilities align paths, model wrappers, feature constraints and recourse output tables across local and Colab execution."
-  ],
-  "results": [
-    "The project README reports high recourse availability under the explored caps, while cost and within-budget comparisons expose differences that availability alone can hide.",
-    "Its sensitivity summary reports a larger XGBoost effectiveness gap under tighter salary limits: for marital status, 0.017 at the loose cap versus 0.034 at the tight cap. Random Forest is reported as more stable in this comparison.",
-    "Saved notebooks, subgroup tables and plots make these comparisons inspectable. The original recourse-cost figure below illustrates the type of result produced."
-  ],
-  "limits": [
-    "This is an academic audit of a benchmark dataset, not a validated HR retention system. Changing model inputs does not prove that the proposed action prevents real attrition.",
-    "Protected-feature flips measure model sensitivity; without a causal model they do not establish causal counterfactual fairness.",
-    "Some documented analyses use the full available population rather than only held-out examples. Detailed claims require checking each output population, sample size and evaluation split."
-  ],
-  "media": [
-    {
-      "type": "image",
-      "section": "results",
-      "src": "media/hr-recourse-cost.png",
-      "width": 1800,
-      "height": 480,
-      "alt": "Median recourse cost for Random Forest and XGBoost across gender, age and marital-status groups",
-      "caption": "Median recourse cost by subgroup, as saved in the team's analysis notebook. Cost is the defined L1 feature-change measure, not a monetary amount."
-    }
-  ],
-  "order": 5
+  ]
 }

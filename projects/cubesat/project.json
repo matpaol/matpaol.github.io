@@ -1,34 +1,13 @@
 {
   "slug": "cubesat",
-  "tags": ["fem","aerospace","composites"],
-  "title": "CubeSat structural study",
-  "category": "Design & manufacturing",
-  "year": "2025",
-  "summary": "Investigating a hybrid composite and aluminium satellite structure.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "University project",
+  "order": 12,
+  "tier": "archive",
+  "page": false,
   "color": "blue",
-  "featured": false,
-  "links": [],
-  "overview": [
-    "An academic structural-design study combining CFRP panels with aluminium rails."
-  ],
-  "constraints": [
-    "The design considers launch loading, stiffness, mass and the interfaces between dissimilar materials."
-  ],
-  "contribution": [
-    "University work in structural simulation and design; the case describes the proposed structure and analysis scope."
-  ],
-  "approach": [
-    "The study uses FEM to investigate the hybrid structure and its loading conditions, alongside manufacturing constraints."
-  ],
-  "results": [
-    "The previous portfolio describes structural analysis of the proposed chassis. This page makes no claim of a manufactured or flown satellite."
-  ],
-  "limits": [
-    "The final structural results and the status of topology optimization should be distinguished. A proposed additive process is not evidence of fabrication."
-  ],
-  "media": [],
-  "order": 9
+  "category": "Mechanical design",
+  "year": "2025",
+  "title": "1U CubeSat structure",
+  "summary": "Hybrid chassis with CFRP panels and aluminium rails studied in ANSYS / ACP; symmetric 16-ply, 2 mm laminate.",
+  "role": "",
+  "links": []
 }

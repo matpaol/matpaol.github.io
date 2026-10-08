@@ -1,79 +1,153 @@
 {
   "slug": "watch",
-  "tags": [
-    "cad",
-    "manufacturing",
-    "dfm",
-    "machining",
-    "tolerances",
-    "costanalysis"
-  ],
-  "title": "Apple Watch production study",
-  "category": "Design & manufacturing",
-  "year": "2025",
-  "summary": "Connecting enclosure reverse engineering, drawings and production planning.",
-  "context": "Academic project",
-  "status": "Academic study",
-  "team": "Two-person academic team",
+  "order": 4,
+  "tier": "featured",
   "color": "yellow",
-  "featured": true,
-  "links": [],
-  "overview": [
-    "A two-person manufacturing study reconstructs a simplified smartwatch enclosure and proposes a production route from aluminium sheet to finished component.",
-    "The case connects geometry and functional requirements with process planning, tooling, machine selection, production capacity and cost estimation."
+  "category": "Manufacturing",
+  "year": "2025",
+  "title": "Apple Watch case: production study",
+  "summary": "Reverse-engineered an aluminium smartwatch case and designed the machining line to make one million of them a year — process plan, tooling, capacity and cost.",
+  "role": "Team of 2 · CAD, process plan, capacity & cost",
+  "cover": {
+    "src": "assets/watch-drawing.webp",
+    "alt": "Dimensioned manufacturing drawing of the watch case",
+    "fit": "contain"
+  },
+  "metrics": [
+    [
+      "1,000,000",
+      "cases per year"
+    ],
+    [
+      "608",
+      "blanks per panel"
+    ],
+    [
+      "89",
+      "CNC machines sized"
+    ]
   ],
-  "constraints": [
-    "Manufacturer information covers external surfaces; internal geometry was inferred from photographs. Dimensions and tolerances are study assumptions, not a complete manufacturer specification.",
-    "Small cavities, strap interfaces and the crown and button seats require careful tool selection. Very small tool diameters create a spindle-speed constraint.",
-    "The production scenario targets one million parts per year. Capacity and bottleneck calculations depend on the assumed operation times and utilization."
+  "tools": [
+    "Siemens NX",
+    "GD&T",
+    "Process planning",
+    "MRR & cutting-power calcs",
+    "Taylor tool life",
+    "Python"
   ],
-  "contribution": [
-    "I worked with Alessia Aguzzi on enclosure reconstruction and manufacturing planning. Together, we developed drawings, operation sheets, tooling choices and a production cost model."
+  "tldr": [
+    "Rebuilt the case geometry from public drawings and teardown photos; assigned functional tolerances.",
+    "Planned the route from 10 mm Al 7005-T6 sheet to a finished part: laser blanking, cavity and external milling, vibratory finishing.",
+    "Sized the line for 1M parts/year and resolved a milling bottleneck by scheduling the fleet over four periods."
   ],
-  "approach": [
-    "External drawings and component photographs inform a hypothesized enclosure model. Functional interfaces are identified before dimensional and geometric tolerance assumptions are assigned.",
-    "The proposed material is Al 7005-T6. The process starts from a 3000 \u00d7 1500 \u00d7 10 mm sheet, divided into three 1500 \u00d7 1000 mm panels; the proposed panel layout contains 608 blanks.",
-    "The route separates internal cavity machining, blank separation, external machining and finishing. Tool geometries and operation parameters are selected to suit the features and aluminium machining.",
-    "The study compares equipment, calculates material-removal time, considers tool life through an assumed Taylor model and estimates energy and machine costs.",
-    "A production-capacity model identifies a bottleneck and distributes internal and external machining over production periods. The proposed surface-finishing step is vibratory tumbling."
+  "facts": [
+    [
+      "My role",
+      "Geometry, drawings, process plan, capacity and cost model (with Alessia Aguzzi)"
+    ],
+    [
+      "Team",
+      "2 students"
+    ],
+    [
+      "Context",
+      "Manufacturing studies, UNIVPM"
+    ],
+    [
+      "Period",
+      "Spring 2025"
+    ]
   ],
-  "results": [
-    "The outputs are a simplified enclosure definition, a detailed proposed manufacturing sequence, tooling and equipment choices, operation sheets and a cost model.",
-    "The study discusses a target finish improvement from Ra 0.8 to Ra 0.4 through tumbling and sizes equipment for the annual production scenario. These are calculated or proposed study values, not measured factory results."
-  ],
-  "limits": [
-    "This is an academic manufacturing proposal, not work commissioned by Apple or a reconstruction of its official production process.",
-    "Geometry, material, tolerances, machine prices and tool-life parameters contain assumptions. They need engineering review before use as manufacturing specifications.",
-    "The production and finishing estimates were not validated through machining trials or an operating line."
-  ],
-  "media": [
+  "sections": [
     {
-      "type": "image",
-      "section": "overview",
-      "src": "../../assets/watch-cad.webp",
-      "width": 370,
-      "height": 472,
-      "alt": "Simplified enclosure reconstructed for the manufacturing study. Internal geometry is inferred, not a manufacturer specification.",
-      "caption": "Simplified enclosure reconstructed for the manufacturing study. Internal geometry is inferred, not a manufacturer specification."
+      "id": "geometry",
+      "title": "Geometry and tolerances",
+      "body": [
+        "Only the external surfaces are public, so we inferred the internals — battery cavity, crown and button seats, microphone and strap slots — from teardown photos, then assigned tolerances by function: ±0.01 mm on precision fits, ±0.1 mm on structural walls, and a Ø0.05 mm concentricity on the Ø3 H7 crown bore.",
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "../../assets/watch-render-front.webp",
+              "width": 390,
+              "height": 672,
+              "alt": "CAD render of the reconstructed case, front",
+              "caption": "Reconstructed case in NX."
+            },
+            {
+              "src": "../../assets/watch-render-side.webp",
+              "width": 388,
+              "height": 644,
+              "alt": "CAD render of the reconstructed case, side",
+              "caption": "Crown and button side."
+            }
+          ]
+        }
+      ]
     },
     {
-      "type": "image",
-      "section": "approach",
-      "src": "../../assets/watch-drawing.webp",
-      "width": 1684,
-      "height": 1192,
-      "alt": "Dimensioned enclosure drawing from our study. Dimensions and tolerances are design assumptions.",
-      "caption": "Dimensioned enclosure drawing from our study. Dimensions and tolerances are design assumptions."
+      "id": "process",
+      "title": "Process route",
+      "body": [
+        {
+          "list": [
+            "Blanking: a 3000 × 1500 × 10 mm Al 7005-T6 sheet is laser-cut into three 1500 × 1000 mm panels (AMADA REGIUS fibre laser, chosen on cutting speed and bed size).",
+            "Panel machining: the panel is located on Ø6 H7 reference holes, faced, and the internal cavities of all 608 blanks are milled from both sides before the blanks are cut out.",
+            "Single-part machining: external surfaces on a DATRON MLCube, whose 60,000 rpm spindle is what the 1 mm finishing tools need in aluminium.",
+            "Finishing: vibratory tumbling with low-aggressiveness plastic media, from Ra 0.8 to the Ra 0.4 µm target without rounding the edges."
+          ]
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "../../assets/watch-step-blank.webp",
+              "width": 900,
+              "height": 1063,
+              "alt": "Blank with the internal cavity",
+              "caption": "Blank after cavity milling."
+            },
+            {
+              "src": "../../assets/watch-step-cavity.webp",
+              "width": 556,
+              "height": 792,
+              "alt": "Machining operation on the case cavity",
+              "caption": "Operation detail from the cycle sheets."
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "../../assets/watch-panel.webp",
+          "width": 1202,
+          "height": 605,
+          "alt": "Machining layout of 608 blanks on a 1500 by 1000 mm panel",
+          "caption": "Panel layout: 608 blanks on 1500 × 1000 mm."
+        }
+      ]
     },
     {
-      "type": "image",
-      "section": "results",
-      "src": "../../assets/watch-panel.webp",
-      "width": 1202,
-      "height": 605,
-      "alt": "Proposed panel machining layout: 608 blanks on a 1500 \u00d7 1000 mm panel.",
-      "caption": "Proposed panel machining layout: 608 blanks on a 1500 \u00d7 1000 mm panel."
+      "id": "capacity",
+      "title": "Capacity, tooling and cost",
+      "body": [
+        "For every operation we computed removed volume, material-removal rate and cutting power, and from those the machining time and energy. Tool life came from Taylor's law (literature values for carbide on aluminium, n = 0.25, C = 900 m/min), which set how many parts each tool makes before it's changed.",
+        "Sizing the line for 1,000,000 parts a year gave 1 laser cutter, 89 CNC machining centres and 1 tumbling machine. Cavity milling turned out to be the bottleneck, so instead of buying more machines we split the year into four periods and reassigned the fleet between phases. A cost model rolls machine amortisation, maintenance, energy and tooling into a cost per part."
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "Scope",
+      "body": [
+        {
+          "note": "An academic study of a public product, not work for Apple: internal geometry, tolerances, machine prices and tool-life constants are our assumptions and were not validated with machining trials."
+        }
+      ]
     }
   ],
-  "order": 4
+  "hero_media": {
+    "src": "assets/watch-drawing.webp",
+    "alt": "Dimensioned manufacturing drawing of the case with sections and functional tolerances",
+    "fit": "contain",
+    "caption": "Manufacturing drawing with sections and functional tolerances."
+  }
 }

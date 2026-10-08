@@ -1,0 +1,11 @@
+# Keep build tooling and notes out of the published site.
+exclude:
+  - README.md
+  - GMAIL-SETUP.md
+  - design-reference.json
+  - build.py
+  - site.json
+  - additions.css
+  - verified-base.html
+  - scripts
+  - "projects/*/project.json"
