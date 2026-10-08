@@ -7,7 +7,12 @@
   "category": "Robotics",
   "year": "2024",
   "title": "Motion planning for TIAGo (B.Sc. thesis)",
-  "summary": "Implemented and compared RRT and RRT* for collision-free pick-and-place with a redundant 7-DOF arm.",
+  "summary": "Collision-free pick-and-place planning for the 7-DOF TIAGo arm in a simulated hospital room (MATLAB): RRT parameter study and path shortcutting.",
   "role": "",
-  "links": []
+  "links": [
+    [
+      "Thesis (PDF)",
+      "https://tesi.univpm.it/handle/20.500.12075/19390"
+    ]
+  ]
 }

@@ -62,6 +62,25 @@
       "body": [
         "On eight Brussels scenarios A* and the MDP planner found routes in all eight, the CSP planner in seven. Interactive maps make each comparison inspectable.",
         {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "../../assets/wheelchair-astar-route.webp",
+              "width": 1000,
+              "height": 996,
+              "alt": "A* route from ULB to Gare du Midi on the Brussels street graph",
+              "caption": "A* route, ULB → Gare du Midi, on the OpenStreetMap graph (24,680 nodes)."
+            },
+            {
+              "src": "../../assets/wheelchair-astar-vs-dijkstra.webp",
+              "width": 1000,
+              "height": 879,
+              "alt": "Scatter plot of nodes expanded by A* versus Dijkstra on 8 Brussels routes",
+              "caption": "Nodes expanded, A* vs Dijkstra, on the 8 routes: A* expands 19% of Dijkstra's nodes on average."
+            }
+          ]
+        },
+        {
           "type": "map",
           "src": "../../assets/wheelchair-scenario-1.html",
           "title": "Wheelchair routing — scenario 1",

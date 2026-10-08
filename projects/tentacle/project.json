@@ -73,25 +73,32 @@
           "list": [
             "Material: Dragon Skin 20 silicone, modeled in ANSYS Workbench as a second-order Ogden hyperelastic material (incompressible, 1070 kg/m³).",
             "Boundary conditions: tentacle base fixed, internal pressure applied in steps on the chamber walls.",
-            "Design comparison: equal chambers versus a graded layout (one larger chamber followed by a smaller one), compared on the resulting bending."
+            "Design iteration: three chamber layouts (mk2 → mk3 → mk4) simulated with the same material model and loads, compared on how the finger bends."
           ]
         },
         {
           "type": "gallery",
           "items": [
             {
-              "src": "../../assets/tentacle-fea-equal.webp",
-              "width": 566,
-              "height": 477,
-              "alt": "FEA deformation of a tentacle with two equal air chambers",
-              "caption": "Two equal chambers: deformation under internal pressure."
+              "src": "../../assets/tentacle-mk2.webp",
+              "width": 760,
+              "height": 490,
+              "alt": "mk2 chamber layout and its FEA: the wall bulges locally",
+              "caption": "mk2 — the wall bulges locally instead of bending the finger: rejected."
             },
             {
-              "src": "../../assets/tentacle-fea-graded.webp",
-              "width": 627,
-              "height": 448,
-              "alt": "FEA deformation of a tentacle with a large chamber followed by a smaller one",
-              "caption": "Graded chambers (larger, then smaller): the alternative layout compared in simulation."
+              "src": "../../assets/tentacle-mk3.webp",
+              "width": 760,
+              "height": 607,
+              "alt": "mk3 graded chamber layout and its FEA: smooth bending",
+              "caption": "mk3 — graded chambers (larger, then smaller): the finger curls along its length."
+            },
+            {
+              "src": "../../assets/tentacle-mk4.webp",
+              "width": 760,
+              "height": 631,
+              "alt": "mk4 chamber layout with two near-equal chambers and its FEA",
+              "caption": "mk4 — two near-equal chambers, compared against mk3."
             }
           ]
         }
