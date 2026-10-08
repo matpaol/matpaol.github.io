@@ -131,7 +131,8 @@
         {
           "list": [
             "Add a simulated UR5 arm in MuJoCo: grasp selection, inverse kinematics, collision checking.",
-            "Transfer the policy from simulation to the physical UR5 and measure the gap.",
+            "Bring learning into the execute module as well, so the arm's motions are a policy too — the design is still open.",
+            "Transfer from simulation to the physical UR5 and measure the gap.",
             "Move from perfect state to stereo perception, with occlusion and uncertainty."
           ]
         }

@@ -71,10 +71,10 @@ b{font-weight:650}
   </ul>
 </div>
 <div class="item">
-  <div class="row"><span class="title">Dual-arm object handover <span class="where">· Robotics II, VUB · team of 4, I wrote the implementation</span></span><span class="date">2025 – 26</span></div>
+  <div class="row"><span class="title">Dual-arm object handover <span class="where">· Robotics II, VUB · academic project</span></span><span class="date">2025 – 26</span></div>
   <ul>
     <li>Two Franka Panda arms pass a cube mid-air in Drake: offline handover-pose search from the arms' workspace intersection, IK, OMPL only where collisions are likely, 13-state coordinator.</li>
-    <li>Full pick → handover → place in ≈ 20 s with a <b>9.1 mm</b> final placement error.</li>
+    <li>Full collision-free pick → handover → place in ≈ 20 s.</li>
   </ul>
 </div>
 <div class="item">
@@ -85,10 +85,15 @@ b{font-weight:650}
   </ul>
 </div>
 <div class="item">
-  <div class="row"><span class="title">Fault diagnosis on a multiphase plant <span class="where">· Smart Factories, UNIVPM · individual</span></span><span class="date">2026</span></div>
+  <div class="row"><span class="title">Re-testing a published bearing-fault classifier <span class="where">· Electrical machines &amp; drives, UNIVPM · academic project</span></span><span class="date">2026</span></div>
   <ul>
-    <li>Showed that a global detector learns the operating point instead of the fault (52.6% vs 1.1% false alarms on healthy data); built leakage-free temporal splits.</li>
-    <li>Regime-conditioned Random Forest: 502–515 of 523 faults detected with <b>0 false alarms</b> on 798 healthy samples; 0.973 multiclass accuracy.</li>
+    <li>Faithfully replicated a DAE + CNN method (Sensors, 2021) on Paderborn motor-current data: <b>46.9%</b> accuracy vs the reported 99.6%. Traced the cause to SELU output clipping (25.4% of samples unreachable); scaling the input raised AUC from 0.60 to 0.77, while other training changes had no effect.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="title">Fault diagnosis on a multiphase plant <span class="where">· Smart Factories, UNIVPM · academic project</span></span><span class="date">2026</span></div>
+  <ul>
+    <li>Showed a global detector learns the operating point, not the fault; with leakage-free temporal splits a regime-conditioned Random Forest detects 502–515 of 523 faults with <b>0 false alarms</b> on 798 healthy samples.</li>
   </ul>
 </div>
 <p class="line"><b>Also:</b> vacUUUm cordless vacuum (Siemens NX product design) · 1U CubeSat CFRP/aluminium structure (ANSYS ACP) · LPBF 316L metallography and Vickers testing · PLC elevator controller (GRAFCET) · wheelchair-accessible routing (A*, MDP).</p>

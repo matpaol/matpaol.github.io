@@ -7,16 +7,12 @@
   "year": "2025 – 26",
   "title": "Dual-arm object handover",
   "summary": "Two Franka Panda arms pass a cube mid-air between tables that neither can reach alone — workspace analysis, IK, motion planning and coordination in Drake.",
-  "role": "Team of 4 · I wrote the implementation",
+  "role": "Academic project",
   "cover": {
     "src": "assets/maho-poster.jpg",
     "alt": "Two Franka Panda arms in the Drake simulation"
   },
   "metrics": [
-    [
-      "9.1 mm",
-      "final placement error"
-    ],
     [
       "≈ 20 s",
       "pick → handover → place"
@@ -24,6 +20,10 @@
     [
       "13",
       "states in the task machine"
+    ],
+    [
+      "2 × 7-DOF",
+      "Franka Panda arms"
     ]
   ],
   "tools": [
@@ -35,17 +35,13 @@
   ],
   "tldr": [
     "Robot 1 can only reach the start platform, robot 2 only the goal — the cube has to change hands in the air.",
-    "I wrote the full pipeline: offline handover-pose search, IK, selective OMPL planning, grasp ownership and a 13-state coordinator.",
-    "The complete sequence runs in about 20 s and places the cube with a 9.1 mm error."
+    "Offline handover-pose search, inverse kinematics, selective OMPL planning, grasp ownership and a 13-state coordinator.",
+    "The complete sequence runs collision-free in about 20 seconds."
   ],
   "facts": [
     [
-      "My role",
-      "All implementation code: workspace analysis, IK, planning, coordination, simulation"
-    ],
-    [
-      "Team",
-      "4 students (Robotics II)"
+      "Type",
+      "Academic project"
     ],
     [
       "Context",
@@ -54,6 +50,10 @@
     [
       "Period",
       "Dec 2025 – Jan 2026"
+    ],
+    [
+      "Tools",
+      "Python, Drake, OMPL"
     ]
   ],
   "hero_media": {
@@ -108,8 +108,8 @@
       "id": "results",
       "title": "Results",
       "body": [
-        "In the nominal configuration the full 13-state sequence completes in about 20 seconds, with no collisions, a stable transfer and a 9.1 mm final placement error.",
-        "Next I'd randomise the cube's start pose over many runs to report success rate and error statistics, and bring back contact-based grasping to test slip during the exchange."
+        "In the nominal configuration the full 13-state sequence completes in about 20 seconds, with no collisions and a stable transfer between the grippers.",
+        "Next I'd randomise the cube's start pose over many runs to report success rate and placement statistics, and bring back contact-based grasping to test slip during the exchange."
       ]
     }
   ],
@@ -119,5 +119,5 @@
       "https://github.com/matpaol/MAOH/tree/maho_matpao"
     ]
   ],
-  "links_note": "The repository was created by a teammate; the implementation on the linked branch is my work."
+  "links_note": "Implementation on my branch of the course repository."
 }

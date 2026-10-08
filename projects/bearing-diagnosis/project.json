@@ -1,18 +1,122 @@
 {
   "slug": "bearing-diagnosis",
-  "order": 15,
-  "tier": "archive",
-  "page": false,
-  "color": "blue",
+  "order": 6,
+  "tier": "featured",
+  "page": true,
+  "color": "pink",
   "category": "Data & ML",
   "year": "2026",
-  "title": "Bearing fault diagnosis from motor current",
-  "summary": "Replication of an autoencoder + 1D-CNN pipeline on the Paderborn dataset, with bearing-level train/test separation.",
-  "role": "",
+  "title": "Re-testing a published bearing-fault classifier",
+  "summary": "A paper reports 99.6% accuracy diagnosing bearing faults from motor current with an autoencoder + CNN. A faithful replication reaches 46.9% — and I tracked down why.",
+  "role": "Academic project",
+  "cover": {
+    "src": "assets/bearing-replication.png",
+    "alt": "Bar chart: 99.6% reported accuracy versus 46.9% in the faithful replication",
+    "fit": "contain"
+  },
+  "metrics": [
+    [
+      "99.6% → 46.9%",
+      "reported vs reproduced accuracy"
+    ],
+    [
+      "25.4%",
+      "of samples the network could never reconstruct"
+    ],
+    [
+      "0.60 → 0.77",
+      "AUC after fixing the root cause"
+    ]
+  ],
+  "tools": [
+    "Python",
+    "PyTorch",
+    "Autoencoders",
+    "1D CNN",
+    "scikit-learn",
+    "Signal processing"
+  ],
+  "tldr": [
+    "Rebuilt the published method exactly — same bearings, same architecture (verified by parameter counts), same protocol — on real Paderborn motor-current data.",
+    "Found the root cause: the SELU output layer cannot go below −1.758 while the current reaches −3 A, so the ‘residual’ mostly measures clipping, not bearing health.",
+    "Ran controlled one-change-at-a-time experiments, and designed a stricter evaluation where whole bearings are held out for testing."
+  ],
+  "facts": [
+    [
+      "Type",
+      "Academic project"
+    ],
+    [
+      "Context",
+      "Electrical machines & drives, UNIVPM"
+    ],
+    [
+      "Paper",
+      "Toma, Piltan & Kim, Sensors 21, 8453 (2021)"
+    ],
+    [
+      "Period",
+      "2026"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "question",
+      "title": "The question",
+      "body": [
+        "Bearing faults are a leading cause of electric-motor failure, and diagnosing them from the motor current — a signal you already have — avoids extra vibration sensors. A 2021 paper proposes a deep autoencoder trained only on healthy bearings: its reconstruction error (the residual) should be small for healthy bearings and large for damaged ones, and a CNN classifies the residual. It reports 99.6% accuracy.",
+        "I wanted to know whether that result holds when the method is rebuilt exactly as described, on the real-damage bearings of the Paderborn KAt dataset."
+      ]
+    },
+    {
+      "id": "replication",
+      "title": "A faithful replication",
+      "body": [
+        {
+          "list": [
+            "Same 17 bearings and operating condition as the paper (6 healthy, 5 outer-race, 6 inner-race, all with real damage from accelerated life tests); the condition was inferred from the paper's segment count.",
+            "Architecture reconstructed from the paper's per-layer parameter counts, which pins down undeclared details such as kernel size; every undeclared choice is stated.",
+            "Data integrity checked before any model: 1,360 expected recordings inventoried, one mechanical revolution per frame (2,560 samples at 64 kHz and 1,500 rpm)."
+          ]
+        },
+        "Result: 46.9% test accuracy against the paper's 99.6%, barely above always guessing the most common class (35.4%). The residual ratios between faulty and healthy bearings were 1.04 and 1.14, against the 3.71 and 4.61 the paper reports — the residual simply didn't separate the classes."
+      ]
+    },
+    {
+      "id": "root-cause",
+      "title": "Finding the root cause",
+      "body": [
+        "The paper uses SELU activations on every layer, including the output. SELU cannot produce values below −1.758, but the unnormalised motor current peaks around ±3 A. So 25.4% of all samples are physically unreachable for the decoder, and every frame contains some.",
+        "That clipping dominates the residual: 89.5% of its energy sits on the clipped samples. The ‘fault signature’ the classifier sees is mostly how much each signal gets cut off — which depends on amplitude, not on bearing health. Looking bearing by bearing confirmed it: residuals differ by a factor of 2 between individual specimens, but only by 9.5% between healthy and faulty on average.",
+        "I then changed one thing at a time with fixed data and seeds. Tighter bottlenecks, early stopping, weight decay, batch size and learning rate left the AUC at about 0.60. Only removing the clipping helped: a linear output layer gave 0.72, and scaling the input into the SELU range — keeping the paper's architecture — gave 0.77.",
+        {
+          "type": "image",
+          "src": "../../assets/bearing-ablation.png",
+          "width": 1600,
+          "height": 900,
+          "alt": "Horizontal bar chart of mean AUC for each controlled training change",
+          "caption": "Controlled experiments: training tweaks don't matter, removing the clipping does."
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "A stricter evaluation",
+      "body": [
+        "The paper splits segments 80/20 at random, so slices of the same 4-second recording end up in both training and test — a data leak. I reproduced it on purpose in the replication, so the gap could not be blamed on a different split, and kept the honest comparison for later.",
+        "The statistical-feature baselines (SVM, Random Forest, KNN) reached a median of 63–72% over 100 different splits — higher than the paper reports for them, while the deep method came out far lower.",
+        "The follow-up protocol, implemented in the public notebooks, scales the work up to 29 bearings and all 4 operating conditions, holds out entire bearings for testing, and asks the industrial question directly: train on cheap artificial damage, test on real damage, and check whether well-run-in healthy bearings trigger false alarms."
+      ]
+    }
+  ],
   "links": [
     [
-      "Code",
+      "Code and notebooks",
       "https://github.com/matpaol/MacchineEdAzionamentiExam"
+    ],
+    [
+      "Original paper (Sensors, 2021)",
+      "https://doi.org/10.3390/s21248453"
     ]
   ]
 }

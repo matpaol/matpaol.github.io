@@ -89,40 +89,53 @@
       "id": "process",
       "title": "Process route",
       "body": [
+        "Seven steps from raw sheet to finished case. Use the arrows to go through them.",
         {
-          "list": [
-            "Blanking: a 3000 × 1500 × 10 mm Al 7005-T6 sheet is laser-cut into three 1500 × 1000 mm panels (AMADA REGIUS fibre laser, chosen on cutting speed and bed size).",
-            "Panel machining: the panel is located on Ø6 H7 reference holes, faced, and the internal cavities of all 608 blanks are milled from both sides before the blanks are cut out.",
-            "Single-part machining: external surfaces on a DATRON MLCube, whose 60,000 rpm spindle is what the 1 mm finishing tools need in aluminium.",
-            "Finishing: vibratory tumbling with low-aggressiveness plastic media, from Ra 0.8 to the Ra 0.4 µm target without rounding the edges."
-          ]
-        },
-        {
-          "type": "gallery",
+          "type": "steps",
+          "title": "PROCESS",
           "items": [
             {
-              "src": "../../assets/watch-step-blank.webp",
-              "width": 900,
-              "height": 1063,
-              "alt": "Blank with the internal cavity",
-              "caption": "Blank after cavity milling."
+              "src": "../../assets/watch-proc-nesting.webp",
+              "alt": "Drawing of the 1500 by 1000 mm panel with the grid of 608 blanks and the locating-hole detail",
+              "title": "Sheet to panels",
+              "text": "A 3000 × 1500 × 10 mm Al 7005-T6 sheet is laser-cut (AMADA REGIUS fibre laser) into three 1500 × 1000 mm panels. Each panel holds 608 blanks; Ø6 H7 holes locate it on the machine."
             },
             {
-              "src": "../../assets/watch-step-cavity.webp",
-              "width": 556,
-              "height": 792,
-              "alt": "Machining operation on the case cavity",
-              "caption": "Operation detail from the cycle sheets."
+              "src": "../../assets/watch-proc-cavity.webp",
+              "alt": "CAD of the internal cavity milled into the blank, with dimensions",
+              "title": "Cavities milled on the panel",
+              "text": "After facing, the internal cavity of every blank is milled from both sides while the blanks are still joined — the panel itself holds them."
+            },
+            {
+              "src": "../../assets/watch-step-blank.webp",
+              "alt": "Single blank after cavity milling",
+              "title": "Blank separation",
+              "text": "The 608 blanks are cut out of the panel, each one already carrying its internal geometry."
+            },
+            {
+              "src": "../../assets/watch-proc-mic-hole.webp",
+              "alt": "Drawing of the microphone hole with detail views",
+              "title": "Small features",
+              "text": "Microphone hole, button and crown seats: features small enough to need 1 mm tools, which is why the DATRON MLCube's 60,000 rpm spindle was chosen."
+            },
+            {
+              "src": "../../assets/watch-proc-external.webp",
+              "alt": "CAD and drawing of the external wall machining",
+              "title": "External surfaces",
+              "text": "External walls and strap attachments are machined on the single part, holding ±0.01 mm on the critical outer dimensions."
+            },
+            {
+              "big": "Ra 0.4",
+              "title": "Finishing",
+              "text": "Vibratory tumbling with low-aggressiveness plastic cones brings the surface from Ra 0.8 to the Ra 0.4 µm target without rounding the edges (30-minute cycle)."
+            },
+            {
+              "src": "../../assets/watch-schedule.png",
+              "alt": "Chart of how the 89 CNC centres are split between cavity milling and external machining across four periods",
+              "title": "Sizing the line",
+              "text": "1,000,000 parts a year needs 1 laser cutter, 89 CNC centres and 1 tumbler. Cavity milling is the bottleneck, so the fleet is reassigned between phases over four periods instead of buying more machines."
             }
           ]
-        },
-        {
-          "type": "image",
-          "src": "../../assets/watch-panel.webp",
-          "width": 1202,
-          "height": 605,
-          "alt": "Machining layout of 608 blanks on a 1500 by 1000 mm panel",
-          "caption": "Panel layout: 608 blanks on 1500 × 1000 mm."
         }
       ]
     },
@@ -130,8 +143,7 @@
       "id": "capacity",
       "title": "Capacity, tooling and cost",
       "body": [
-        "For every operation we computed removed volume, material-removal rate and cutting power, and from those the machining time and energy. Tool life came from Taylor's law (literature values for carbide on aluminium, n = 0.25, C = 900 m/min), which set how many parts each tool makes before it's changed.",
-        "Sizing the line for 1,000,000 parts a year gave 1 laser cutter, 89 CNC machining centres and 1 tumbling machine. Cavity milling turned out to be the bottleneck, so instead of buying more machines we split the year into four periods and reassigned the fleet between phases. A cost model rolls machine amortisation, maintenance, energy and tooling into a cost per part."
+        "For every operation we computed removed volume, material-removal rate and cutting power, and from those the machining time and energy. Tool life came from Taylor's law (literature values for carbide on aluminium, n = 0.25, C = 900 m/min), which set how many parts each tool makes before it's changed. A cost model rolls machine amortisation, maintenance, energy and tooling into a cost per part."
       ]
     },
     {
