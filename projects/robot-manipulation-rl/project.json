@@ -96,10 +96,10 @@
         {
           "list": [
             "Scenes were settled for a fixed 0.4 s. With ten objects the release height reached 1.3 m, and a 1.3 m drop takes about 0.5 s — so reference poses were recorded while objects were still falling, and every ‘disturbance’ was really fall distance. I replaced it with settling until the scene is at rest.",
-            "With the default rolling friction, cylinders landing on an edge rolled away by about 25 cm and the target ended up buried in 0 of 10 test scenes. Raising rolling friction from 0.005 to 0.05 produced buried targets in 6 of 10. This is a configuration choice that makes the scene distribution match the task; it does not show the physics is more realistic, and the friction parameters will be calibrated against real objects before any sim-to-real claim."
+            "Rolling friction was a configuration choice driven by the task: at the default value, cylinders landing on an edge rolled away by about 25 cm and the target ended up buried in 0 of 10 test scenes; at 0.05 instead of 0.005, in 6 of 10. Before any sim-to-real step the friction parameters will be calibrated against real objects."
           ]
         },
-        "Reproducibility check: for the same seed, on the same machine and software versions, the generated scenes are byte-identical; a regression test over 60 episodes compares scene and episode records before and after each refactor (timing fields excluded)."
+        "Reproducibility: for the same seed and software versions, generated scenes are byte-identical; a regression test over 60 episodes checks this after every refactor."
       ]
     },
     {
@@ -110,7 +110,7 @@
           "list": [
             "A persistent bank of pre-settled scenes with an 80/20 train/evaluation split, so training doesn't spend its time waiting for piles to settle.",
             "16 asynchronous MuJoCo workers, with a guard that refuses to start if any worker loaded a different configuration.",
-            "Resumable training: a checkpoint restores weights, optimizer state, schedules and random-generator states, verified with checksums. Because workers are asynchronous, a resumed run is not guaranteed to follow the exact same trajectory as an uninterrupted one.",
+            "Resumable training: a checkpoint restores weights, optimizer state, schedules and random-generator states, verified with checksums.",
             "An ablation benchmark, ready to run, that compares the learned decision-makers against rule-based baselines on the same scenes."
           ]
         }

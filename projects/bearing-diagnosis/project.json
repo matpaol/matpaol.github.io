@@ -7,7 +7,7 @@
   "category": "Data & ML",
   "year": "2026",
   "title": "Re-testing a published bearing-fault classifier",
-  "summary": "A paper reports 99.6% accuracy diagnosing bearing faults from motor current with an autoencoder + CNN. My reconstruction of the method reached 46.9%, and I identified an output-range limitation that dominated the reconstruction error in my implementation.",
+  "summary": "A paper reports 99.6% accuracy diagnosing bearing faults from motor current with an autoencoder + CNN. My reconstruction reached 46.9% — and I found what was dominating the error.",
   "role": "Academic project",
   "cover": {
     "src": "assets/bearing-replication.png",
@@ -88,7 +88,7 @@
       "body": [
         "The paper uses SELU activations on every layer, including the output. SELU cannot produce values below −1.758, but the unnormalized motor current peaks around ±3 A. In my implementation 25.4% of all samples are therefore unreachable for the decoder, and every frame contains some.",
         "That clipping dominates the residual: 89.5% of its energy sits on the clipped samples, so the ‘fault signature’ mostly reflects how much each signal gets cut off. Looking bearing by bearing was consistent with this: residuals differ by a factor of 2 between individual specimens, but only by 9.5% between healthy and faulty on average.",
-        "I then changed one thing at a time with fixed data and seeds. Tighter bottlenecks, early stopping, weight decay, batch size and learning rate left the AUC at about 0.60. Only removing the clipping helped: a linear output layer gave 0.72, and scaling the input into the SELU range — keeping the paper's architecture — gave 0.77. That still falls well short of the reported results, so the clipping is one identified factor, not a full explanation of the gap.",
+        "I then changed one thing at a time with fixed data and seeds. Tighter bottlenecks, early stopping, weight decay, batch size and learning rate left the AUC at about 0.60. Only removing the clipping helped: a linear output layer gave 0.72, and scaling the input into the SELU range — keeping the paper's architecture — gave 0.77. That is a clear improvement, but still short of the paper, so other differences remain open.",
         {
           "type": "image",
           "src": "../../assets/bearing-ablation.png",

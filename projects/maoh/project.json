@@ -109,7 +109,7 @@
       "title": "Results",
       "body": [
         "In one nominal simulated run (cube at a fixed start pose, kinematic grasp) the full 13-state sequence completed in about 20 seconds without collisions or drops.",
-        "That is a proof of concept, not a statistic. Next I'd randomize the cube's start pose over many runs to report success rate and placement statistics, and bring back contact-based grasping to test slip during the exchange."
+        "Next I'd randomize the cube's start pose over many runs to report success rate and placement statistics, and bring back contact-based grasping to test slip during the exchange."
       ]
     }
   ],

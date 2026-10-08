@@ -136,8 +136,8 @@
       "id": "results",
       "title": "Results and what I'd do next",
       "body": [
-        "The prototype grasps and lifts the target objects by bending the four tentacles, which shows the design works as a proof of concept. It does not yet validate the FEA quantitatively: that needs a pressure–bending comparison between model and cast part.",
-        "The team's critical review found the shoulder not stiff enough, the custom timing belts unreliable, and no active pump regulation. On my side, the next step would be that comparison: measure tentacle bending against pressure on a test rig and fit the Ogden parameters to it, so the model predicts the real part instead of a literature material."
+        "The prototype grasps and lifts the target objects with the four tentacles — a working proof of concept of the design.",
+        "The team's critical review found the shoulder not stiff enough, the custom timing belts unreliable, and no active pump regulation. On my side, the next step is a pressure–bending test rig to compare the cast tentacle with the FEA and fit the Ogden parameters to the real part."
       ]
     }
   ],
