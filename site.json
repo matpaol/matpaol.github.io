@@ -1,7 +1,7 @@
 {
   "base_url": "https://matpaol.github.io",
   "title": "Matteo Paolini — Mechanical engineer",
-  "description": "Mechanical engineer (M.Sc. Mechatronics) working across mechanical design, manufacturing, simulation, robotics and data. Research intern at the Royal Military Academy, Brussels.",
+  "description": "Mechanical engineer (M.Sc. Mechatronics) working on Physical AI: reinforcement learning, simulation and sim-to-real, alongside mechanical design and manufacturing. Research intern at the Royal Military Academy, Brussels.",
   "og_image": "assets/og-card.png",
   "email": "paolini134@gmail.com",
   "profiles": [
@@ -16,19 +16,19 @@
   ],
   "hero": {
     "headline_html": "Cool ideas,<br>engineered.",
-    "intro": "Mechanical design, simulation, robotics and data.",
+    "intro": "Physical AI: reinforcement learning, simulation and sim-to-real — on a mechanical engineering background.",
     "scope": "M.Sc. student in Mechanical Engineering (Mechatronics), UNIVPM · ULB/VUB Brussels · Physical AI research intern, Royal Military Academy.",
-    "availability": "Brussels · Available from February 2027 · Willing to relocate"
+    "availability": "Brussels · Available from February 2027 · Open to relocation"
   },
   "work_lead": "Seven case studies across robot learning, robotic hardware, product design, manufacturing and data — each with the decisions I made and the numbers behind them.",
   "about": [
     "I'm a mechanical engineer finishing an M.Sc. in Mechatronics at UNIVPM, with a year of coursework at ULB and VUB in Brussels. I like problems where the hardware, the physics and the software have to be designed together.",
-    "Right now I'm building a reinforcement-learning pipeline in MuJoCo that decides how a robot arm should clear a cluttered pile, as a research intern at the Royal Military Academy. Next step: a simulated UR5, then transfer to the real robot."
+    "Right now I'm working on robotic humanitarian demining at the Royal Military Academy: a reinforcement-learning policy, trained in MuJoCo, that decides which objects to remove — and how, and in what order — to extract a landmine safely from clutter. Next comes a UR5 arm and the transfer from simulation to the real robot."
   ],
   "facts": [
     [
       "Based in",
-      "Brussels · EU citizen, willing to relocate"
+      "Brussels · EU citizen, open to relocation"
     ],
     [
       "Studies",

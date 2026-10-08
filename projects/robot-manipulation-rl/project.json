@@ -5,51 +5,36 @@
   "color": "blue",
   "category": "Robot learning",
   "year": "2026–present",
-  "title": "Learning to clear a cluttered pile",
-  "summary": "A MuJoCo + reinforcement-learning pipeline that decides which object a robot should remove next to reach a buried target, without collapsing the pile around it.",
-  "role": "Research intern · independent project",
+  "title": "Robotic demining: what to remove, and in what order",
+  "summary": "A demining robot has to reach a PFM-1 landmine lying among leaves, branches and debris. I'm developing a reinforcement-learning policy that works out what stands in the way of a safe extraction, which objects to remove, how and in what order — first in MuJoCo, then on a real UR5.",
+  "role": "Research intern · Royal Military Academy",
   "cover": {
-    "src": "projects/robot-manipulation-rl/media/architecture.svg",
-    "alt": "Observe, decide, execute loop",
-    "fit": "contain"
+    "src": "assets/demining-scene-wide.webp",
+    "alt": "Top-down camera view of a cluttered ground scene with leaves, branches and debris"
   },
   "hero_media": {
-    "src": "media/architecture.svg",
-    "alt": "Diagram of the observe, decide, execute loop with the task module computing the reward",
-    "fit": "contain",
-    "caption": "The loop the whole codebase is organized around. Each block has a typed contract, so perception, policy and robot can be swapped independently."
+    "src": "assets/demining-scene-wide.webp",
+    "alt": "Top-down camera view of a cluttered ground scene with leaves, branches and debris",
+    "caption": "The kind of scene the robot has to handle: debris, leaves and branches that may rest on, shield or block access to the target."
   },
-  "metrics": [
-    [
-      "24 / 25",
-      "best rule-based baseline (6 objects)"
-    ],
-    [
-      "16",
-      "parallel MuJoCo workers"
-    ],
-    [
-      "3",
-      "simulated sensor types"
-    ]
-  ],
+  "metrics": [],
   "tools": [
     "Python",
     "MuJoCo",
     "Gymnasium",
     "Stable-Baselines3 (PPO)",
-    "YOLO segmentation",
-    "pytest"
+    "Reinforcement learning",
+    "Sim-to-real"
   ],
   "tldr": [
-    "Built so far: procedural scene generation, physics diagnostics, simulated sensors with a trained segmentation detector, and a PPO training pipeline with a teacher–student design.",
-    "Measured so far: simple rule-based baselines; the learned policies have not been evaluated yet.",
-    "Planned: full training and ablation runs, then a simulated UR5 and transfer to the physical robot."
+    "Humanitarian demining: the robot must extract a PFM-1 landmine safely from clutter.",
+    "It has to understand the scene, find what prevents a safe extraction, and decide how many objects to remove, which ones, how and in what order.",
+    "Simulation-first reinforcement learning in MuJoCo, then sim-to-real on a UR5 arm."
   ],
   "facts": [
     [
       "Role",
-      "Research intern — I develop this project independently and review it with my supervisor"
+      "Research intern — independent project, reviewed with my supervisor"
     ],
     [
       "Where",
@@ -61,7 +46,7 @@
     ],
     [
       "Status",
-      "Work in progress · updated 8 Oct 2026"
+      "In progress — results will be added once evaluated"
     ]
   ],
   "sections": [
@@ -69,104 +54,56 @@
       "id": "problem",
       "title": "The problem",
       "body": [
-        "A target object lies somewhere inside a pile of other objects. To reach it, a robot has to remove objects one at a time — but some of them hold others up. Remove the wrong one and the pile collapses onto, or around, the target.",
-        "Geometric contact alone doesn't tell you which object is actually supporting which, and the robot only sees the scene through cameras. The question is a sequence of decisions under uncertainty, which is why the core of the project is a learned policy rather than a fixed rule."
+        "The target is a small, scatterable plastic anti-personnel mine. Objects around it can rest on it, shield it or block the gripper, and moving the wrong one can push or drop something onto it.",
+        "The robot has to understand the scene, identify what prevents a safe extraction, decide how many objects to remove, which ones and how — grasp or push — and in what order, until the mine can be lifted out without being disturbed."
       ]
     },
     {
-      "id": "system",
-      "title": "Architecture and status",
+      "id": "approach",
+      "title": "Approach",
       "body": [
-        "The code is organized as a loop: observe the scene, decide one object to act on, execute, then check what actually happened. Only the simulation layer talks to MuJoCo, and every experiment is defined by a config file rather than by branches in the code.",
         {
           "list": [
-            "Observe — implemented: simulated stereo, RGB-D and LiDAR sensors with calibration, a segmentation detector trained on domain-randomized synthetic images, and a privileged ‘oracle’ observer that reads the support graph from MuJoCo contact forces. The decision module currently runs on the oracle observation; switching it to the sensor pipeline is planned.",
-            "Decide — implemented, not yet evaluated: one object per step, trained with PPO. The design is teacher–student: a teacher learns on the true simulator state, and a student that receives only the observation imitates it and then keeps improving. A geometric check rejects objects the gripper cannot reach from any side.",
-            "Task — implemented: the reward is split into named terms (progress, disturbance of the target, objects falling near it, refused actions), and episodes end on critical events.",
-            "Execute — implemented as an abstract removal that returns the verified outcome; a simulated UR5 arm will replace it."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "physics",
-      "title": "Checking the simulation",
-      "body": [
-        "Before trusting any learning result I made sure the simulator measures what the task needs. Two examples:",
-        {
-          "list": [
-            "Scenes were settled for a fixed 0.4 s. With ten objects the release height reached 1.3 m, and a 1.3 m drop takes about 0.5 s — so reference poses were recorded while objects were still falling, and every ‘disturbance’ was really fall distance. I replaced it with settling until the scene is at rest.",
-            "Rolling friction was a configuration choice driven by the task: at the default value, cylinders landing on an edge rolled away by about 25 cm and the target ended up buried in 0 of 10 test scenes; at 0.05 instead of 0.005, in 6 of 10. Before any sim-to-real step the friction parameters will be calibrated against real objects."
+            "Observe → decide → execute. The robot perceives the scene, chooses one object at a time, acts, then checks what actually happened before deciding again.",
+            "Simulation first. Randomized cluttered scenes in MuJoCo, built from real-world object classes.",
+            "Teacher–student reinforcement learning. A teacher that sees the true simulator state trains a student that only gets what the sensors see.",
+            "Safety in the objective. The reward penalizes any disturbance of the mine and anything falling near it, and actions the gripper can't physically perform are rejected before execution."
           ]
         },
-        "Reproducibility: for the same seed and software versions, generated scenes are byte-identical; a regression test over 60 episodes checks this after every refactor."
-      ]
-    },
-    {
-      "id": "training",
-      "title": "Training infrastructure",
-      "body": [
         {
-          "list": [
-            "A persistent bank of pre-settled scenes with an 80/20 train/evaluation split, so training doesn't spend its time waiting for piles to settle.",
-            "16 asynchronous MuJoCo workers, with a guard that refuses to start if any worker loaded a different configuration.",
-            "Resumable training: a checkpoint restores weights, optimizer state, schedules and random-generator states, verified with checksums.",
-            "An ablation benchmark, ready to run, that compares the learned decision-makers against rule-based baselines on the same scenes."
-          ]
+          "type": "image",
+          "src": "media/architecture.svg",
+          "width": 960,
+          "height": 540,
+          "alt": "Diagram of the observe, decide, execute loop with the task module computing the reward",
+          "caption": "The decision loop: each block has a defined interface, so perception, policy and robot can be developed and replaced independently."
         }
       ]
     },
     {
-      "id": "results",
-      "title": "Results so far",
+      "id": "real-robot",
+      "title": "Toward the real robot",
       "body": [
-        "Measured so far are only simple rule-based baselines. On 25 episodes with 6 objects, always removing the top object succeeded 24/25 times, a random choice 21/25, and going straight for the target 18/25 — the order of removal matters.",
-        "The learned policies have not been evaluated yet. I'll publish the ablation results here once the first full round with three seeds is complete."
+        "Next: a simulated UR5 with learned execution, then sim-to-real transfer on the physical arm."
       ]
     },
     {
-      "id": "next",
-      "title": "Next steps",
-      "body": [
-        {
-          "list": [
-            "Add a simulated UR5 arm in MuJoCo: grasp selection, inverse kinematics, collision checking.",
-            "Bring learning into the execute module as well, so the arm's motions are a policy too — the design is still open.",
-            "Transfer from simulation to the physical UR5 and measure the gap.",
-            "Move from perfect state to stereo perception, with occlusion and uncertainty."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "log",
-      "title": "Research log",
+      "id": "updates",
+      "title": "Updates",
       "body": [
         {
           "log": [
             [
               "Oct 2026",
-              "Official training setup ready: scene bank, 16 parallel workers, resumable runs — next is the first round of ablation training."
-            ],
-            [
-              "Oct 2026",
-              "Ablation benchmark against rule-based deciders; reachability check for the gripper."
+              "First full benchmark of the learned policies."
             ],
             [
               "Sep 2026",
-              "Decision module designed: teacher–student PPO, object slots, reward split into terms."
-            ],
-            [
-              "Sep 2026",
-              "Perception pipeline: simulated stereo / RGB-D / LiDAR, segmentation detector trained on domain-randomized images."
-            ],
-            [
-              "Sep 2026",
-              "Physics fixes: settle-to-rest and rolling friction; reproducible seeded scenes."
+              "Perception and decision design."
             ],
             [
               "Aug 2026",
-              "Project start: procedural scene generation and first baselines in MuJoCo."
+              "Project start."
             ]
           ]
         }
