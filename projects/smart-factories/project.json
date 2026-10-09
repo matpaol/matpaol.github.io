@@ -36,7 +36,7 @@
   ],
   "tldr": [
     "All fault recordings in the public dataset come from a single operating point — a model can score well just by recognizing that point.",
-    "I built leakage-free temporal splits and a test that exposes this shortcut before trusting any accuracy number.",
+    "I designed leakage-free temporal splits and a test that exposes this shortcut before trusting any accuracy number.",
     "A regime-conditioned Random Forest detects 502–515 of 523 faulty samples with zero false alarms; a global model raises 49–58."
   ],
   "facts": [

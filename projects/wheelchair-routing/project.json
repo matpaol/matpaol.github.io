@@ -28,7 +28,7 @@
   ],
   "tldr": [
     "Plans routes that respect a maximum slope (8%) and minimum width (1.2 m), with a controlled fallback when no route exists.",
-    "I built the shared map pipeline, graph attributes, configuration and benchmark integration."
+    "I was responsible for the shared map pipeline, graph attributes, configuration and benchmark integration."
   ],
   "facts": [
     [

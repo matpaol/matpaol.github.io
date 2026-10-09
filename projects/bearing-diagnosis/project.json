@@ -38,7 +38,7 @@
   ],
   "tldr": [
     "Reconstructed the published method — same bearings, architecture matched to the paper's parameter counts, same protocol — on real Paderborn motor-current data; undeclared choices are stated in the notebooks.",
-    "Identified an output-range limitation: the SELU output layer cannot go below −1.758 while the current reaches about −3 A, so in my implementation the residual mostly measured clipping.",
+    "Identified an output-range limitation: the SELU output layer cannot go below −1.758 while the current reaches about −3 A, so in my reconstruction the residual mostly measured clipping.",
     "Ran one-change-at-a-time experiments and designed a stricter evaluation where whole bearings are held out for testing."
   ],
   "facts": [
@@ -79,14 +79,14 @@
             "Data integrity checked before any model: 1,360 expected recordings inventoried, one mechanical revolution per frame (2,560 samples at 64 kHz and 1,500 rpm)."
           ]
         },
-        "Result: 46.9% test accuracy against the paper's 99.6%, barely above always guessing the most common class (35.4%). The residual ratios between faulty and healthy bearings were 1.04 and 1.14, against the 3.71 and 4.61 the paper reports — in my implementation the residual didn't separate the classes."
+        "Result: 46.9% test accuracy against the paper's 99.6%, barely above always guessing the most common class (35.4%). The residual ratios between faulty and healthy bearings were 1.04 and 1.14, against the 3.71 and 4.61 the paper reports — in my reconstruction the residual didn't separate the classes."
       ]
     },
     {
       "id": "root-cause",
       "title": "What dominated the error",
       "body": [
-        "The paper uses SELU activations on every layer, including the output. SELU cannot produce values below −1.758, but the unnormalized motor current peaks around ±3 A. In my implementation 25.4% of all samples are therefore unreachable for the decoder, and every frame contains some.",
+        "The paper uses SELU activations on every layer, including the output. SELU cannot produce values below −1.758, but the unnormalized motor current peaks around ±3 A. In my reconstruction 25.4% of all samples are therefore unreachable for the decoder, and every frame contains some.",
         "That clipping dominates the residual: 89.5% of its energy sits on the clipped samples, so the ‘fault signature’ mostly reflects how much each signal gets cut off. Looking bearing by bearing was consistent with this: residuals differ by a factor of 2 between individual specimens, but only by 9.5% between healthy and faulty on average.",
         "I then changed one thing at a time with fixed data and seeds. Tighter bottlenecks, early stopping, weight decay, batch size and learning rate left the AUC at about 0.60. Only removing the clipping helped: a linear output layer gave 0.72, and scaling the input into the SELU range — keeping the paper's architecture — gave 0.77. That is a clear improvement, but still short of the paper, so other differences remain open.",
         {
@@ -95,7 +95,7 @@
           "width": 1600,
           "height": 900,
           "alt": "Horizontal bar chart of mean AUC for each controlled training change",
-          "caption": "Controlled experiments on my implementation: training tweaks don't move the AUC, removing the clipping does."
+          "caption": "Controlled experiments on my reconstruction: training tweaks don't move the AUC, removing the clipping does."
         }
       ]
     },
