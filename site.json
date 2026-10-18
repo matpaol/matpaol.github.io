@@ -1,63 +1,109 @@
 {
-  "base_url": "https://matpaol.github.io",
-  "title": "Matteo Paolini — Mechanical engineer",
-  "description": "Mechanical engineer (M.Sc. Mechatronics) working on Physical AI — reinforcement learning, simulation and sim-to-real — and on mechanical design and manufacturing.",
-  "og_image": "assets/og-card.png",
-  "email": "paolini134@gmail.com",
-  "profiles": [
-    [
-      "GitHub",
-      "https://github.com/matpaol"
-    ],
-    [
-      "LinkedIn",
-      "https://www.linkedin.com/in/matpaolini/"
-    ]
+ "base_url": "https://matpaol.github.io",
+ "title": "Matteo Paolini — Mechanical engineer",
+ "description": "Mechanical engineer (M.Sc. Mechatronics) working on Physical AI — reinforcement learning, simulation and sim-to-real — and on mechanical design and manufacturing.",
+ "og_image": "assets/og-card.png",
+ "email": "paolini134@gmail.com",
+ "profiles": [
+  [
+   "GitHub",
+   "https://github.com/matpaol"
   ],
-  "hero": {
-    "headline_html": "Cool ideas,<br>engineered.",
-    "intro": "Physical AI: reinforcement learning, simulation and sim-to-real — on a mechanical engineering background.",
-    "scope": "M.Sc. student in Mechanical Engineering (Mechatronics), UNIVPM · ULB/VUB Brussels · Physical AI research intern, Royal Military Academy.",
-    "availability": "Brussels · Available from February 2027 · Open to relocation"
-  },
-  "work_lead": "Seven case studies across robot learning, robotic hardware, product design, manufacturing and data — each with the decisions I made and the numbers behind them.",
-  "about": [
-    "I'm a mechanical engineer finishing an M.Sc. in Mechatronics at UNIVPM, with a year of coursework at ULB and VUB in Brussels. I like problems where the hardware, the physics and the software have to be designed together.",
-    "Right now I'm working on robotic humanitarian demining at the Royal Military Academy: a reinforcement-learning policy, trained in MuJoCo, that decides which objects to remove — and how, and in what order — to extract a landmine safely from clutter. Next comes a UR5 arm and the transfer from simulation to the real robot."
-  ],
-  "facts": [
-    [
-      "Based in",
-      "Brussels · EU citizen, open to relocation"
-    ],
-    [
-      "Studies",
-      "M.Sc. Mechanical Engineering — Mechatronics, UNIVPM (graduating February 2027) · Erasmus at ULB & VUB"
-    ],
-    [
-      "Looking for",
-      "Internships, graduate roles and PhD positions in robot learning, robotics and mechanical design — from February 2027"
-    ],
-    [
-      "Languages",
-      "Italian (native) · English (C1)"
-    ]
-  ],
-  "toolkit": [
-    "Python",
-    "PyTorch",
-    "scikit-learn",
-    "MuJoCo",
-    "Gymnasium",
-    "Stable-Baselines3",
-    "Drake",
-    "OMPL",
-    "Siemens NX",
-    "SolidWorks",
-    "ANSYS Workbench",
-    "Tecnomatix",
-    "GD&T",
-    "FDM 3D printing",
-    "MATLAB / Simulink"
+  [
+   "LinkedIn",
+   "https://www.linkedin.com/in/matpaolini/"
   ]
+ ],
+ "hero": {
+  "headline_html": "Cool ideas,<br>engineered.",
+  "intro": "Physical AI: reinforcement learning, simulation and sim-to-real — on a mechanical engineering background.",
+  "scope": "M.Sc. student in Mechanical Engineering (Mechatronics), UNIVPM · ULB/VUB Brussels · Physical AI research intern, Royal Military Academy.",
+  "availability": "Brussels · Available from February 2027 · Open to relocation"
+ },
+ "work_lead": "Seven case studies across robot learning, robotic hardware, product design, manufacturing and data — each with the decisions I made and the numbers behind them.",
+ "about": [
+  "I'm a mechanical engineer finishing an M.Sc. in Mechatronics at UNIVPM, with a year of coursework at ULB and VUB in Brussels. I like problems where the hardware, the physics and the software have to be designed together.",
+  "Right now I'm working on robotic humanitarian demining at the Royal Military Academy: a reinforcement-learning policy, trained in MuJoCo, that decides which objects to remove — and how, and in what order — to extract a landmine safely from clutter. Next comes a UR5 arm and the transfer from simulation to the real robot."
+ ],
+ "facts": [
+  [
+   "Based in",
+   "Brussels · EU citizen, open to relocation"
+  ],
+  [
+   "Studies",
+   "M.Sc. Mechanical Engineering — Mechatronics, UNIVPM (graduating February 2027) · Erasmus at ULB & VUB"
+  ],
+  [
+   "Looking for",
+   "Internships, graduate roles and PhD positions in robot learning, robotics and mechanical design — from February 2027"
+  ],
+  [
+   "Languages",
+   "Italian (native) · English (C1)"
+  ]
+ ],
+ "toolkit": [
+  "Python",
+  "PyTorch",
+  "scikit-learn",
+  "MuJoCo",
+  "Gymnasium",
+  "Stable-Baselines3",
+  "Drake",
+  "OMPL",
+  "Siemens NX",
+  "SolidWorks",
+  "ANSYS Workbench",
+  "Tecnomatix",
+  "GD&T",
+  "FDM 3D printing",
+  "MATLAB / Simulink"
+ ],
+ "experience": [
+  {
+   "years": "2026 – now",
+   "role": "Research Intern",
+   "org": "Royal Military Academy · Brussels",
+   "text": "Robot learning for humanitarian demining: simulating cluttered scenes in MuJoCo and training reinforcement-learning policies, with the goal of transferring them to a real Universal Robots arm."
+  },
+  {
+   "years": "Summers 2016 – 2020",
+   "role": "Machinery Maintenance Assistant — seasonal",
+   "org": "PM Macchine · Corropoli (IT)",
+   "text": "Maintenance of leather-goods machinery (Adler, ATOM, Galli, OMAC, among others), with experienced technicians or independently: sewing-machine hook timing, pneumatic troubleshooting, hydraulic seal replacement, replacement of faulty sensors and electronic control boards. Occasional technical support ongoing.",
+   "card": {
+    "title": "3D-printed sewing fixture",
+    "src": "assets/sewing-fixture.webp",
+    "w": 900,
+    "h": 1200,
+    "alt": "Blue 3D-printed fixture installed on an industrial sewing machine, over the fabric next to the needle",
+    "text": "Designed and 3D-printed a custom fixture to position trouser labels during sewing — the most recent of several fixtures I made. Selected PLA and a high wall count to prioritize stiffness. The photograph shows the fixture installed on the sewing machine.",
+    "tags": [
+     "Mechanical design",
+     "3D printing",
+     "PLA",
+     "Tooling"
+    ]
+   }
+  },
+  {
+   "years": "2023 – 2024",
+   "role": "Research Intern — B.Sc. thesis",
+   "org": "UNIVPM · Ancona",
+   "text": "Collision-free pick-and-place planning for the redundant 7-DOF arm of the TIAGo mobile manipulator (MATLAB): RRT parameter study and path shortcutting."
+  },
+  {
+   "years": "2019",
+   "role": "Assembly & Machine Calibration Intern",
+   "org": "Co.Me.Ta. Srl · Montegranaro (IT)",
+   "text": "Assembled machine frames and integrated sensors, motors and electromechanical parts into industrial machines; final functional calibration."
+  },
+  {
+   "years": "2018",
+   "role": "Assembly & Wiring Intern",
+   "org": "Galli S.p.A. · Vigevano (IT)",
+   "text": "Assembled and wired industrial machinery for leather-goods production."
+  }
+ ]
 }
