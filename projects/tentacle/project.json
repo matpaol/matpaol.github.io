@@ -7,7 +7,7 @@
   "year": "2025",
   "title": "Soft tentacle gripper",
   "summary": "Four pneumatic silicone tentacles that wrap around fragile, irregular produce — designed in hyperelastic FEA, cast in 3D-printed molds and built into a working 2-DOF robot.",
-  "role": "Team of 5 · FEA, mold design & casting",
+  "role": "Team of 5 · mechanical design, FEA & 3D printing",
   "cover": {
     "src": "assets/tentacle-prototype.webp",
     "alt": "The assembled tentacle gripper prototype on a lab bench"
@@ -22,8 +22,8 @@
       "payload requirement"
     ],
     [
-      "2-part",
-      "reusable casting mold"
+      "1",
+      "reusable mold with removable core"
     ]
   ],
   "tools": [
@@ -34,14 +34,14 @@
     "Silicone casting"
   ],
   "tldr": [
-    "I owned the tentacle: chamber geometry in FEA, the casting mold and the 3D-printed tooling.",
-    "Silicone modeled as a 2nd-order Ogden hyperelastic material — with no official model for Dragon Skin 20 and a node-limited student license, so the FEA was used to compare layouts, not to predict exact bending.",
-    "Modular design: each silicone tentacle can be swapped or repaired on its own. The team integrated it on a 2-DOF arm with an Arduino-controlled pneumatic circuit."
+    "My part was the mechanical design — casting mold, removable core, tentacle and tentacle holder — and all the 3D printing.",
+    "The core sets the internal cross-section of the tentacle, and so how it bends under pressure; I used hyperelastic FEA (2nd-order Ogden, Dragon Skin 20) to define its geometry.",
+    "Modular design: each tentacle mounts quickly on a holder that adapts to different tentacle types and sizes. The team integrated it on a 2-DOF arm with an Arduino-controlled pneumatic circuit."
   ],
   "facts": [
     [
       "My role",
-      "Tentacle FEA, casting mold design, 3D-printed tooling"
+      "Mechanical design of mold, core, tentacle and tentacle holder; FEA; all 3D printing"
     ],
     [
       "Team",
@@ -68,7 +68,7 @@
       "id": "fea",
       "title": "Designing the tentacle in simulation",
       "body": [
-        "Each tentacle is a silicone finger with internal air chambers. When pressurized, the thin side stretches more than the thick side and the finger curls around the object. Getting enough curvature at a low, safe pressure depends on the chamber geometry — so I worked it out in FEA before printing anything.",
+        "Each tentacle is a silicone finger with an internal air channel formed by the mold core. When pressurized, the thin side stretches more than the thick side and the finger curls around the object. How it bends depends on the internal cross-section — so I defined the core geometry in FEA before printing anything.",
         {
           "list": [
             "Material: Dragon Skin 20 silicone, modeled in ANSYS Workbench as a second-order Ogden hyperelastic material (incompressible, 1070 kg/m³). The manufacturer publishes no hyperelastic model, so I took the Ogden constants from values published for this silicone.",
@@ -76,7 +76,7 @@
             "Design iteration: three chamber layouts (mk2 → mk3 → mk4) simulated with the same material model and loads, compared on how the finger bends."
           ]
         },
-        "Two limits shaped how far the simulation could be trusted. The student license caps the number of nodes, so the mesh of a large-strain, nearly incompressible part stayed coarser than I wanted; and the material constants were not fitted to our own batch. I therefore used the FEA to rank chamber layouts against each other, not to predict the exact curvature.",
+        "Two limits shaped how far the simulation could be trusted. The student license caps the number of nodes, so the mesh of a large-strain, nearly incompressible part stayed coarser than I wanted; and the material constants were not fitted to our own batch. I therefore used the FEA to choose between core geometries, not to predict the exact curvature.",
         {
           "type": "gallery",
           "items": [
@@ -109,7 +109,7 @@
       "id": "mold",
       "title": "From model to cast part",
       "body": [
-        "Silicone parts are only as good as their mold. I designed a two-part PLA mold with a removable core that forms the air channel. The halves are screwed together so they can be opened without tearing the part and reused for every tentacle; compressed air breaks the seal between silicone and core during demolding.",
+        "Silicone parts are only as good as their mold. I designed a reusable PLA mold with a removable core that forms the air channel. The mold parts are screwed together so they can be opened without tearing the tentacle and reused for every cast; compressed air breaks the seal between silicone and core during demolding.",
         "The weak point was the core. On an FDM-printed mold it did not sit perfectly centered, so the wall thickness — the parameter the whole FEA was about — varied along the cast tentacle. Tighter-tolerance molds and pressure casting would give more repeatable parts.",
         {
           "type": "image",
@@ -125,7 +125,7 @@
       "id": "build",
       "title": "From sketch to working gripper",
       "body": [
-        "The whole path, from the first sketches to the grasp test. The tentacle, its mold and the casting were my part; the arm, electronics and control were built with the team.",
+        "The whole path, from the first sketches to the grasp test. The mechanical design — mold, core, tentacle and tentacle holder — and all the 3D printing were my part; the team contributed to the concept, helped with casting and handled the reports and presentations.",
         {
           "type": "steps",
           "title": "BUILD PROCESS",
@@ -207,7 +207,7 @@
       "id": "system",
       "title": "The full robot",
       "body": [
-        "The team integrated four tentacles on a gripper hub mounted on a 2-DOF arm. The gripper is fully modular: each silicone tentacle is mounted on its own, so a damaged one can be replaced or repaired without rebuilding the rest. A torque analysis showed the shoulder needed 2.40 N·m — more than the MG996R servos can deliver directly — so the arm uses belt reductions of 4 and 1.5. An Arduino switches the pump and valves through MOSFETs.",
+        "Four tentacles mount on a tentacle holder on a 2-DOF arm. The gripper is fully modular: each tentacle mounts quickly on its own, so a damaged one can be swapped without rebuilding the rest, and the holder adapts to different tentacle types and sizes. A torque analysis showed the shoulder needed 2.40 N·m — more than the MG996R servos can deliver directly — so the arm uses belt reductions of 4 and 1.5. An Arduino switches the pump and valves through MOSFETs.",
         {
           "type": "youtube",
           "id": "5TBewZ9wyTY",
