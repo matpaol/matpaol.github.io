@@ -22,7 +22,7 @@ style = re.search(r'<style>(.*?)</style>', base, re.S).group(1)
 css_version = hashlib.sha256((ROOT / 'styles.css').read_bytes()).hexdigest()[:12]
 js_version = hashlib.sha256((ROOT / 'script.js').read_bytes()).hexdigest()[:12]
 favicon = re.search(r'<link rel="icon"[^>]*>', base).group(0)
-ANALYTICS = '''<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"4b2e7c8361d5458f8de2fc44bc58b2a4"}'></script>'''
+ANALYTICS = '''<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"4b2e7c8361d5458f8de2fc44bc58b2a4"}'></script><script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z489tdghd6");</script>'''
 
 
 def head(title, description, prefix='', image=None, path=''):
