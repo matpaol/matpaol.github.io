@@ -23,7 +23,7 @@
  "work_lead": "Seven case studies across robot learning, robotic hardware, product design, manufacturing and data — each with the decisions I made and the numbers behind them.",
  "about": [
   "I'm a mechanical engineer finishing an M.Sc. in Mechatronics at UNIVPM, with a year of coursework at ULB and VUB in Brussels. I like problems where the hardware, the physics and the software have to be designed together.",
-  "Right now I'm working on robotic humanitarian demining at the Royal Military Academy: a reinforcement-learning policy, trained in MuJoCo, that decides which objects to remove — and how, and in what order — to extract a landmine safely from clutter. Next comes a UR5 arm and the transfer from simulation to the real robot."
+  "Right now I'm working on robotic humanitarian demining at the Royal Military Academy: a hierarchical reinforcement-learning policy that decides which objects to remove and how, to free a landmine safely from clutter, and the modular software that runs it on a UR5e arm — trained in simulation, then validated in ROS/Gazebo and on the real robot."
  ],
  "facts": [
   [
@@ -49,6 +49,8 @@
   "scikit-learn",
   "MuJoCo",
   "Gymnasium",
+  "ROS / Gazebo",
+  "mjlab",
   "Stable-Baselines3",
   "Drake",
   "OMPL",
@@ -65,7 +67,7 @@
    "years": "2026 – now",
    "role": "Research Intern",
    "org": "Royal Military Academy · Brussels",
-   "text": "Robot learning for humanitarian demining: simulating cluttered scenes in MuJoCo and training reinforcement-learning policies, with the goal of transferring them to a real Universal Robots arm."
+   "text": "Robot learning for humanitarian demining: modular software for a UR5e arm with a Robotiq gripper (simulation, ROS/Gazebo, real robot) and a hierarchical RL policy — PPO decider, skill manager and push skill, trained teacher–student in mjlab."
   },
   {
    "years": "Summers 2016 – 2020",

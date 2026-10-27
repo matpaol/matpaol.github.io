@@ -6,7 +6,7 @@
   "category": "Robot learning",
   "year": "2026–present",
   "title": "Robotic demining: what to remove, and in what order",
-  "summary": "A demining robot has to reach a PFM-1 landmine lying among leaves, branches and debris. I'm developing a reinforcement-learning policy that works out what stands in the way of a safe extraction, which objects to remove, how and in what order — first in MuJoCo, then on a real UR5.",
+  "summary": "A demining robot has to reach a PFM-1 landmine lying among leaves, branches and debris. I'm developing a hierarchical reinforcement-learning policy that decides what to remove and how, and the modular software that runs it on a UR5e arm with a Robotiq gripper — in simulation first, then on the real robot.",
   "role": "Research intern · Royal Military Academy",
   "cover": {
     "src": "assets/demining-scene-wide.webp",
@@ -21,15 +21,17 @@
   "tools": [
     "Python",
     "MuJoCo",
-    "Gymnasium",
-    "Stable-Baselines3 (PPO)",
-    "Reinforcement learning",
+    "mjlab",
+    "Reinforcement learning (PPO)",
+    "Teacher–student training",
+    "UR5e + Robotiq 2F-140",
+    "ROS / Gazebo",
     "Sim-to-real"
   ],
   "tldr": [
-    "Humanitarian demining: the robot must extract a PFM-1 landmine safely from clutter.",
-    "It has to understand the scene, find what prevents a safe extraction, and decide how many objects to remove, which ones, how and in what order.",
-    "Simulation-first reinforcement learning in MuJoCo, then sim-to-real on a UR5 arm."
+    "Humanitarian demining: the robot must free a PFM-1 landmine from clutter so it can be extracted safely.",
+    "A hierarchical policy looks at the scene and decides what to remove and how: a PPO-trained decider, a skill manager that picks a skill or a combination of skills, and learned skills such as push — all trained teacher–student.",
+    "I wrote the robot software as independent modules with explicit interfaces, so the simulator can be swapped for the real UR5e without rewriting the rest."
   ],
   "facts": [
     [
@@ -81,6 +83,47 @@
       ]
     },
     {
+      "id": "software",
+      "title": "How the software is built",
+      "body": [
+        "The robot software is a modular Python codebase: each module has one responsibility and talks to the others only through small typed contracts.",
+        {
+          "list": [
+            "SCENE generates the randomized clutter; SIMULATION owns the physics. It is the only module that imports MuJoCo — everything else sees interfaces, so the simulator can be replaced by the real robot.",
+            "OBSERVE turns sensors into an Observation; DECIDE reads it and returns an ObjectDecision; EXECUTE turns that into arm and gripper motion and reports an ExecutionOutcome; TASK computes reward, success and safety metrics.",
+            "An environment wrapper exposes the loop with the Gymnasium API for training; experiments and evaluation compare policies and baselines on the same benchmark scenes.",
+            "The development phase lives in configuration, not in the code: moving from ideal to realistic perception or execution means swapping an implementation, not adding if-branches."
+          ]
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "../../assets/demining-robot-sim.webp",
+              "width": 1280,
+              "height": 860,
+              "alt": "Simulated mobile base with a UR5e arm and Robotiq gripper next to a small pile of debris",
+              "caption": "The robot model in simulation, next to a randomized pile."
+            },
+            {
+              "src": "../../assets/demining-pile-1.webp",
+              "width": 1280,
+              "height": 860,
+              "alt": "Close-up of a simulated pile of planks and stones partly covering a small landmine",
+              "caption": "A generated scene: planks and stones resting on and around the mine."
+            },
+            {
+              "src": "../../assets/demining-pile-2.webp",
+              "width": 1280,
+              "height": 860,
+              "alt": "Another simulated pile with debris shielding the mine",
+              "caption": "Another seed, a different arrangement to solve."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "safety",
       "title": "Safety before every action",
       "body": [
@@ -99,7 +142,7 @@
       "id": "training",
       "title": "How the policy is trained",
       "body": [
-        "In simulation a teacher can see everything — exact poses, contacts, which object supports which. It is trained first, and only if it beats rule-based baselines on held-out scenes does it supervise the student. The student sees only sensor observations: it imitates the teacher, then keeps improving with reinforcement learning. The student is the policy meant for the real robot.",
+        "The policy is hierarchical. A decider, trained with PPO, chooses which object to remove next; a skill manager chooses how — which skill, or which combination of skills — and the skills, such as push, carry it out. In simulation a teacher can see everything — exact poses, contacts, which object supports which — and only if it beats rule-based baselines on held-out scenes does it supervise the student. The student sees only sensor observations: it imitates the teacher, then keeps improving with reinforcement learning. The student is the policy meant for the real robot.",
         {
           "type": "image",
           "src": "media/teacher-student.svg",
@@ -114,7 +157,7 @@
       "id": "real-robot",
       "title": "Toward the real robot",
       "body": [
-        "Next: a simulated UR5 with learned execution, then sim-to-real transfer on the physical arm."
+        "Training runs in mjlab (MuJoCo). The same modules are then validated with ROS in Gazebo, and finally deployed on the physical UR5e with a Robotiq 2F-140 gripper."
       ]
     },
     {
@@ -123,6 +166,10 @@
       "body": [
         {
           "log": [
+            [
+              "Oct 2026",
+              "Robot (UR5e + Robotiq 2F-140) in every simulated scene; hierarchical policy with skill manager and push skill."
+            ],
             [
               "Oct 2026",
               "First full benchmark of the learned policies."
